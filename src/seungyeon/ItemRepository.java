@@ -2,6 +2,7 @@ package seungyeon;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class ItemRepository {
     private Map<String, Map<String, Object>> item;
@@ -14,7 +15,7 @@ public class ItemRepository {
         addItem("nikeAirForce", "SHOES", 80000, "unisex");
         addItem("jean", "BOTTOM", 30000, "unisex");
         addItem("riderJacket", "TOP", 90000, "male");
-        addItem("poloCap", "cap", 60000, "unisex");
+        addItem("poloCap", "CAP", 60000, "unisex");
     }
 
     public void addItem(String itemName, String type, int price, String gender) {
@@ -24,6 +25,9 @@ public class ItemRepository {
         itemDetails.put("gender", gender);
         item.put(itemName, itemDetails);
     }
+
+
+
 
     public Map<String, Map<String, Object>> getItems() {
         return item;
@@ -37,8 +41,17 @@ public class ItemRepository {
         return item;
     }
 
-    public void setItem(Map<String, Map<String, Object>> item) {
-        this.item = item;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ItemRepository that = (ItemRepository) o;
+        return Objects.equals(item, that.item);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(item);
     }
 
     @Override
@@ -47,5 +60,17 @@ public class ItemRepository {
                 "item=" + item +
                 '}';
     }
-
 }
+/*
+        ========= 값에 접근하는 법 =========
+        public static void main(String[] args) {
+
+        CartRepository cartRepository = new CartRepository();
+
+        // 장바구니에 담긴 상품 출력
+        Map<String, Map<String, Object>> items = cartRepository.getItems();
+        for (String s : items.keySet()) {
+            System.out.println(items.get(s).get("price"));
+        }
+    }
+ */
