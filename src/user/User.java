@@ -1,3 +1,5 @@
+package user;
+
 import java.util.Objects;
 
 public class User {
@@ -62,7 +64,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "user.User{" +
                 "name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +

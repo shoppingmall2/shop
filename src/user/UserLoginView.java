@@ -1,3 +1,5 @@
+package user;
+
 import static util.SimpleInput.input;
 
 public class UserLoginView {
