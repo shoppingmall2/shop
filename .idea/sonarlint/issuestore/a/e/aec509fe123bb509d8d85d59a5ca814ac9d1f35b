@@ -1,0 +1,18 @@
+
+D
+java:S2189""Add an end condition to this loop.(˜ïˆžÿÿÿÿÿ8ë·ç¦ñ1
+r	java:S106"+Replace this use of System.out by a logger.(»øÈ”ùÿÿÿÿ8ŒóÖ¦ñ1J$a8f07846-e1a7-4832-b5d6-fae96ddd53b6
+r	java:S106"+Replace this use of System.out by a logger.(ÞÊÎœýÿÿÿÿ8ŒóÖ¦ñ1J$7c1dc0a2-72f4-48a1-8076-4fcb7ffd3287
+r	java:S106"+Replace this use of System.out by a logger.(Þ‚± þÿÿÿÿ8ŒóÖ¦ñ1J$12d06b8e-9525-4d12-93a5-b60e60d7bbde
+m	java:S106"+Replace this use of System.out by a logger.(â×âÎ8ŒóÖ¦ñ1J$70e27e16-4c73-47a9-a237-02a7bc5bd96d
+m	java:S106"+Replace this use of System.out by a logger.(ïî•‚8óÖ¦ñ1J$6a3e3661-4f83-41b9-b9fe-0b5145990e91
+r	java:S106"+Replace this use of System.out by a logger.(ÞÝØøÿÿÿÿ8óÖ¦ñ1J$0f7be139-dc89-4a4f-90b7-b9dc0f6576fe
+m	java:S106"+Replace this use of System.out by a logger.(—ŽäÒ8óÖ¦ñ1J$431e7665-55b6-4634-b88d-dead69972722
+~	java:S125"<This block of commented-out lines of code should be removed.(¤‡Ã™8óÖ¦ñ1J$495e0887-bf25-47d3-891f-b96e810a1357
+X	java:S125"<This block of commented-out lines of code should be removed.(¤‡Ã™8ï·ç¦ñ1
+~	java:S125 "<This block of commented-out lines of code should be removed.(í‰¾8óÖ¦ñ1J$525e60ea-e252-45ae-b823-f14356873f99
+ƒ	java:S125#"<This block of commented-out lines of code should be removed.(É••Äüÿÿÿÿ8óÖ¦ñ1J$fd9aba3f-339f-4a86-ac3c-c8594d836cb4
+~	java:S125&"<This block of commented-out lines of code should be removed.(´ô…8óÖ¦ñ1J$072be549-f3ec-4309-88be-b7a2a089acb9
+r	java:S106)"+Replace this use of System.out by a logger.(±á™µÿÿÿÿÿ8óÖ¦ñ1J$aebd78b9-ee6b-4446-983e-72ccbdf6ccca
+F
+java:S1128")Remove this unused import 'java.io.File'.(†Ð¥Å8ð·ç¦ñ1
