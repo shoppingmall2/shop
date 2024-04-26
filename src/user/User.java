@@ -1,13 +1,18 @@
+package user;
+
 import java.util.Objects;
 
 public class User {
-    private final String name; // 요리 이름
-    private final String password; // 채식주의 여부
-    private final String email; // 칼로리
-    private final int age; // 요리 카테고리
-    private final String address; // 요리 카테고리
-    private final String gender; // 요리 카테고리
-    private final String nickname; // 요리 카테고리
+    private final String name; // 이름
+    private String password; // 비번
+    private final String email; // 이멜
+    private final int age; // 나이
+    private final String address; // 주소
+    private final String gender;
+    private final String nickname; // 닉ㄴㅇ
+
+
+
 
     public User(String name, String password, String email, int age, String address, String gender, String nickname) {
         this.name = name;
@@ -17,6 +22,10 @@ public class User {
         this.address = address;
         this.gender = gender;
         this.nickname = nickname;
+    }
+
+    public String setPassword(String password) {
+        return this.password = password;
     }
 
     public String getName() {
@@ -62,7 +71,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "user.User{" +
                 "name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
@@ -72,4 +81,5 @@ public class User {
                 ", nickname='" + nickname + '\'' +
                 '}';
     }
+
 }
