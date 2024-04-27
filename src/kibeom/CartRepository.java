@@ -1,13 +1,17 @@
 package kibeom;
+import util.SimpleInput;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 public class CartRepository {
     // 장바구니 물품 관리
-
-    private Map<String, Map<String, Object>> item;
-
+    static Map<String, Map<String, Object>> item;
 
     public CartRepository() {
         item = new HashMap<>();
@@ -19,35 +23,27 @@ public class CartRepository {
         addItem("riderJacket", "TOP", 90000, "male");
         addItem("poloCap", "CAP", 60000, "unisex");
     }
+    //
 
     public void addItem(String itemName, String type, int price, String gender) {
         Map<String, Object> itemDetails = new HashMap<>();
         itemDetails.put("type", type);
         itemDetails.put("price", price);
         itemDetails.put("gender", gender);
+
         item.put(itemName, itemDetails);
     }
 
-    public void deleteItem(String itemName) {
-        if (item.containsKey(itemName)) {
-            item.remove(itemName);
-            System.out.println(itemName + " 항목이 삭제되었습니다.");
-        } else {
-            System.out.println(itemName + " 항목이 존재하지 않습니다.");
+
+    public static void showCartRepository() {
+        int num = 1;
+        for (String s : item.keySet()) {
+            System.out.println(num++ + ". " +  s);
+            System.out.println(item.get(s));
         }
     }
 
-
-
-    public Map<String, Map<String, Object>> getItems() {
-        return item;
-    }
-
-    public CartRepository(Map<String, Map<String, Object>> item) {
-        this.item = item;
-    }
-
-    public Map<String, Map<String, Object>> getItem() {
+    public static Map<String, Map<String, Object>> getItems() {
         return item;
     }
 
@@ -71,6 +67,7 @@ public class CartRepository {
                 '}';
     }
 }
+
 /*
         ========= 값에 접근하는 법 =========
         public static void main(String[] args) {
