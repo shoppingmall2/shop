@@ -1,5 +1,6 @@
 package sanghun;
 
+import user.UserLoginView;
 import user.UserRepository;
 
 import static util.SimpleInput.input;
@@ -11,7 +12,7 @@ public class myInfoView {
 
     public void infoView() {
         while (true) {
-            userRepository.printLoggedInUserInfo();
+            UserLoginView.printLoggedInUserInfo();
         }
     } // start end
 }

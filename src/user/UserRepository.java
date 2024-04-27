@@ -1,13 +1,14 @@
 package user;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
-
+import java.util.Random;
 
 
 public class UserRepository {
     public static final List<User> userList = new ArrayList<>();
-    private static User loggedInUser; // 현재 로그인한 사용자 정보를 저장하는 변수
+    public static User loggedInUser; // 현재 로그인한 사용자 정보를 저장하는 변수
     private static int loginTrueGood;
     private static int mypagepass;
 
@@ -19,6 +20,7 @@ public class UserRepository {
 
     }
 
+
     public static void addUser(User user) {
         userList.add(user);
     }
@@ -27,27 +29,27 @@ public class UserRepository {
         return loggedInUser.getPassword();
     }
 
-    public static void printLoggedInUserInfo() {
-        if (loggedInUser != null) {
-            System.out.println("***************로그인한 회원 정보**************");
-            System.out.println("이름 : " + loggedInUser.getName());
-            System.out.println("나이 : " + loggedInUser.getAge());
-            System.out.println("주소 : "+ loggedInUser.getAddress());
-            System.out.println("별명 : " + loggedInUser.getNickname());
-            System.out.println("성별 : " + loggedInUser.getGender());
-            System.out.println("이메일 : " + loggedInUser.getEmail());
-            System.out.println("비번 : " + loggedInUser.getPassword());
-        } else {
-            System.out.println("로그인한 회원이 없습니다.");
-        }
+    public static String getNickName() {
+        return loggedInUser.getNickname();
     }
+    public static String getEmail() {
+        return loggedInUser.getEmail();
+    }
+
 
     public static void ChangePass(String newPass) {
 
-       loggedInUser.setPassword(newPass);
-        System.out.println(loggedInUser.getPassword());
+        loggedInUser.setPassword(newPass);
     }
 
+    public static void changeNickname(String newNick) {
+
+        loggedInUser.setNickname(newNick);
+    }
+
+    public static void changeEmail(String email) {
+        loggedInUser.setEmail(email);
+    }
 
     // 사용자 로그인 메서드
     public static void login(String username, String password) {
@@ -60,6 +62,13 @@ public class UserRepository {
             }
         }
         System.out.println("아이디 또는 비밀번호가 잘못되었습니다.");
+    }
+
+    public static boolean loginCheck(String checkPassword) {
+        if (loggedInUser.getPassword().equals(checkPassword)) {
+            return true;
+        }
+        return false;
     }
 
     // 사용자 로그아웃 메서드
@@ -81,4 +90,30 @@ public class UserRepository {
         }
         return false;
     }
+
+    // 자동 입력 방지 문자 생성
+    public static String generateCaptcha(int length) {
+        // 사용할 문자 범위 설정
+        String charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        StringBuilder captcha = new StringBuilder();
+        Random rnd = new Random();
+        // 문자열 생성
+        for (int i = 0; i < length; i++) {
+            captcha.append(charSet.charAt(rnd.nextInt(charSet.length())));
+        }
+
+        return captcha.toString();
+    }
+
+    public static String generateThisTime() {
+        Calendar currentTime = Calendar.getInstance();
+        int year = currentTime.get(Calendar.YEAR);
+        int month = currentTime.get(Calendar.MONTH) + 1; // 월은 0부터 시작하므로 +1
+        int day = currentTime.get(Calendar.DAY_OF_MONTH);
+        int hour = currentTime.get(Calendar.HOUR_OF_DAY);
+        int minute = currentTime.get(Calendar.MINUTE);
+        int second = currentTime.get(Calendar.SECOND);
+        return "현재 시간: " + year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+    }
 }
+

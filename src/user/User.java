@@ -5,11 +5,11 @@ import java.util.Objects;
 public class User {
     private final String name; // 이름
     private String password; // 비번
-    private final String email; // 이멜
+    private String email; // 이멜
     private final int age; // 나이
     private final String address; // 주소
     private final String gender;
-    private final String nickname; // 닉ㄴㅇ
+    private String nickname; // 닉ㄴㅇ
 
 
 
@@ -26,6 +26,12 @@ public class User {
 
     public String setPassword(String password) {
         return this.password = password;
+    }
+    public String setNickname(String nickname) {
+        return this.nickname = nickname;
+    }
+    public String setEmail(String email) {
+        return this.email = email;
     }
 
     public String getName() {
