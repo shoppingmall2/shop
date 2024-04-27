@@ -24,6 +24,7 @@ public class CartRepository {
         addItem("poloCap", "CAP", 60000, "unisex");
     }
 
+
     public void addItem(String itemName, String type, int price, String gender) {
         Map<String, Object> itemDetails = new HashMap<>();
         itemDetails.put("type", type);
@@ -45,6 +46,8 @@ public class CartRepository {
     public static Map<String, Map<String, Object>> getItems() {
         return item;
     }
+
+
 
     @Override
     public boolean equals(Object o) {

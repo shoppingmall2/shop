@@ -15,6 +15,14 @@ import static kibeom.CartRepository.item;
 public class CartView {
 
     private static CartRepository cartRepo;
+    public static final String RED = "\033[0;31m"; // 콘솔에 색깔 주기
+    public static final String RESET = "\033[0m";
+    public static final String GREEN = "\033[0;32m";
+    public static final String YELLOW = "\033[0;33m";
+    public static final String BLUE = "\033[0;34m";
+    public static final String PURPLE = "\033[0;35m";
+    public static final String CYAN = "\033[0;36m";
+    public static final String WHITE = "\033[0;37m";
 
     public CartView() {
         this.cartRepo = new CartRepository();
@@ -27,9 +35,10 @@ public class CartView {
         while (true) {
             System.out.println("============ 장바구니 목록 =============");
             CartRepository.showCartRepository();
-        System.out.println("1. 결제하기");
-        System.out.println("2. 장바구니 물품 빼기");
-        String num = SimpleInput.input("\n>> ");
+            System.out.println("1. 결제하기");
+            System.out.println("2. 장바구니 물품 빼기");
+            System.out.println("3. 뒤로 가기");
+            String num = SimpleInput.input(">> ");
 
 
             switch (num) {
@@ -39,14 +48,16 @@ public class CartView {
                 case "2":
                     deleteItem();
                     break;
+                case "3":
+                    back = false;
                 default:
-                    System.out.println("1 ~ 2!");
+                    System.out.println("1 ~ 3!");
             }
         }
 
     }
     private static void order() {
-        String itemName = SimpleInput.input("주문 하고 싶은 제품명을 입력해주세요.\n# 2개 이상 입력 시 쉼표 ', '로 구분해주세요.\n>> ").trim();
+        String itemName = SimpleInput.input("주문 하고 싶은 제품명을 입력해주세요." + BLUE + "\n# 2개 이상 입력 시 쉼표 ', '로 구분해주세요.\n>> " + RESET).trim();
         String[] orderList = null;
 
         // 아이템 맵을 가져옴
@@ -67,7 +78,7 @@ public class CartView {
                     }
                 }
                 if (!found) {
-                    System.out.println(orderList[i] + " 상품은 장바구니에 없습니다.");
+                    System.out.println( RED + orderList[i] + " 상품은 장바구니에 없습니다." + RESET);
                 }
             }
 
