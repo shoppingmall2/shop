@@ -16,6 +16,8 @@ public class UserRepository {
                 23, "서울특별시 대림동", "남", "상후잉"));
         userList.add(new User("진상훈", "kk002281", "t1231231nsdldkdlel@naver.com",
                 19, "서울특별시 대동", "남", "김"));
+        userList.add(new User("한기범","gksrlqja1!","hgb926@naver.com",
+                27, "서울특별시 관악구", "남", "기범"));
 
     }
 
@@ -25,6 +27,13 @@ public class UserRepository {
 
     public static String getPass() {
         return loggedInUser.getPassword();
+    }
+
+//    public static int getMoney() {
+//        return loggedInUser.getMoney();
+//    }
+    public static User getUser() {
+        return loggedInUser;
     }
 
     public static void printLoggedInUserInfo() {
@@ -37,6 +46,7 @@ public class UserRepository {
             System.out.println("성별 : " + loggedInUser.getGender());
             System.out.println("이메일 : " + loggedInUser.getEmail());
             System.out.println("비번 : " + loggedInUser.getPassword());
+            System.out.println("잔액 : " + loggedInUser.getMoney());
         } else {
             System.out.println("로그인한 회원이 없습니다.");
         }
@@ -81,4 +91,6 @@ public class UserRepository {
         }
         return false;
     }
+
+
 }

@@ -1,13 +1,16 @@
 package user;
 
+import kibeom.CartRepository;
+import kibeom.CartView;
+
 import static user.UserRepository.printLoggedInUserInfo;
 import static util.SimpleInput.input;
 
 public class UserLoginView {
     static UserRepository ur;
+    CartRepository cartRepository = new CartRepository();
 
     public void start() {
-
         // repository.load();
 
         while (true) {
@@ -82,6 +85,8 @@ public class UserLoginView {
                 case "3":
                     passwordChange();
                     break;
+                case "5":
+                    CartView.showCartRepository();
                 case "6":
                     byebye();
                     b = false;

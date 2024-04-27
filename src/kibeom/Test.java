@@ -1,9 +1,12 @@
 package kibeom;
 
 import java.util.Map;
+import java.util.Random;
 
 public class Test {
     public static void main(String[] args) {
+
+
 
         CartRepository cartRepository = new CartRepository();
         CartView.showCartRepository();

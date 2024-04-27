@@ -23,7 +23,6 @@ public class CartRepository {
         addItem("riderJacket", "TOP", 90000, "male");
         addItem("poloCap", "CAP", 60000, "unisex");
     }
-    //
 
     public void addItem(String itemName, String type, int price, String gender) {
         Map<String, Object> itemDetails = new HashMap<>();
@@ -62,9 +61,9 @@ public class CartRepository {
 
     @Override
     public String toString() {
-        return "CartRepository{" +
-                "item=" + item +
-                '}';
+        return "CartRepository" +
+                "item=" + item
+                ;
     }
 }
 
