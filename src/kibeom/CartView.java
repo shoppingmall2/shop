@@ -73,23 +73,48 @@ public class CartView {
 
             System.out.println("현재 소지 금액: " + UserRepository.getUser().getMoney());
             System.out.println("총 주문 가격: " + sum);
+
+            String answer = SimpleInput.input("주문하시겠습니까? Y / N\n>> ").toUpperCase();
+            switch (answer) {
+                case "Y":
+                    if (UserRepository.getUser().getMoney() >= sum) {
+                        int currentMoney = UserRepository.getUser().getMoney() - sum;
+                        UserRepository.getUser().setMoney(currentMoney);
+                        System.out.println("감사합니다. 주문이 완료 되었습니다.\n현재 소지 금액: " + currentMoney);
+                        System.out.println("배송지 정보 : "  + UserRepository.getUser().getAddress());
+                        System.out.println("공휴일 제외, 영업일 기준 1 ~ 3 일 이내 배송됩니다.");
+                    } else {
+                        System.out.println("잔액이 부족합니다.");
+                    }
+                    break;
+                case "N":
+                    break;
+                default:
+                    System.out.println("제대로 입력하세요.");
+            }
         } else {
             System.out.println("현재 소지 금액: " + UserRepository.getUser().getMoney());
-            System.out.println("총 주문 가격: " + item.get(itemName).get("price"));
-        }
-        String answer = SimpleInput.input("주문하시겠습니까? Y / N\n>> ").toUpperCase();
-        switch (answer) {
-            case "Y":
-//                UserRepository.getUser().setMoney();
-                System.out.println("감사합니다. 주문이 완료 되었습니다.\n현재 소지 금액: ");
-                break;
-            case "N":
-                break;
-            default:
-                System.out.println("제대로 입력하세요.");
+            int price = (int) item.get(itemName).get("price");
+            System.out.println("총 주문 가격: " + price);
+
+            String answer = SimpleInput.input("주문하시겠습니까? Y / N\n>> ").toUpperCase();
+            switch (answer) {
+                case "Y":
+                    if (UserRepository.getUser().getMoney() >= price) {
+                        int currentMoney = UserRepository.getUser().getMoney() - price;
+                        UserRepository.getUser().setMoney(currentMoney);
+                        System.out.println("감사합니다. 주문이 완료 되었습니다.\n현재 소지 금액: " + currentMoney);
+                    } else {
+                        System.out.println("잔액이 부족합니다.");
+                    }
+                    break;
+                case "N":
+                    break;
+                default:
+                    System.out.println("제대로 입력하세요.");
+            }
         }
     }
-
 
 
 
