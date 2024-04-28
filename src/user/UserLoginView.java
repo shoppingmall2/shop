@@ -6,6 +6,13 @@ import static util.SimpleInput.input;
 
 public class UserLoginView {
     static UserRepository ur;
+    public static final String RESET = "\033[0m";
+    public static final String GREEN = "\033[0;32m";
+    public static final String YELLOW = "\033[0;33m";
+    public static final String BLUE = "\033[0;34m";
+    public static final String PURPLE = "\033[0;35m";
+    public static final String CYAN = "\033[0;36m";
+    public static final String WHITE = "\033[0;37m";
 
     public void start() {
 
@@ -39,50 +46,50 @@ public class UserLoginView {
     private static void signUpUser() {
         String password = null;
         System.out.println("***************회원가입 필수 입력 항목************");
-        String name = input("이름 : ");
+        String name = input(GREEN+ "이름 : "+ RESET);
         System.out.println("가입 가능한 회원입니다.");
         while (true) {
-            System.out.println("비밀번호는 8글자 이상이여야 합니다.");
-            String passwordChek = input("비밀번호 : ");
+            System.out.println(GREEN+ "비밀번호는 8글자 이상이여야 합니다." + RESET);
+            String passwordChek = input(GREEN+ "비밀번호 : "+ RESET);
             if (passwordChek.length() >= 8 ) {
                 password = passwordChek;
-                System.out.println("사용 가능한 패스워드입니다.");
+                System.out.println(GREEN+ "사용 가능한 패스워드입니다."+RESET);
                 break;
             } else {
-                System.out.println("가입 시 비밀번호 조건을 확인해주세요.");
+                System.out.println(YELLOW+ "가입 시 비밀번호 조건을 확인해주세요."+RESET);
             }
         }
-        String email = input("이메일 : ");
-        String nickname = input("별명 : ");
-        int age = Integer.parseInt(input("나이 : "));
-        String gender = input("성별 : ");
-        String address = input("주소 : ");
+        String email = input(GREEN+ "이메일 : "+RESET);
+        String nickname = input(GREEN+ "별명 : "+RESET);
+        int age = Integer.parseInt(input(GREEN+ "나이 : ")+RESET);
+        String gender = input(GREEN+ "성별 : "+RESET);
+        String address = input(GREEN+ "주소 : "+RESET);
         String captcha = generateCaptcha(6);
-        String agree = input("개인정보 수집 및 회원가입에 동의하시겠습니까? [Y, N]\n >> ").toUpperCase();
+        String agree = input(GREEN+ "개인정보 수집 및 회원가입에 동의하시겠습니까? [Y, N]\n >> "+RESET).toUpperCase();
         if (agree.equals("Y")){
-            System.out.println(generateThisTime()+"에 개인정보에 동의하셨습니다.");
-            System.out.println("자동 입력 방지 문자: " + captcha);
+            System.out.println(GREEN+ generateThisTime() + "에 개인정보에 동의하셨습니다."+RESET);
+            System.out.println(GREEN+ "자동 입력 방지 문자: " + captcha+RESET);
             while (true) {
-                String captchaTrue = input("자동 입력 방지 문자를 보이는대로 입력해주세요. \n >>");
+                String captchaTrue = input(GREEN+ "자동 입력 방지 문자를 보이는대로 입력해주세요. \n >>"+RESET);
                 if (captchaTrue.equals(captcha))  {
                 User newUser = new User(name, password, email, age, address, gender, nickname);
                 UserRepository.addUser(newUser);
-                    System.out.println("#. 회원가입이 완료되었습니다.");
+                    System.out.println(GREEN+ "#. 회원가입이 완료되었습니다."+RESET);
                     break;
                 } else {
-                    System.out.println("! 자동 입력 방지 문자를 확인해주세요");
-                    System.out.println("[# 1. 자동 입력 방지 문자 새로고침]");
+                    System.out.println(YELLOW+ "! 자동 입력 방지 문자를 확인해주세요"+RESET);
+                    System.out.println(GREEN+ "# 1. 자동 입력 방지 문자 새로고침하기"+RESET);
                     int menuNum = Integer.parseInt(input(">> "));
 
                     switch (menuNum) {
                         case 1 :
                             captcha = generateCaptcha(6);
-                            System.out.println("자동 입력 방지 문자: " + captcha);
+                            System.out.println(GREEN+ "자동 입력 방지 문자: " + captcha+RESET);
                     }
                 }
             }
         } else {
-            System.out.println("그럼 가입하지마");
+            System.out.println(YELLOW+ "그럼 가입하지마"+RESET);
         }
     }
 
