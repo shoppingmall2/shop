@@ -40,11 +40,13 @@ public class UserLoginView {
         String password = null;
         System.out.println("***************회원가입 필수 입력 항목************");
         String name = input("이름 : ");
+        System.out.println("가입 가능한 회원입니다.");
         while (true) {
             System.out.println("비밀번호는 8글자 이상이여야 합니다.");
             String passwordChek = input("비밀번호 : ");
             if (passwordChek.length() >= 8 ) {
                 password = passwordChek;
+                System.out.println("사용 가능한 패스워드입니다.");
                 break;
             } else {
                 System.out.println("가입 시 비밀번호 조건을 확인해주세요.");
