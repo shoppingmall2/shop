@@ -1,19 +1,18 @@
 
 ›
-java:S1104"XMake loggedInUser a static final constant or non-public and provide accessors if needed.(İóÔ‘8úàµõñ1J$40388995-59bb-4534-a017-b6996bee7125
+java:S1104"XMake loggedInUser a static final constant or non-public and provide accessors if needed.(İóÔ‘8øÍÄ¥ò1J$4a24b1b6-3b03-4e76-b2cc-8a52f5382cff
 u
-java:S1444"2Make this "public static loggedInUser" field final(İóÔ‘8üàµõñ1J$1bec9063-7e5d-49bb-865e-a7decc54e4e1
+java:S1444"2Make this "public static loggedInUser" field final(İóÔ‘8ùÍÄ¥ò1J$f7d80ce0-b3bb-420a-9b00-4fcd80e917a0
 e
-java:S2386
-"Make this member "protected".(ªÂšşüÿÿÿÿ8áµõñ1J$09b773db-fbca-4cbf-9c83-e01d7435f7f4
-	java:S100("NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âˆı8’áµõñ1J$5b932b8e-ed95-43f5-b570-f3826e8c4927
-r	java:S106;"+Replace this use of System.out by a logger.(Ê½ç®ıÿÿÿÿ8—áµõñ1J$a3c492b3-7052-438f-9cb7-6985b46d0640
+java:S2386"Make this member "protected".(ªÂšşüÿÿÿÿ8„ÎÄ¥ò1J$d5348673-3c91-4edd-b2a0-48005d0b51ef
+	java:S100%"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âˆı8ˆÎÄ¥ò1J$a382c088-e885-4147-bc76-7b0f2219fa73
+r	java:S1068"+Replace this use of System.out by a logger.(Ê½ç®ıÿÿÿÿ8ŠÎÄ¥ò1J$d649be2b-c4d3-48e4-b876-9d57781c804e
 ‰
-java:S1126D"AReplace this if-then-else statement by a single return statement.(Ü–ä²øÿÿÿÿ8™áµõñ1J$ada88f35-3d9b-4d9e-a639-fa50839d6457
-m	java:S106M"+Replace this use of System.out by a logger.(×ÂÉ‹8µÉ¯¥ò1J$10ba3734-e20c-461a-a5af-10acee8612f8
+java:S1126A"AReplace this if-then-else statement by a single return statement.(Ü–ä²øÿÿÿÿ8ŠÎÄ¥ò1J$a3e83965-c1a7-4032-9017-f0e9ba6ef7a3
+m	java:S106J"+Replace this use of System.out by a logger.(×ÂÉ‹8‹ÎÄ¥ò1J$ef70b5c7-396b-4253-a0c8-00673d71600e
 „
-java:S1126Q"AReplace this if-then-else statement by a single return statement.(¼Ñ¯ã8šáµõñ1J$e0c622bd-33c2-4d1b-b65a-39317342acf2
+java:S1126N"AReplace this if-then-else statement by a single return statement.(¼Ñ¯ã8‹ÎÄ¥ò1J$c345433b-ec11-481e-8378-171b8c049811
 ‰
-java:S1126X"AReplace this if-then-else statement by a single return statement.(û“È´ùÿÿÿÿ8–Š¶õñ1J$89a25ffb-fbd7-4514-8ad2-d1068a63de2b
+java:S1126U"AReplace this if-then-else statement by a single return statement.(û“È´ùÿÿÿÿ8‹ÎÄ¥ò1J$4dcf0f56-e9fc-4499-952f-bc902fe51d56
 a
-java:S2119c"Save and re-use this "Random".(–áÍÈ8áµõñ1J$b89b1c3a-6cff-49f9-ae00-816432567b4c
+java:S2119`"Save and re-use this "Random".(–áÍÈ8ÎÄ¥ò1J$c2c2cf04-9b71-4dbb-92c8-63e7a1031e4c

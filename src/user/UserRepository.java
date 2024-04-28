@@ -1,9 +1,6 @@
 package user;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 
 public class UserRepository {
@@ -114,6 +111,16 @@ public class UserRepository {
         int minute = currentTime.get(Calendar.MINUTE);
         int second = currentTime.get(Calendar.SECOND);
         return "현재 시간: " + year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+    }
+
+    public static String blindPassword() {
+        String password = loggedInUser.getPassword();
+        if (password.length() <= 1) {
+            return password; // 패스워드 길이가 2 이하인 경우에는 그대로 반환
+        }
+        char[] hiddenChars = new char[password.length() - 1]; // '*'로 대체할 문자열 배열 생성
+        Arrays.fill(hiddenChars, '*'); // '*'로 채워진 배열 생성
+        return password.substring(0, 1) + new String(hiddenChars); // 처음 한 글자와 '*'로 대체된 문자열 합침
     }
 }
 

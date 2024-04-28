@@ -208,7 +208,7 @@ public class UserLoginView {
             System.out.println("별명 : " + UserRepository.loggedInUser.getNickname());
             System.out.println("성별 : " +UserRepository.loggedInUser.getGender());
             System.out.println("이메일 : " + UserRepository.loggedInUser.getEmail());
-            System.out.println("비번 : " + UserRepository.loggedInUser.getPassword());
+            System.out.println("비번 : " + UserRepository.blindPassword());
         } else {
             System.out.println("로그인한 회원이 없습니다.");
         }
