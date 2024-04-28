@@ -78,7 +78,13 @@ public class UserLoginView {
         System.out.println("***************로그인 필수 입력 항목************");
         String name = input("이름 : ");
         String password = input("비밀번호 : ");
-        UserRepository.login(name, password);
+        boolean login = UserRepository.login(name, password);
+        if (login) {
+            System.out.printf("%s님 환영합니다.",name);
+        } else {
+            System.out.println("회원정보를 확인해주세요.");
+        }
+
         mainPage();
     }
 

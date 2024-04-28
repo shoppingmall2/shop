@@ -60,26 +60,6 @@ w
 G.idea/sonarlint/issuestore/2/0/20b27eee0726f4e9e3d12821866012e8cbc931a8,a/5/a5e21d348ac0af60a6ad76b3c67e3a810cdc2f3a
 w
 G.idea/sonarlint/issuestore/2/b/2bc10fbc6ebcc8563f96cd33ba2850f6678dab4e,8/5/85b5044905200a1e0d534f64d1fb60a8a77b2277
-C
-src/MemberList.java,d/7/d738a5fa1ed701028095bdc55c4f59be138693e8
-K
-src/ShoppingRepository.java,0/3/035b8b3dfe06ce3eb0beaabdea603616ac4e8ad7
-C
-src/MyPageInfo.java,a/e/aec509fe123bb509d8d85d59a5ca814ac9d1f35b
-E
-src/ShoppingView.java,9/4/94d1f1c59569b7e8ca9c19cf7b7ba0da8b3231f5
-C
-src/MyInfoMain.java,a/c/ac822f1c488eb960ee600189908db72d5dd7eace
-C
-src/SignUpUser.java,8/5/8524ab1ca1022eb6b281b089012711c6d6337ea2
-=
-src/User.java,9/c/9c27d43556258bdbb1b76555b172bfaf06253d8f
-G
-src/userRepository.java,2/8/2828edb626a9c77e3d3f1d148565ca9a5440fbc5
-G
-src/UserRepository.java,2/6/26384d3b28cd8eed4e0eda97c35b50cddcd6fccf
-F
-src/UserLoginView.java,4/f/4f632ce4fd86243275355a7130e36166a5512c52
 Å
 Q.idea/sonarlint/securityhotspotstore/2/6/26384d3b28cd8eed4e0eda97c35b50cddcd6fccf,7/2/723f5401e70912e674a848c7dffae8f1c4fb7f1f
 Å
@@ -110,8 +90,6 @@ B
 src/user/User.java,a/c/acab9b4a4a5b7d4adde7cee922ab534a863aaba4
 L
 src/user/UserRepository.java,0/b/0b362daf7f8e44a056fb57cab2fd53bceb3bcbee
-D
-src/user/Gender.java,c/8/c8c323ffad9620b72fc8b3bdfa3b5b9f0fb28fe0
 w
 G.idea/sonarlint/issuestore/c/8/c8c323ffad9620b72fc8b3bdfa3b5b9f0fb28fe0,8/2/828e1e846d4c29315e3d377e20b83c1621e8ea3b
 Å

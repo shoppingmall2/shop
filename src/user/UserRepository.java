@@ -52,16 +52,16 @@ public class UserRepository {
     }
 
     // 사용자 로그인 메서드
-    public static void login(String username, String password) {
+    public static boolean login(String username, String password) {
         for (User user : userList) {
             if (user.getName().equals(username) && user.getPassword().equals(password)) {
                 loggedInUser = user; // 로그인한 사용자 정보 저장
                 System.out.println("로그인 성공!");
                 loginTrueGood = 1;
-                return;
+                return true;
             }
         }
-        System.out.println("아이디 또는 비밀번호가 잘못되었습니다.");
+        return false;
     }
 
     public static boolean loginCheck(String checkPassword) {
