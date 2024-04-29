@@ -1,92 +1,88 @@
 
 ‹
-java:S1192"iDefine a constant instead of duplicating this literal "========================================" 3 times.(©üÃõüÿÿÿÿ8åõ†Éò1
+java:S1192"iDefine a constant instead of duplicating this literal "========================================" 3 times.(©üÃõüÿÿÿÿ8‚•¡Éò1
 l
-java:S11924"JDefine a constant instead of duplicating this literal "ì´ë¦„ : " 3 times.(¦Åó¨ùÿÿÿÿ8åõ†Éò1
+java:S11923"JDefine a constant instead of duplicating this literal "ì´ë¦„ : " 3 times.(¦Åó¨ùÿÿÿÿ8‚•¡Éò1
 ˆ
-java:S1192,"fDefine a constant instead of duplicating this literal "
-ë©”ë‰´ë¥¼ ì˜ëª» ì„ íƒí–ˆìŠµë‹ˆë‹¤." 3 times.(±á™µÿÿÿÿÿ8åõ†Éò1
+java:S1192+"fDefine a constant instead of duplicating this literal "
+ë©”ë‰´ë¥¼ ì˜ëª» ì„ íƒí–ˆìŠµë‹ˆë‹¤." 3 times.(±á™µÿÿÿÿÿ8‚•¡Éò1
 h
-java:S1301W"KReplace this "switch" statement by "if" statements to increase readability.(Î‘–8çõ†Éò1
-X	java:S125"<This block of commented-out lines of code should be removed.(¹Ø—8à÷†Éò1
-F	java:S106"+Replace this use of System.out by a logger.(ÂÒú:8á÷†Éò1
-L	java:S106"+Replace this use of System.out by a logger.(ø ëïüÿÿÿÿ8á÷†Éò1
-L	java:S106"+Replace this use of System.out by a logger.(áİ¯Øøÿÿÿÿ8á÷†Éò1
-F	java:S106"+Replace this use of System.out by a logger.(ÑÜìi8á÷†Éò1
-L	java:S106"+Replace this use of System.out by a logger.(©üÃõüÿÿÿÿ8â÷†Éò1
-h	java:S128("LEnd this switch case with an unconditional break, return or throw statement.(¡È›8â÷†Éò1
-L	java:S106,"+Replace this use of System.out by a logger.(±á™µÿÿÿÿÿ8ã÷†Éò1
+java:S1301V"KReplace this "switch" statement by "if" statements to increase readability.(Î‘–8„•¡Éò1
+X	java:S125"<This block of commented-out lines of code should be removed.(¹Ø—8™–¡Éò1
+F	java:S106"+Replace this use of System.out by a logger.(ÂÒú:8›–¡Éò1
+L	java:S106"+Replace this use of System.out by a logger.(ø ëïüÿÿÿÿ8œ–¡Éò1
+L	java:S106"+Replace this use of System.out by a logger.(áİ¯Øøÿÿÿÿ8–¡Éò1
+F	java:S106"+Replace this use of System.out by a logger.(ÑÜìi8Ÿ–¡Éò1
+L	java:S106"+Replace this use of System.out by a logger.(©üÃõüÿÿÿÿ8 –¡Éò1
+h	java:S128'"LEnd this switch case with an unconditional break, return or throw statement.(¡È›8¥–¡Éò1
+L	java:S106+"+Replace this use of System.out by a logger.(±á™µÿÿÿÿÿ8¦–¡Éò1
 n
-java:S37761"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(£™éc8ä÷†Éò1
-L	java:S1063"+Replace this use of System.out by a logger.(’Åäüûÿÿÿÿ8å÷†Éò1
-G	java:S1065"+Replace this use of System.out by a logger.(à¼Şó8å÷†Éò1
-L	java:S1067"+Replace this use of System.out by a logger.(¼ıƒ¿ûÿÿÿÿ8æ÷†Éò1
-G	java:S106;"+Replace this use of System.out by a logger.(äü®×8æ÷†Éò1
-L	java:S106>"+Replace this use of System.out by a logger.(ïÒÍ´ıÿÿÿÿ8æ÷†Éò1
-L	java:S106I"+Replace this use of System.out by a logger.(›òãüÿÿÿÿ8è÷†Éò1
-L	java:S106J"+Replace this use of System.out by a logger.(²±ü¡üÿÿÿÿ8è÷†Éò1
-L	java:S106P"+Replace this use of System.out by a logger.(ç¬œßúÿÿÿÿ8ê÷†Éò1
-L	java:S106S"+Replace this use of System.out by a logger.(çÆÈ¦øÿÿÿÿ8ê÷†Éò1
-G	java:S106T"+Replace this use of System.out by a logger.(Ô¹ƒ’8ê÷†Éò1
->	java:S131W""Add a default case to this switch.(Î‘–8ì÷†Éò1
-L	java:S106Z"+Replace this use of System.out by a logger.(²±ü¡üÿÿÿÿ8ì÷†Éò1
-L	java:S106_"+Replace this use of System.out by a logger.(Íœ×ıÿÿÿÿ8í÷†Éò1
-L	java:S106d"+Replace this use of System.out by a logger.(ˆİãşÿÿÿÿ8í÷†Éò1
-L	java:S106i"+Replace this use of System.out by a logger.(Ê½ç®ıÿÿÿÿ8î÷†Éò1
-L	java:S106j"+Replace this use of System.out by a logger.(õŸùØüÿÿÿÿ8î÷†Éò1
-L	java:S106l"+Replace this use of System.out by a logger.(šôëêüÿÿÿÿ8ï÷†Éò1
+java:S37760"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(£™éc8²–¡Éò1
+L	java:S1062"+Replace this use of System.out by a logger.(’Åäüûÿÿÿÿ8´–¡Éò1
+G	java:S1064"+Replace this use of System.out by a logger.(à¼Şó8¶–¡Éò1
+L	java:S1066"+Replace this use of System.out by a logger.(¼ıƒ¿ûÿÿÿÿ8·–¡Éò1
+G	java:S106:"+Replace this use of System.out by a logger.(äü®×8¹–¡Éò1
+L	java:S106="+Replace this use of System.out by a logger.(ïÒÍ´ıÿÿÿÿ8º–¡Éò1
+L	java:S106H"+Replace this use of System.out by a logger.(›òãüÿÿÿÿ8¼–¡Éò1
+L	java:S106I"+Replace this use of System.out by a logger.(²±ü¡üÿÿÿÿ8¼–¡Éò1
+L	java:S106O"+Replace this use of System.out by a logger.(ç¬œßúÿÿÿÿ8½–¡Éò1
+L	java:S106R"+Replace this use of System.out by a logger.(çÆÈ¦øÿÿÿÿ8½–¡Éò1
+G	java:S106S"+Replace this use of System.out by a logger.(Ô¹ƒ’8¾–¡Éò1
+>	java:S131V""Add a default case to this switch.(Î‘–8Ë–¡Éò1
+L	java:S106Y"+Replace this use of System.out by a logger.(²±ü¡üÿÿÿÿ8Ì–¡Éò1
+L	java:S106^"+Replace this use of System.out by a logger.(Íœ×ıÿÿÿÿ8Ì–¡Éò1
+L	java:S106c"+Replace this use of System.out by a logger.(ˆİãşÿÿÿÿ8Ì–¡Éò1
+L	java:S106h"+Replace this use of System.out by a logger.(Ê½ç®ıÿÿÿÿ8Í–¡Éò1
+L	java:S106i"+Replace this use of System.out by a logger.(õŸùØüÿÿÿÿ8Ñ–¡Éò1
+L	java:S106k"+Replace this use of System.out by a logger.(šôëêüÿÿÿÿ8Ó–¡Éò1
 R
-java:S2209s"5Change this instance-reference to a static reference.(Êé˜×8ó÷†Éò1
-L	java:S106u"+Replace this use of System.out by a logger.(ôãû‰úÿÿÿÿ8ó÷†Éò1
-F	java:S106v"+Replace this use of System.out by a logger.(î¶.8ó÷†Éò1
-L	java:S106w"+Replace this use of System.out by a logger.(àúÈ‡øÿÿÿÿ8ó÷†Éò1
-L	java:S106x"+Replace this use of System.out by a logger.(Ô¿âôûÿÿÿÿ8ô÷†Éò1
-G	java:S106y"+Replace this use of System.out by a logger.(ÀİÎ‘8ô÷†Éò1
-G	java:S106z"+Replace this use of System.out by a logger.(ŒŸŸ³8ô÷†Éò1
-G	java:S106{"+Replace this use of System.out by a logger.( ó»İ8ô÷†Éò1
-L	java:S106|"+Replace this use of System.out by a logger.(©üÃõüÿÿÿÿ8ô÷†Éò1
-n	java:S128"LEnd this switch case with an unconditional break, return or throw statement.(íĞï°ùÿÿÿÿ8õ÷†Éò1
-Y	java:S125ƒ"<This block of commented-out lines of code should be removed.(õ‚¶¤8õ÷†Éò1
-J
-java:S2440",Remove this instantiation of "DeliveryView".(£³‹Ù8ö÷†Éò1
-X
-java:S2209"5Change this instance-reference to a static reference.(æÌ•üÿÿÿÿ8÷÷†Éò1
-M	java:S106—"+Replace this use of System.out by a logger.(±á™µÿÿÿÿÿ8÷÷†Éò1
-H	java:S106"+Replace this use of System.out by a logger.(×ÂÉ‹8ø÷†Éò1
+java:S2209r"5Change this instance-reference to a static reference.(Êé˜×8Õ–¡Éò1
+L	java:S106t"+Replace this use of System.out by a logger.(ôãû‰úÿÿÿÿ8×–¡Éò1
+F	java:S106u"+Replace this use of System.out by a logger.(î¶.8×–¡Éò1
+L	java:S106v"+Replace this use of System.out by a logger.(àúÈ‡øÿÿÿÿ8×–¡Éò1
+L	java:S106w"+Replace this use of System.out by a logger.(Ô¿âôûÿÿÿÿ8Ø–¡Éò1
+G	java:S106x"+Replace this use of System.out by a logger.(ÀİÎ‘8Ø–¡Éò1
+G	java:S106y"+Replace this use of System.out by a logger.(ŒŸŸ³8Ø–¡Éò1
+G	java:S106z"+Replace this use of System.out by a logger.( ó»İ8Ø–¡Éò1
+L	java:S106{"+Replace this use of System.out by a logger.(©üÃõüÿÿÿÿ8Ø–¡Éò1
+n	java:S128‹"LEnd this switch case with an unconditional break, return or throw statement.(íĞï°ùÿÿÿÿ8Ù–¡Éò1
+Y	java:S125‚"<This block of commented-out lines of code should be removed.(õ‚¶¤8Ú–¡Éò1
+M	java:S106’"+Replace this use of System.out by a logger.(±á™µÿÿÿÿÿ8Ú–¡Éò1
+H	java:S106™"+Replace this use of System.out by a logger.(×ÂÉ‹8Û–¡Éò1
 S
-java:S2209¤"5Change this instance-reference to a static reference.(Êé˜×8ù÷†Éò1
+java:S2209Ÿ"5Change this instance-reference to a static reference.(Êé˜×8Ü–¡Éò1
 ]
-java:S1117¦":Rename "check" which hides the field declared at line 162.(«™Æşıÿÿÿÿ8ù÷†Éò1
-M	java:S106«"+Replace this use of System.out by a logger.(—½©Êıÿÿÿÿ8ú÷†Éò1
+java:S1117¡":Rename "check" which hides the field declared at line 157.(«™Æşıÿÿÿÿ8Ü–¡Éò1
+M	java:S106¦"+Replace this use of System.out by a logger.(—½©Êıÿÿÿÿ8İ–¡Éò1
 S
-java:S2209²"5Change this instance-reference to a static reference.(Êé˜×8ü÷†Éò1
-M	java:S106´"+Replace this use of System.out by a logger.(ôãû‰úÿÿÿÿ8ü÷†Éò1
-H	java:S106µ"+Replace this use of System.out by a logger.(ğò»¿8ı÷†Éò1
-H	java:S106¶"+Replace this use of System.out by a logger.(ò¹ƒ¼8ı÷†Éò1
-M	java:S106·"+Replace this use of System.out by a logger.(ÑĞËÁÿÿÿÿÿ8ı÷†Éò1
-H	java:S106¸"+Replace this use of System.out by a logger.(›ä£8ı÷†Éò1
-M	java:S106¹"+Replace this use of System.out by a logger.(á öÀıÿÿÿÿ8ş÷†Éò1
-M	java:S106º"+Replace this use of System.out by a logger.(©üÃõüÿÿÿÿ8ş÷†Éò1
-n	java:S128Î"LEnd this switch case with an unconditional break, return or throw statement.(íĞï°ùÿÿÿÿ8ÿ÷†Éò1
-M	java:S106Õ"+Replace this use of System.out by a logger.(±á™µÿÿÿÿÿ8€ø†Éò1
-M	java:S106Ş"+Replace this use of System.out by a logger.(’Ñµ£şÿÿÿÿ8‚ø†Éò1
-G	java:S106á"+Replace this use of System.out by a logger.(ÜÚû48‚ø†Éò1
-M	java:S106ê"+Replace this use of System.out by a logger.(Ğ‰İßûÿÿÿÿ8ƒø†Éò1
-M	java:S106ë"+Replace this use of System.out by a logger.(ÉşôÖùÿÿÿÿ8ƒø†Éò1
-M	java:S106ì"+Replace this use of System.out by a logger.(ƒñÕ¶ûÿÿÿÿ8ƒø†Éò1
-M	java:S106í"+Replace this use of System.out by a logger.(Ãğ¯şÿÿÿÿ8ƒø†Éò1
-M	java:S106î"+Replace this use of System.out by a logger.(¦ê»Üÿÿÿÿÿ8„ø†Éò1
-H	java:S106ï"+Replace this use of System.out by a logger.(Îæ¨î8„ø†Éò1
-H	java:S106ğ"+Replace this use of System.out by a logger.(üøşê8„ø†Éò1
-H	java:S106ñ"+Replace this use of System.out by a logger.(ö¬ûˆ8„ø†Éò1
-M	java:S106ó"+Replace this use of System.out by a logger.(•ğšúÿÿÿÿ8…ø†Éò1
-H	java:S106ù"+Replace this use of System.out by a logger.(ŒĞ‰¾8†ø†Éò1
-H	java:S106ı"+Replace this use of System.out by a logger.(Š„¼¼8‡ø†Éò1
-H	java:S106€"+Replace this use of System.out by a logger.(î‡¨§8‡ø†Éò1
-M	java:S106ƒ"+Replace this use of System.out by a logger.(£ãÓıÿÿÿÿ8‡ø†Éò1
-G	java:S106ˆ"+Replace this use of System.out by a logger.(¡ğ»X8ˆø†Éò1
-M	java:S106‹"+Replace this use of System.out by a logger.(ÑğÜéıÿÿÿÿ8ˆø†Éò1
-M	java:S106"+Replace this use of System.out by a logger.(ãÁÓ‚üÿÿÿÿ8‰ø†Éò1
-M	java:S106“"+Replace this use of System.out by a logger.(ûÍÌşÿÿÿÿ8‰ø†Éò1
-M	java:S106–"+Replace this use of System.out by a logger.(­éÛäÿÿÿÿÿ8Šø†Éò1
-H	java:S106™"+Replace this use of System.out by a logger.(Úš Ù8Šø†Éò1
+java:S2209­"5Change this instance-reference to a static reference.(Êé˜×8ß–¡Éò1
+M	java:S106¯"+Replace this use of System.out by a logger.(ôãû‰úÿÿÿÿ8à–¡Éò1
+H	java:S106°"+Replace this use of System.out by a logger.(ğò»¿8à–¡Éò1
+H	java:S106±"+Replace this use of System.out by a logger.(ò¹ƒ¼8à–¡Éò1
+M	java:S106²"+Replace this use of System.out by a logger.(ÑĞËÁÿÿÿÿÿ8á–¡Éò1
+H	java:S106³"+Replace this use of System.out by a logger.(›ä£8á–¡Éò1
+M	java:S106´"+Replace this use of System.out by a logger.(á öÀıÿÿÿÿ8á–¡Éò1
+M	java:S106µ"+Replace this use of System.out by a logger.(©üÃõüÿÿÿÿ8á–¡Éò1
+n	java:S128É"LEnd this switch case with an unconditional break, return or throw statement.(íĞï°ùÿÿÿÿ8â–¡Éò1
+M	java:S106Ğ"+Replace this use of System.out by a logger.(±á™µÿÿÿÿÿ8ã–¡Éò1
+M	java:S106Ù"+Replace this use of System.out by a logger.(’Ñµ£şÿÿÿÿ8ä–¡Éò1
+G	java:S106Ü"+Replace this use of System.out by a logger.(ÜÚû48ä–¡Éò1
+M	java:S106å"+Replace this use of System.out by a logger.(Ğ‰İßûÿÿÿÿ8ä–¡Éò1
+M	java:S106æ"+Replace this use of System.out by a logger.(ÉşôÖùÿÿÿÿ8å–¡Éò1
+M	java:S106ç"+Replace this use of System.out by a logger.(ƒñÕ¶ûÿÿÿÿ8å–¡Éò1
+M	java:S106è"+Replace this use of System.out by a logger.(Ãğ¯şÿÿÿÿ8å–¡Éò1
+M	java:S106é"+Replace this use of System.out by a logger.(¦ê»Üÿÿÿÿÿ8ç–¡Éò1
+H	java:S106ê"+Replace this use of System.out by a logger.(Îæ¨î8ç–¡Éò1
+H	java:S106ë"+Replace this use of System.out by a logger.(üøşê8è–¡Éò1
+H	java:S106ì"+Replace this use of System.out by a logger.(ö¬ûˆ8è–¡Éò1
+M	java:S106î"+Replace this use of System.out by a logger.(•ğšúÿÿÿÿ8è–¡Éò1
+H	java:S106ô"+Replace this use of System.out by a logger.(ŒĞ‰¾8è–¡Éò1
+H	java:S106ø"+Replace this use of System.out by a logger.(Š„¼¼8é–¡Éò1
+H	java:S106û"+Replace this use of System.out by a logger.(î‡¨§8ë–¡Éò1
+M	java:S106ş"+Replace this use of System.out by a logger.(£ãÓıÿÿÿÿ8ì–¡Éò1
+G	java:S106ƒ"+Replace this use of System.out by a logger.(¡ğ»X8î–¡Éò1
+M	java:S106†"+Replace this use of System.out by a logger.(ÑğÜéıÿÿÿÿ8ğ–¡Éò1
+M	java:S106Š"+Replace this use of System.out by a logger.(ãÁÓ‚üÿÿÿÿ8ò–¡Éò1
+M	java:S106"+Replace this use of System.out by a logger.(ûÍÌşÿÿÿÿ8ò–¡Éò1
+M	java:S106‘"+Replace this use of System.out by a logger.(­éÛäÿÿÿÿÿ8ò–¡Éò1
+H	java:S106”"+Replace this use of System.out by a logger.(Úš Ù8ó–¡Éò1

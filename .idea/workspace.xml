@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8da80d29-be93-4260-b68c-117ae77cadc4" name="변경" comment=":bug: id 로그인 부분에서 repository에서 출력하는 부분 수정.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/b/0b362daf7f8e44a056fb57cab2fd53bceb3bcbee" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/b/0b362daf7f8e44a056fb57cab2fd53bceb3bcbee" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/1970e762e03b5ddc17b1ea246ac3444250802c24" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/1970e762e03b5ddc17b1ea246ac3444250802c24" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/4/2462220efac7f2772706b0920092af3211d1da37" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/4/2462220efac7f2772706b0920092af3211d1da37" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/b/4b067ed1a2545769c497135973a8661d86159fb8" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/b/4b067ed1a2545769c497135973a8661d86159fb8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/3/5393b93e6a443d59423878db09b24f58e03c06b0" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/3/5393b93e6a443d59423878db09b24f58e03c06b0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/3/63727e63919284fbe13203a3681b8f8ad78ff436" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/3/63727e63919284fbe13203a3681b8f8ad78ff436" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/7/9782be5e5cfef2abda77ac9540ec1ad95e981053" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/7/9782be5e5cfef2abda77ac9540ec1ad95e981053" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/c/acab9b4a4a5b7d4adde7cee922ab534a863aaba4" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/c/acab9b4a4a5b7d4adde7cee922ab534a863aaba4" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="sanghun" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="jihye211" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;hun2zz&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/shoppingmall2/shop.git&quot;,
+    &quot;accountId&quot;: &quot;1b1c7b4d-3a7c-4f00-b33e-120301932d13&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2fa5K2VJclFdr1XzXlD1ekRS0Xm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "onboarding.tips.debug.path": "/Users/jinsanghun/Desktop/delopjava/shop/src/Main.java",
+    "project.structure.last.edited": "프로젝트",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "애플리케이션.Main.executor": "Run",
+    "애플리케이션.MyInfoMain.executor": "Run",
+    "애플리케이션.ShoppingRepository.executor": "Run"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="sanghun" />
+    </key>
+  </component>
+  <component name="RunManager" selected="애플리케이션.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="shop" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyInfoMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MyInfoMain" />
+      <module name="shop" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShoppingRepository" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ShoppingRepository" />
+      <module name="shop" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="애플리케이션.ShoppingRepository" />
+        <item itemvalue="애플리케이션.MyInfoMain" />
+        <item itemvalue="애플리케이션.Main" />
+        <item itemvalue="애플리케이션.Main" />
+        <item itemvalue="애플리케이션.ShoppingRepository" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="8da80d29-be93-4260-b68c-117ae77cadc4" name="변경" comment="" />
+      <created>1714026281027</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1714026281027</updated>
+    </task>
+    <task id="LOCAL-00001" summary=":white_check_mark: 초기 파일 생성">
+      <option name="closed" value="true" />
+      <created>1714026392130</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714026392130</updated>
+    </task>
+    <task id="LOCAL-00002" summary=":white_check_mark: 초기 파일 생성">
+      <option name="closed" value="true" />
+      <created>1714026470678</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714026470678</updated>
+    </task>
+    <task id="LOCAL-00003" summary=":white_check_mark: 초기 파일 생성">
+      <option name="closed" value="true" />
+      <created>1714026711494</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714026711494</updated>
+    </task>
+    <task id="LOCAL-00004" summary=":white_check_mark: 초기 로그인 회원가입 기능 구현">
+      <option name="closed" value="true" />
+      <created>1714113244123</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714113244123</updated>
+    </task>
+    <task id="LOCAL-00005" summary=":white_check_mark: 마이페이지 추가">
+      <option name="closed" value="true" />
+      <created>1714141519304</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714141519304</updated>
+    </task>
+    <task id="LOCAL-00006" summary=":white_check_mark: 자동입력 방지, 비밀번호 수정, 이메일 수정 추가 완료">
+      <option name="closed" value="true" />
+      <created>1714210544448</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714210544448</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=":white_check_mark: 초기 파일 생성" />
+    <MESSAGE value=":white_check_mark: 초기 로그인 회원가입 기능 구현" />
+    <MESSAGE value=":white_check_mark: 마이페이지 추가" />
+    <MESSAGE value=":white_check_mark: 자동입력 방지, 비밀번호 수정, 이메일 수정 추가 완료" />
+    <MESSAGE value=":white_check_mark: id 로그인 부분에서 repository에서 출력하는 부분 수정." />
+    <option name="LAST_COMMIT_MESSAGE" value=":white_check_mark: id 로그인 부분에서 repository에서 출력하는 부분 수정." />
+  </component>
+</project>

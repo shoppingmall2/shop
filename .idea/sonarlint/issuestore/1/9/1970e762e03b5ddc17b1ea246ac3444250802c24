@@ -1,6 +1,10 @@
 
 ~
-java:S1854"BRemove this useless assignment to local variable "cartRepository".(ÿƒŠJ$eb01fd23-69fd-4132-96e8-5644997cf1f3
+java:S1854"BRemove this useless assignment to local variable "cartRepository".(ÿƒŠJ$9f447e47-ad1d-4d1e-9ad1-1c0b02aa862f
 o
-java:S1481"3Remove this unused "cartRepository" local variable.(ÿƒŠJ$8b80d541-64a6-4844-b480-6f0ccddeb292
-w	java:S125"<This block of commented-out lines of code should be removed.(²·¬ÙJ$ffbc24bf-06ac-43e1-a51d-5c0d7dd7eb8b
+java:S1481"3Remove this unused "cartRepository" local variable.(ÿƒŠJ$fa0aca34-035c-4a01-a730-3f6466ef54a1
+w	java:S125"<This block of commented-out lines of code should be removed.(²·¬ÙJ$ddd0cf0c-ff0f-4a6d-83d5-3fb95c289f92
+L
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8Ú˜¡Éò1
+O
+java:S1128"-Remove this unused import 'java.util.Random'.(èøÉ›ùÿÿÿÿ8Ú˜¡Éò1

@@ -1,0 +1,19 @@
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>//TIP 코드를 <b>실행</b>하려면 <shortcut actionId=\"Run\"/>을(를) 누르거나\n// 에디터 여백에 있는 <icon src=\"AllIcons.Actions.Execute\"/> 아이콘을 클릭하세요.\npublic class Main {\n    public static void main(String[] args) {\n\n        System.out.println(\"z\");\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	
++++ b/src/Main.java	
+@@ -1,8 +1,5 @@
+-//TIP 코드를 <b>실행</b>하려면 <shortcut actionId="Run"/>을(를) 누르거나
+-// 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
+ public class Main {
+     public static void main(String[] args) {
+ 
+-        System.out.println("z");
+     }
+ }

@@ -1,0 +1,41 @@
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>.DS_Store
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+--- a/.gitignore	(revision 272594fc56fe55939a5892df71468aa8e6b0c8b7)
++++ b/.gitignore	(date 1714371405114)
+@@ -1,1 +1,29 @@
++### IntelliJ IDEA ###
++out/
++!**/src/main/**/out/
++!**/src/test/**/out/
++
++### Eclipse ###
++.apt_generated
++.classpath
++.factorypath
++.project
++.settings
++.springBeans
++.sts4-cache
++bin/
++!**/src/main/**/bin/
++!**/src/test/**/bin/
++
++### NetBeans ###
++/nbproject/private/
++/nbbuild/
++/dist/
++/nbdist/
++/.nb-gradle/
++
++### VS Code ###
++.vscode/
++
++### Mac OS ###
+ .DS_Store
+\ No newline at end of file
