@@ -1,8 +1,8 @@
 
-	java:S101	"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ÉÊ¢€8òÿ¢Ëñ1J$4c4824aa-b89b-4b88-bc00-a718feed76cb
+	java:S101	"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ÉÊ¢€8òÿ¢Ëñ1J$7369a763-1727-41be-b0d6-c84a0cdcb196
 j
-java:S2189""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ8„•ññ1J$9bf74943-2653-4b47-85e9-5fec3596e103
+java:S2189""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ8„•ññ1J$d0566023-9bdd-426a-8f11-ea12317486c0
 {
-java:S1128"3Remove this unused import 'util.SimpleInput.input'.(á§Ãÿÿÿÿÿ8ˆ•ññ1J$4f08cccd-e72e-44a2-a8ec-301faa7e4a10
+java:S1128"3Remove this unused import 'util.SimpleInput.input'.(á§Ãÿÿÿÿÿ8ˆ•ññ1J$084c19b2-eb28-435b-a44e-62fafef11748
 u
-java:S1068"2Remove this unused "userRepository" private field.(×Š¾8‰•ññ1J$2eecbb87-f37e-4079-96fd-6fbda88556d8
+java:S1068"2Remove this unused "userRepository" private field.(×Š¾8‰•ññ1J$97b0c894-381e-4a74-be10-049669791995

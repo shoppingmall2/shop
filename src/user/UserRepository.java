@@ -53,7 +53,6 @@ public class UserRepository {
         for (User user : userList) {
             if (user.getName().equals(username) && user.getPassword().equals(password)) {
                 loggedInUser = user; // 로그인한 사용자 정보 저장
-                System.out.println("로그인 성공!");
                 loginTrueGood = 1;
                 return true;
             }
@@ -69,9 +68,9 @@ public class UserRepository {
     }
 
     // 사용자 로그아웃 메서드
-    public static void logout() {
-        loggedInUser = null; // 로그아웃 시 현재 로그인한 사용자 정보 삭제
-        System.out.println("로그아웃 되었습니다.");
+    public static boolean logout() {
+        loggedInUser = null;// 로그아웃 시 현재 로그인한 사용자 정보 삭제
+        return false;
     }
 
     public static boolean loginTrue() {

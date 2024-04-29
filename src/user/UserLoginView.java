@@ -61,7 +61,7 @@ public class UserLoginView {
         }
         String email = input(GREEN+ "이메일 : "+RESET);
         String nickname = input(GREEN+ "별명 : "+RESET);
-        int age = Integer.parseInt(input(GREEN+ "나이 : ")+RESET);
+        int age = Integer.parseInt(input(GREEN+ "나이 : "+RESET));
         String gender = input(GREEN+ "성별 : "+RESET);
         String address = input(GREEN+ "주소 : "+RESET);
         String captcha = generateCaptcha(6);
@@ -99,6 +99,7 @@ public class UserLoginView {
         String password = input("비밀번호 : ");
         boolean login = UserRepository.login(name, password);
         if (login) {
+            System.out.println("로그인 성공!");
             System.out.printf("%s님 환영합니다.",name);
         } else {
             System.out.println("회원정보를 확인해주세요.");
@@ -145,6 +146,7 @@ public class UserLoginView {
 
     public void byebye() {
         UserRepository.logout();
+        System.out.println("로그아웃 되었습니다.");
     }
 
 
