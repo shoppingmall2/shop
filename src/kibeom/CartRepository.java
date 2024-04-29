@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class CartRepository {
+
     // 장바구니 물품 관리
     static Map<String, Map<String, Object>> item;
 
@@ -25,6 +26,9 @@ public class CartRepository {
     }
 
 
+    /*
+    장바구니인 item 에 속성 추가. 분류, 가격, 성별
+     */
     public void addItem(String itemName, String type, int price, String gender) {
         Map<String, Object> itemDetails = new HashMap<>();
         itemDetails.put("type", type);
@@ -35,13 +39,22 @@ public class CartRepository {
     }
 
 
+    /*
+    상품 전체 출력 메서드
+     */
     public static void showCartRepository() {
         int num = 1;
         for (String s : item.keySet()) {
             System.out.println(num++ + ". " +  s);
-            System.out.println(item.get(s));
+            Map<String, Object> product = item.get(s);
+
+            System.out.println("상품 가격: " + product.get("price") + "원");
+            System.out.println("상품 분류: " + product.get("type"));
+            System.out.println("성별: " + product.get("gender"));
+            System.out.println();
         }
     }
+
 
     public static Map<String, Map<String, Object>> getItems() {
         return item;
