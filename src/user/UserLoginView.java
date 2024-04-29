@@ -1,11 +1,23 @@
 package user;
 
+<<<<<<< HEAD
+import kibeom.CartRepository;
+import kibeom.CartView;
+
+import static user.UserRepository.printLoggedInUserInfo;
+=======
 import static user.UserRepository.generateCaptcha;
 import static user.UserRepository.generateThisTime;
+>>>>>>> main
 import static util.SimpleInput.input;
 
 public class UserLoginView {
     static UserRepository ur;
+<<<<<<< HEAD
+    CartRepository cartRepository = new CartRepository();
+
+    public void start() {
+=======
     public static final String RESET = "\033[0m";
     public static final String GREEN = "\033[0;32m";
     public static final String YELLOW = "\033[0;33m";
@@ -16,6 +28,7 @@ public class UserLoginView {
 
     public void start() {
 
+>>>>>>> main
         // repository.load();
 
         while (true) {
@@ -44,6 +57,19 @@ public class UserLoginView {
     } // start end
 
     private static void signUpUser() {
+<<<<<<< HEAD
+        System.out.println("***************회원가입 필수 입력 항목************");
+        String name = input("이름 : ");
+        String password = input("비밀번호 : ");
+        String email = input("이메일 : ");
+        String nickname = input("별명 : ");
+        int age = Integer.parseInt(input("나이 : "));
+        String gender = input("성별 : ");
+        String address = input("주소 : ");
+
+        User newUser = new User(name, password, email, age, address, gender, nickname);
+        UserRepository.addUser(newUser);
+=======
         String password = null;
         System.out.println("***************회원가입 필수 입력 항목************");
         String name = input(GREEN+ "이름 : "+ RESET);
@@ -91,12 +117,16 @@ public class UserLoginView {
         } else {
             System.out.println(YELLOW+ "그럼 가입하지마"+RESET);
         }
+>>>>>>> main
     }
 
     private void callLogin() {
         System.out.println("***************로그인 필수 입력 항목************");
         String name = input("이름 : ");
         String password = input("비밀번호 : ");
+<<<<<<< HEAD
+        UserRepository.login(name, password);
+=======
         boolean login = UserRepository.login(name, password);
         if (login) {
             System.out.printf("%s님 환영합니다.",name);
@@ -104,6 +134,7 @@ public class UserLoginView {
             System.out.println("회원정보를 확인해주세요.");
         }
 
+>>>>>>> main
         mainPage();
     }
 
@@ -113,7 +144,11 @@ public class UserLoginView {
             System.out.println("\n=============카테고리 페이지==============");
             System.out.println("1. 카테고리");
             System.out.println("2. 마이페이지");
+<<<<<<< HEAD
+            System.out.println("3. 비밀번호 변경");
+=======
             System.out.println("3. 회원정보 수정");
+>>>>>>> main
             System.out.println("4. 배송조회");
             System.out.println("5. 장바구니");
             System.out.println("6. 로그아웃");
@@ -130,9 +165,16 @@ public class UserLoginView {
                     printLoggedInUserInfo();
                     break;
                 case "3":
+<<<<<<< HEAD
+                    passwordChange();
+                    break;
+                case "5":
+                    CartView.showCartRepository();
+=======
                     passCheck();
                     check = true;
                     break;
+>>>>>>> main
                 case "6":
                     byebye();
                     b = false;
@@ -148,6 +190,8 @@ public class UserLoginView {
     }
 
 
+<<<<<<< HEAD
+=======
         boolean check = true;
     public void passCheck() {
         boolean b = ur.loginTrue();
@@ -205,6 +249,7 @@ public class UserLoginView {
     }
 
 
+>>>>>>> main
     boolean exitProgram() {
         String exit = input("- 프로그램을 종료합니까? [y/n]\n>> ");
         if (exit.equals("y")) {
@@ -217,6 +262,22 @@ public class UserLoginView {
     }
 
 
+<<<<<<< HEAD
+    public void passwordChange() {
+        String pas = input("현재 비밀번호를 입력해주세요.");
+        String newPas = input("변경할 비밀번호를 입력해주세요.");
+        String pass = UserRepository.getPass();
+
+        if (pass.equals(pas)) {
+            UserRepository.ChangePass(newPas);
+        }
+//        boolean b = ur.mypage();
+//        while (b) {
+//            String oldPass = input("현재 비밀번호를 입력해주세요");
+//            String newPass = input("변경 할 비밀번호를 입력해주세요");
+//        }
+    }
+=======
 
     public static void printLoggedInUserInfo() {
         if (UserRepository.loggedInUser != null) {
@@ -272,6 +333,7 @@ public class UserLoginView {
         }
     }
 
+>>>>>>> main
 }
 
 

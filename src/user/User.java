@@ -5,11 +5,20 @@ import java.util.Objects;
 public class User {
     private final String name; // 이름
     private String password; // 비번
+<<<<<<< HEAD
+    private final String email; // 이멜
+    private final int age; // 나이
+    private final String address; // 주소
+    private final String gender;
+    private final String nickname; // 닉ㄴㅇ
+    private int money;
+=======
     private String email; // 이멜
     private final int age; // 나이
     private final String address; // 주소
     private final String gender;
     private String nickname; // 닉ㄴㅇ
+>>>>>>> main
 
 
 
@@ -22,6 +31,19 @@ public class User {
         this.address = address;
         this.gender = gender;
         this.nickname = nickname;
+        this.money = 100000; // 0427 money 추가
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
+    public String setPassword(String password) {
+        return this.password = password;
     }
 
     public String setPassword(String password) {
@@ -75,6 +97,9 @@ public class User {
         return Objects.hash(name, password, email, age, address, gender, nickname);
     }
 
+    /*
+    0427 user 필드로 money 추가 후, toString 에 money 추가
+     */
     @Override
     public String toString() {
         return "user.User{" +
@@ -85,6 +110,7 @@ public class User {
                 ", address='" + address + '\'' +
                 ", gender='" + gender + '\'' +
                 ", nickname='" + nickname + '\'' +
+                ", money=" + money +
                 '}';
     }
 

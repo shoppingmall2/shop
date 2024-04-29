@@ -90,6 +90,10 @@ B
 src/user/User.java,a/c/acab9b4a4a5b7d4adde7cee922ab534a863aaba4
 L
 src/user/UserRepository.java,0/b/0b362daf7f8e44a056fb57cab2fd53bceb3bcbee
+<<<<<<< HEAD
+D
+src/user/Gender.java,c/8/c8c323ffad9620b72fc8b3bdfa3b5b9f0fb28fe0
+=======
 w
 G.idea/sonarlint/issuestore/c/8/c8c323ffad9620b72fc8b3bdfa3b5b9f0fb28fe0,8/2/828e1e846d4c29315e3d377e20b83c1621e8ea3b
 
@@ -102,3 +106,4 @@ Q.idea/sonarlint/securityhotspotstore/9/7/9782be5e5cfef2abda77ac9540ec1ad95e9810
 Q.idea/sonarlint/securityhotspotstore/c/8/c8c323ffad9620b72fc8b3bdfa3b5b9f0fb28fe0,2/1/212cbaa7ec2fe2ebcf67150bac6f23c81157e90b
 
 Q.idea/sonarlint/securityhotspotstore/a/c/acab9b4a4a5b7d4adde7cee922ab534a863aaba4,b/7/b7d9d4b851fa20c01bfdf5ae13d8c6f76e12ff96
+>>>>>>> main
