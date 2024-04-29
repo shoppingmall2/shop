@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.Objects;
 
 public class CartRepository {
-
     // 장바구니 물품 관리
     static Map<String, Map<String, Object>> item;
 
@@ -47,7 +46,6 @@ public class CartRepository {
         for (String s : item.keySet()) {
             System.out.println(num++ + ". " +  s);
             Map<String, Object> product = item.get(s);
-
             System.out.println("상품 가격: " + product.get("price") + "원");
             System.out.println("상품 분류: " + product.get("type"));
             System.out.println("성별: " + product.get("gender"));

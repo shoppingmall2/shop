@@ -1,0 +1,24 @@
+
+ƒ
+java:S1192"GDefine a constant instead of duplicating this literal "unisex" 4 times.(¦—âºJ$033b4de0-2d1e-494f-a709-ebebbca02f23
+]
+java:S3010"!Remove this assignment of "item".(¡óãµJ$e0d0aab4-af4e-4295-a837-e4bc928dddb1
+u
+java:S2864."4Iterate over the "entrySet" instead of the "keySet".(ûäşúÿÿÿÿJ$466ee4da-1bc7-4e33-98dd-8af5b1f4a62e
+f	java:S106/"+Replace this use of System.out by a logger.(”®™ÁJ$d6b41594-0e5b-41cc-a9be-685859fbbfda
+k	java:S1061"+Replace this use of System.out by a logger.(Ò¡¨ùÿÿÿÿJ$30099e4a-c101-4ca2-9cb7-5644ece56cea
+f	java:S1062"+Replace this use of System.out by a logger.(¤‰´J$3dad5e8d-741a-403f-ba68-508dfc0f0373
+k	java:S1063"+Replace this use of System.out by a logger.(ÌØùÿÿÿÿJ$3cf9c8a6-01b8-4a4a-b119-ce876f74c70e
+k	java:S1064"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿJ$50e8dd98-8d22-448a-9a9f-c37a1e8ba24f
+v
+java:S2209D"5Change this instance-reference to a static reference.(¸ÏòÑûÿÿÿÿJ$dbb765db-a688-412a-b7bb-52a2bb852393
+w	java:S125V"<This block of commented-out lines of code should be removed.(Çµí‘J$c78f7e17-c64d-4699-a30e-ffc3ebfbe45f
+i
+java:S1128"-Remove this unused import 'util.SimpleInput'.(‘ŒÒJ$74e05702-6ed6-4b50-990f-c0e02a151258
+_
+java:S1128"Remove this duplicated import.(™˜”€ùÿÿÿÿJ$7ec4a63c-f005-453c-9206-27a48398bb28
+_
+java:S1128	"Remove this duplicated import.(¼è½ÒşÿÿÿÿJ$52baea66-78f1-4833-beae-8015f7e59951
+Z
+java:S1128
+"Remove this duplicated import.(¼¸õ›J$782a67b1-a5e3-488c-9109-31f69cf228cd

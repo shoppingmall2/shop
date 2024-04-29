@@ -1,5 +1,7 @@
 package kibeom;
 
+import user.User;
+import user.UserLoginView;
 import user.UserRepository;
 import util.SimpleInput;
 
@@ -13,9 +15,7 @@ import static kibeom.CartRepository.getItems;
 import static kibeom.CartRepository.item;
 
 
-
 public class CartView {
-
     private static CartRepository cartRepo;
     public static final String RED = "\033[0;31m"; // 콘솔에 색깔 주기
     public static final String RESET = "\033[0m";
@@ -33,7 +33,7 @@ public class CartView {
 
 
     public static void showCartRepository() {
-
+        UserLoginView userLoginView = new UserLoginView();
         boolean back = true; // 반복문 탈출을 위한 논리값 변수
         while (back) {
             System.out.println("============ 장바구니 목록 =============");
@@ -43,7 +43,6 @@ public class CartView {
             System.out.println("3. 뒤로 가기");
             String num = SimpleInput.input(">> ");
 
-
             switch (num) {
                 case "1":
                     order();
@@ -52,7 +51,8 @@ public class CartView {
                     deleteItem();
                     break;
                 case "3":
-                    back = false;
+                    userLoginView.mainPage();
+                    break;
                 default:
                     System.out.println("1 ~ 3!");
             }
@@ -69,7 +69,7 @@ public class CartView {
     그 배열의 인덱스로 item 의 price 에 접근.
     분기가 까다로워서 리팩터링 못하겠음
      */
-        private static void order() {
+    private static void order() {
         // 주문할 제품명을 입력 받음
         String itemName = null;
         try {
@@ -88,7 +88,7 @@ public class CartView {
         String[] orderList = null;
 
         // 장바구니 아이템 맵을 가져옴
-        Map<String, Map<String, Object>> item = CartRepository.getItems();
+        Map<String, Map<String, Object>> item = getItems();
 
         if (itemName.contains(",")) { // 2개 이상 주문하는 경우
             orderList = itemName.split(",");
@@ -185,7 +185,7 @@ public class CartView {
 
         String[] itemNameList = itemNames.split(","); // 입력값을 배열로 분할
 
-        Map<String, Map<String, Object>> item = CartRepository.getItems();
+        Map<String, Map<String, Object>> item = getItems();
         List<String> deletedItems = new ArrayList<>();
 
         for (String itemName : itemNameList) {

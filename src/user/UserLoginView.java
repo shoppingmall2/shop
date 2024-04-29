@@ -1,23 +1,13 @@
 package user;
 
-<<<<<<< HEAD
-import kibeom.CartRepository;
 import kibeom.CartView;
 
-import static user.UserRepository.printLoggedInUserInfo;
-=======
 import static user.UserRepository.generateCaptcha;
 import static user.UserRepository.generateThisTime;
->>>>>>> main
 import static util.SimpleInput.input;
 
 public class UserLoginView {
     static UserRepository ur;
-<<<<<<< HEAD
-    CartRepository cartRepository = new CartRepository();
-
-    public void start() {
-=======
     public static final String RESET = "\033[0m";
     public static final String GREEN = "\033[0;32m";
     public static final String YELLOW = "\033[0;33m";
@@ -28,7 +18,6 @@ public class UserLoginView {
 
     public void start() {
 
->>>>>>> main
         // repository.load();
 
         while (true) {
@@ -57,19 +46,6 @@ public class UserLoginView {
     } // start end
 
     private static void signUpUser() {
-<<<<<<< HEAD
-        System.out.println("***************회원가입 필수 입력 항목************");
-        String name = input("이름 : ");
-        String password = input("비밀번호 : ");
-        String email = input("이메일 : ");
-        String nickname = input("별명 : ");
-        int age = Integer.parseInt(input("나이 : "));
-        String gender = input("성별 : ");
-        String address = input("주소 : ");
-
-        User newUser = new User(name, password, email, age, address, gender, nickname);
-        UserRepository.addUser(newUser);
-=======
         String password = null;
         System.out.println("***************회원가입 필수 입력 항목************");
         String name = input(GREEN+ "이름 : "+ RESET);
@@ -87,7 +63,7 @@ public class UserLoginView {
         }
         String email = input(GREEN+ "이메일 : "+RESET);
         String nickname = input(GREEN+ "별명 : "+RESET);
-        int age = Integer.parseInt(input(GREEN+ "나이 : ")+RESET);
+        int age = Integer.parseInt(input(GREEN+ "나이 : "+RESET));
         String gender = input(GREEN+ "성별 : "+RESET);
         String address = input(GREEN+ "주소 : "+RESET);
         String captcha = generateCaptcha(6);
@@ -98,8 +74,8 @@ public class UserLoginView {
             while (true) {
                 String captchaTrue = input(GREEN+ "자동 입력 방지 문자를 보이는대로 입력해주세요. \n >>"+RESET);
                 if (captchaTrue.equals(captcha))  {
-                User newUser = new User(name, password, email, age, address, gender, nickname);
-                UserRepository.addUser(newUser);
+                    User newUser = new User(name, password, email, age, address, gender, nickname);
+                    UserRepository.addUser(newUser);
                     System.out.println(GREEN+ "#. 회원가입이 완료되었습니다."+RESET);
                     break;
                 } else {
@@ -117,24 +93,20 @@ public class UserLoginView {
         } else {
             System.out.println(YELLOW+ "그럼 가입하지마"+RESET);
         }
->>>>>>> main
     }
 
     private void callLogin() {
         System.out.println("***************로그인 필수 입력 항목************");
         String name = input("이름 : ");
         String password = input("비밀번호 : ");
-<<<<<<< HEAD
-        UserRepository.login(name, password);
-=======
         boolean login = UserRepository.login(name, password);
         if (login) {
+            System.out.println("로그인 성공!");
             System.out.printf("%s님 환영합니다.",name);
         } else {
             System.out.println("회원정보를 확인해주세요.");
         }
 
->>>>>>> main
         mainPage();
     }
 
@@ -144,11 +116,7 @@ public class UserLoginView {
             System.out.println("\n=============카테고리 페이지==============");
             System.out.println("1. 카테고리");
             System.out.println("2. 마이페이지");
-<<<<<<< HEAD
-            System.out.println("3. 비밀번호 변경");
-=======
             System.out.println("3. 회원정보 수정");
->>>>>>> main
             System.out.println("4. 배송조회");
             System.out.println("5. 장바구니");
             System.out.println("6. 로그아웃");
@@ -165,16 +133,11 @@ public class UserLoginView {
                     printLoggedInUserInfo();
                     break;
                 case "3":
-<<<<<<< HEAD
-                    passwordChange();
-                    break;
-                case "5":
-                    CartView.showCartRepository();
-=======
                     passCheck();
                     check = true;
                     break;
->>>>>>> main
+                case "5":
+                    CartView.showCartRepository();
                 case "6":
                     byebye();
                     b = false;
@@ -187,12 +150,11 @@ public class UserLoginView {
 
     public void byebye() {
         UserRepository.logout();
+        System.out.println("로그아웃 되었습니다.");
     }
 
 
-<<<<<<< HEAD
-=======
-        boolean check = true;
+    boolean check = true;
     public void passCheck() {
         boolean b = ur.loginTrue();
         while (b && check) {
@@ -249,7 +211,6 @@ public class UserLoginView {
     }
 
 
->>>>>>> main
     boolean exitProgram() {
         String exit = input("- 프로그램을 종료합니까? [y/n]\n>> ");
         if (exit.equals("y")) {
@@ -262,22 +223,6 @@ public class UserLoginView {
     }
 
 
-<<<<<<< HEAD
-    public void passwordChange() {
-        String pas = input("현재 비밀번호를 입력해주세요.");
-        String newPas = input("변경할 비밀번호를 입력해주세요.");
-        String pass = UserRepository.getPass();
-
-        if (pass.equals(pas)) {
-            UserRepository.ChangePass(newPas);
-        }
-//        boolean b = ur.mypage();
-//        while (b) {
-//            String oldPass = input("현재 비밀번호를 입력해주세요");
-//            String newPass = input("변경 할 비밀번호를 입력해주세요");
-//        }
-    }
-=======
 
     public static void printLoggedInUserInfo() {
         if (UserRepository.loggedInUser != null) {
@@ -311,11 +256,11 @@ public class UserLoginView {
         }
     }
     public void nicknameChange() {
-            System.out.println("변경할 닉네임을 입력해주세요.");
-            String newNick = input(">> ");
-            UserRepository.changeNickname(newNick);
-            System.out.printf("#. 닉네임이 %s 로 변경되었습니다.", newNick);
-            check = false;
+        System.out.println("변경할 닉네임을 입력해주세요.");
+        String newNick = input(">> ");
+        UserRepository.changeNickname(newNick);
+        System.out.printf("#. 닉네임이 %s 로 변경되었습니다.", newNick);
+        check = false;
     }
     public void emailChange() {
         System.out.println("현재 이메일을 입력해주세요");
@@ -333,7 +278,6 @@ public class UserLoginView {
         }
     }
 
->>>>>>> main
 }
 
 

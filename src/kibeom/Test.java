@@ -15,7 +15,7 @@ public class Test {
 
     }
 }
-        // 장바구니에 담긴 상품 출력
+// 장바구니에 담긴 상품 출력
 //        cartRepository.addItem("cargoPants", "BOTTOM", 15000, "famale");
 //        cartRepository.deleteItem("poloCap");
 //        Map<String, Map<String, Object>> items = cartRepository.getItems();

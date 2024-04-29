@@ -5,20 +5,12 @@ import java.util.Objects;
 public class User {
     private final String name; // 이름
     private String password; // 비번
-<<<<<<< HEAD
-    private final String email; // 이멜
-    private final int age; // 나이
-    private final String address; // 주소
-    private final String gender;
-    private final String nickname; // 닉ㄴㅇ
     private int money;
-=======
     private String email; // 이멜
     private final int age; // 나이
     private final String address; // 주소
     private final String gender;
     private String nickname; // 닉ㄴㅇ
->>>>>>> main
 
 
 
@@ -46,9 +38,6 @@ public class User {
         return this.password = password;
     }
 
-    public String setPassword(String password) {
-        return this.password = password;
-    }
     public String setNickname(String nickname) {
         return this.nickname = nickname;
     }
