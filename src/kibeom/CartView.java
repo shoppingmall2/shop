@@ -79,6 +79,7 @@ public class CartView {
         } catch (Exception e) {
             // 예상치 못한 입력 형식에 대한 안내
             System.out.println("입력 예시: crocs, poloCap");
+            return;
         }
 
         // 입력값이 null 이라면 사용자가 원하지 않는 입력 형식이므로 안내 출력
@@ -112,6 +113,11 @@ public class CartView {
                 }
             }
 
+            // 주문할 제품이 없으면 바로 종료
+            if (sum == 0) {
+                return;
+            }
+
             // 현재 사용자의 소지금 및 총 주문 가격 출력
             System.out.println("현재 소지 금액: " + UserRepository.getUser().getMoney());
             System.out.println("총 주문 가격: " + sum);
@@ -130,6 +136,7 @@ public class CartView {
                         System.out.println("감사합니다. 주문이 완료 되었습니다.\n총 결제 금액: " + sum + "\n현재 소지 금액: " + currentMoney);
                         System.out.println("배송지 정보 : " + UserRepository.getUser().getAddress());
                         System.out.println("공휴일 제외, 영업일 기준 1 ~ 3 일 이내 배송됩니다.");
+                        SimpleInput.stopInput();
                     } else {
                         System.out.println("잔액이 부족합니다.");
                     }
@@ -163,6 +170,7 @@ public class CartView {
                         System.out.println("감사합니다. 주문이 완료 되었습니다.\n총 결제 금액: " + price + "\n현재 소지 금액: " + currentMoney);
                         System.out.println("배송지 정보 : " + UserRepository.getUser().getAddress());
                         System.out.println("공휴일 제외, 영업일 기준 1 ~ 3 일 이내 배송됩니다.");
+                        SimpleInput.stopInput();
                     } else {
                         System.out.println("잔액이 부족합니다.");
                     }
@@ -193,9 +201,12 @@ public class CartView {
         for (String itemName : itemNameList) {
             itemName = itemName.strip();
             if (item.containsKey(itemName)) {
-                System.out.println(itemName + "\n" + item.get(itemName));
+                System.out.println(itemName);
+                System.out.println("상품 가격 : "+item.get(itemName).get("price"));
+                System.out.println("카테고리 : "+item.get(itemName).get("type"));
+                System.out.println("성별 : "+item.get(itemName).get("gender"));
                 System.out.println("1. 삭제하기");
-                System.out.println("2. 계속하기");
+                System.out.println("2. 뒤로가기");
                 String answer = SimpleInput.input(">> ");
                 switch (answer) {
                     case "1":
@@ -216,6 +227,7 @@ public class CartView {
 
         if (!deletedItems.isEmpty()) {
             System.out.println("삭제된 항목: " + deletedItems);
+            SimpleInput.stopInput();
         }
     }
 

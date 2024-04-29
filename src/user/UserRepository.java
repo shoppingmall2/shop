@@ -1,5 +1,6 @@
 package user;
 
+import java.awt.desktop.UserSessionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.*;
@@ -16,7 +17,8 @@ public class UserRepository {
                 23, "서울특별시 대림동", "남", "상후잉"));
         userList.add(new User("진상훈", "kk002281", "t1231231nsdldkdlel@naver.com",
                 19, "서울특별시 대동", "남", "김"));
-
+        userList.add(new User("한기범", "gksrlqja", "hgb926@naver.com",
+                27, "서울특별시 관악구 봉천로 305", "남", "기범"));
     }
 
 
