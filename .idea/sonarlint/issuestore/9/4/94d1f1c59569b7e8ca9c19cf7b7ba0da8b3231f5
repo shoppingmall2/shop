@@ -1,0 +1,54 @@
+
+j
+java:S2189""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ8òá©¤ñ1J$fa8860ec-830e-471b-8c01-8261bd76230b
+Â
+java:S1186K"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ğğ˜şÿÿÿÿJ$618d4f32-d9d7-4259-b1ff-00c23459beb2
+w	java:S125"<This block of commented-out lines of code should be removed.(ıÎìËJ$0e38a570-512b-47b5-8942-a0800bd3d48d
+`
+java:S3010"Remove this assignment of "sr".(»¿¡úÿÿÿÿJ$daa6c284-bf17-417e-90d0-66dbce7a20d0
+v
+java:S2209"5Change this instance-reference to a static reference.(»¿¡úÿÿÿÿJ$4676a8ee-eefa-4ec6-a0d9-6f8f00e2c025
+w	java:S125"<This block of commented-out lines of code should be removed.(¹Ø—J$7558b57b-e0c9-4385-81f5-79d341298d45
+e	java:S106"+Replace this use of System.out by a logger.(ÂÒú:J$193996f1-58a8-420f-a12b-55a9c431c69e
+k	java:S106"+Replace this use of System.out by a logger.(ø ëïüÿÿÿÿJ$c49539d3-7d3e-408c-82a0-c0be62f5fa67
+k	java:S106"+Replace this use of System.out by a logger.(áİ¯ØøÿÿÿÿJ$287170bd-b62c-44ba-b86b-7b2d257fd227
+e	java:S106"+Replace this use of System.out by a logger.(ÑÜìiJ$071c9d0c-2f0c-4c40-a2b3-a5c52836ad54
+f	java:S106"+Replace this use of System.out by a logger.(Î»ë•J$c9fa726b-4484-4c7b-b80f-1e3db41e1001
+f	java:S106%"+Replace this use of System.out by a logger.(¸¶îİJ$90d1dbfb-270e-4cf8-be1d-1a3f56583a5a
+k	java:S106)"+Replace this use of System.out by a logger.(±á™µÿÿÿÿÿJ$4e54c013-1002-449a-bef4-c99c1ee4d644
+w
+java:S1854G";Remove this useless assignment to local variable "address".(–ìè¢J$50a12a38-dc88-462c-a744-8e09c1feff68
+u
+java:S18548"9Remove this useless assignment to local variable "email".(‘·ÈJ$9c3ee432-8981-4770-9b83-bc828a12c363
+v
+java:S18547":Remove this useless assignment to local variable "gender".(ÜúÆ“J$554be17b-9a7f-4bdf-a98e-d3301531d259
+s
+java:S18546"7Remove this useless assignment to local variable "age".(¯¿…öJ$2e14b929-8dc3-4315-ac05-0936b433fc23
+}
+java:S18545"<Remove this useless assignment to local variable "nickname".(ñ…÷ÙüÿÿÿÿJ$6ae05012-3984-4843-bc22-583e01cc768c
+t
+java:S18544"8Remove this useless assignment to local variable "name".(¨Í§íJ$928388c2-c60f-4e8e-9997-60384f167a1e
+x
+java:S18543"<Remove this useless assignment to local variable "password".(²š‡àJ$c5e8b64d-60f9-4e3c-8eae-958424035402
+w
+java:S18542"6Remove this useless assignment to local variable "id".(©‹Ç·øÿÿÿÿJ$ce256b38-98aa-499e-ac33-059f102da65c
+k	java:S1061"+Replace this use of System.out by a logger.(’ÅäüûÿÿÿÿJ$0a502c29-c70a-4cdd-b1b2-911bfbfd4aae
+v	java:S1250"<This block of commented-out lines of code should be removed.(©Ÿ®J$35a6086c-7628-4b77-a796-333c7ad3f311
+h
+java:S14812"'Remove this unused "id" local variable.(©‹Ç·øÿÿÿÿJ$cb154f9e-6e06-4ad3-ac37-6948a016bc17
+i
+java:S14813"-Remove this unused "password" local variable.(²š‡àJ$41df7215-5d02-453b-8ca0-07cfade15973
+e
+java:S14814")Remove this unused "name" local variable.(¨Í§íJ$24ec7b6c-b827-433e-8bb2-d95672dcb336
+n
+java:S14815"-Remove this unused "nickname" local variable.(ñ…÷ÙüÿÿÿÿJ$dacd24c2-a5da-42a7-ad93-f57448e25eb4
+d
+java:S14816"(Remove this unused "age" local variable.(¯¿…öJ$ae0c12ca-0526-4215-a7bb-a630fe66a764
+g
+java:S14817"+Remove this unused "gender" local variable.(ÜúÆ“J$572c9790-f634-4e96-9364-10d2ef4ae49c
+f
+java:S14818"*Remove this unused "email" local variable.(‘·ÈJ$53bf5682-06d4-4ae9-a230-986ece8e6d0f
+|	java:S1259"<This block of commented-out lines of code should be removed.(†·ˆõÿÿÿÿÿJ$3ac2795d-553a-4728-a881-fe556db248b9
+|	java:S125?"<This block of commented-out lines of code should be removed.(¹²ÄşÿÿÿÿJ$0d0ec0c1-8341-46f5-a872-a776b072b1a8
+h
+java:S1481G",Remove this unused "address" local variable.(–ìè¢J$6dc50622-68d7-4596-9a17-14cec934097d

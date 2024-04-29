@@ -3,6 +3,7 @@ package user;
 import jihye.DeliveryView;
 import kibeom.CartView;
 
+import static seungyeon.category.openCate;
 import static user.UserRepository.generateCaptcha;
 import static user.UserRepository.generateThisTime;
 import static util.SimpleInput.input;
@@ -128,7 +129,7 @@ public class UserLoginView {
 
             switch (menuNum) {
                 case "1":
-//                    signUpUser();
+                    openCate();
                     break;
                 case "2":
                     printLoggedInUserInfo();
@@ -141,11 +142,11 @@ public class UserLoginView {
                     DeliveryView deliveryView = new DeliveryView();
                     deliveryView.deliveryMenu();
                     break;
-                case "5":
-                    CartView.showCartRepository();
+                case"5":
+                    CartView cartView = new CartView();
+                    cartView.showCartRepository();
                 case "6":
                     byebye();
-                    b = false;
                     break;
                 default:
                     System.out.println("\n메뉴를 잘못 선택했습니다.");
@@ -156,6 +157,7 @@ public class UserLoginView {
     public void byebye() {
         UserRepository.logout();
         System.out.println("로그아웃 되었습니다.");
+        start();
     }
 
 
@@ -177,7 +179,7 @@ public class UserLoginView {
     public void changeInfo() {
         boolean b = ur.loginTrue();
         while (b && check) {
-            System.out.println("\n=============카테고리 페이지==============");
+            System.out.println("\n=============회원정보 수정==============");
             System.out.println("# 1. 별명 변경하기");
             System.out.println("# 2. 배송지 수정하기");
             System.out.println("# 3. 이메일 변경하기");
@@ -284,3 +286,6 @@ public class UserLoginView {
     }
 
 }
+
+
+

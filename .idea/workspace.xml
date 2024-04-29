@@ -5,16 +5,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8da80d29-be93-4260-b68c-117ae77cadc4" name="변경" comment=":bug: id 로그인 부분에서 repository에서 출력하는 부분 수정.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/3/035b8b3dfe06ce3eb0beaabdea603616ac4e8ad7" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/8/2828edb626a9c77e3d3f1d148565ca9a5440fbc5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/5/8524ab1ca1022eb6b281b089012711c6d6337ea2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/4/94d1f1c59569b7e8ca9c19cf7b7ba0da8b3231f5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/c/ac822f1c488eb960ee600189908db72d5dd7eace" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/e/aec509fe123bb509d8d85d59a5ca814ac9d1f35b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/7/d738a5fa1ed701028095bdc55c4f59be138693e8" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/3/035b8b3dfe06ce3eb0beaabdea603616ac4e8ad7" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/6/26384d3b28cd8eed4e0eda97c35b50cddcd6fccf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/8/2828edb626a9c77e3d3f1d148565ca9a5440fbc5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/f/4f632ce4fd86243275355a7130e36166a5512c52" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/5/8524ab1ca1022eb6b281b089012711c6d6337ea2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/4/94d1f1c59569b7e8ca9c19cf7b7ba0da8b3231f5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/c/9c27d43556258bdbb1b76555b172bfaf06253d8f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/c/ac822f1c488eb960ee600189908db72d5dd7eace" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/e/aec509fe123bb509d8d85d59a5ca814ac9d1f35b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/7/d738a5fa1ed701028095bdc55c4f59be138693e8" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/shop/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/shop/UserLoginView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/shop/UserRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/ItemRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/ItemView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/RankingRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/RankingView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/Search.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/seungyeon/ItemRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/seungyeon/ItemView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/seungyeon/RankingRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/seungyeon/RankingView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/seungyeon/Search.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/seungyeon/category.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/b/0b362daf7f8e44a056fb57cab2fd53bceb3bcbee" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/b/0b362daf7f8e44a056fb57cab2fd53bceb3bcbee" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/1970e762e03b5ddc17b1ea246ac3444250802c24" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/1970e762e03b5ddc17b1ea246ac3444250802c24" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/4/2462220efac7f2772706b0920092af3211d1da37" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/4/2462220efac7f2772706b0920092af3211d1da37" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/b/4b067ed1a2545769c497135973a8661d86159fb8" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/b/4b067ed1a2545769c497135973a8661d86159fb8" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/3/5393b93e6a443d59423878db09b24f58e03c06b0" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/3/5393b93e6a443d59423878db09b24f58e03c06b0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/3/63727e63919284fbe13203a3681b8f8ad78ff436" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/3/63727e63919284fbe13203a3681b8f8ad78ff436" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/7/9782be5e5cfef2abda77ac9540ec1ad95e981053" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/7/9782be5e5cfef2abda77ac9540ec1ad95e981053" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/2/924f089edb4af5ee45c8a9d1129cd28e2b368138" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/2/924f089edb4af5ee45c8a9d1129cd28e2b368138" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/c/acab9b4a4a5b7d4adde7cee922ab534a863aaba4" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/c/acab9b4a4a5b7d4adde7cee922ab534a863aaba4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/kibeom/CartView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/kibeom/CartView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/kibeom/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kibeom/CartView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kibeom/CartView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kibeom/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kibeom/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/UserLoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/UserLoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/UserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +85,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="jihye211" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,12 +117,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "main2 병합 중",
     "kotlin-language-version-configured": "true",
     "onboarding.tips.debug.path": "/Users/jinsanghun/Desktop/delopjava/shop/src/Main.java",
     "project.structure.last.edited": "프로젝트",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "애플리케이션.Main.executor": "Run",
     "애플리케이션.MyInfoMain.executor": "Run",
     "애플리케이션.ShoppingRepository.executor": "Run"
@@ -117,9 +158,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.Main" />
         <item itemvalue="애플리케이션.ShoppingRepository" />
         <item itemvalue="애플리케이션.MyInfoMain" />
-        <item itemvalue="애플리케이션.Main" />
         <item itemvalue="애플리케이션.Main" />
         <item itemvalue="애플리케이션.ShoppingRepository" />
       </list>
