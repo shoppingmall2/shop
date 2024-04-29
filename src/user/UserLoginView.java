@@ -1,5 +1,6 @@
 package user;
 
+import jihye.DeliveryView;
 import kibeom.CartView;
 
 import static user.UserRepository.generateCaptcha;
@@ -135,6 +136,10 @@ public class UserLoginView {
                 case "3":
                     passCheck();
                     check = true;
+                    break;
+                case"4":
+                    DeliveryView deliveryView = new DeliveryView();
+                    deliveryView.deliveryMenu();
                     break;
                 case "5":
                     CartView.showCartRepository();
@@ -279,6 +284,3 @@ public class UserLoginView {
     }
 
 }
-
-
-

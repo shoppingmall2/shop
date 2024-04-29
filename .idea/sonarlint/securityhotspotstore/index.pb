@@ -22,3 +22,9 @@ L
 src/kibeom/ConsoleColor.java,2/4/2462220efac7f2772706b0920092af3211d1da37
 =
 src/Main.java,9/2/924f089edb4af5ee45c8a9d1129cd28e2b368138
+K
+src/jihye/DeliveryView.java,b/e/bec32eca557c8287df2921d5d9c3ee38f02a469c
+Q
+!src/jihye/DeliveryRepository.java,a/f/af4836da916d8af94d550fa1b673e33293ba1d1c
+M
+src/jihye/DeliveryStatus.java,8/0/8096a3210d07a7ed150bed08c4e81d176a534102

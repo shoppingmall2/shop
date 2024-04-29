@@ -125,4 +125,3 @@ public class UserRepository {
         return password.substring(0, 1) + new String(hiddenChars); // 처음 한 글자와 '*'로 대체된 문자열 합침
     }
 }
-

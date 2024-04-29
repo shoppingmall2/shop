@@ -1,0 +1,9 @@
+
+½
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÁìóöJ$3a2df259-1b4a-4a3f-94dd-8bf924a4063a
+
+java:S1845"SRename method "buyList" to prevent any misunderstanding/clash with field "buyList".(ÁìóöJ$040f5f5e-c2df-4195-8d31-4e511f25465a
+^
+java:S2386	"Make this member "protected".(Á‹ŠÉûÿÿÿÿJ$875cf627-f12c-45a9-b0a4-754dcdaf6cbe
+v
+java:S1118":Add a private constructor to hide the implicit public one.(à•ŞÌJ$9ecc12b2-3ac6-416e-b5cc-ed2f507321b9

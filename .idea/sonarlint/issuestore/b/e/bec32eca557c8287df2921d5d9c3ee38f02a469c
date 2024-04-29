@@ -1,0 +1,24 @@
+
+“
+java:S13010"KReplace this "switch" statement by "if" statements to increase readability.(ÿïŞüıÿÿÿÿ8°íıÈò1J$8604dfee-49c3-4765-b3a3-b2950df67420
+}
+java:S1118":Add a private constructor to hide the implicit public one.(ñ×óµ8ÀíıÈò1J$eca8b912-2979-41ec-b31c-f05dc8d15377
+r	java:S106"+Replace this use of System.out by a logger.(À¬ùïûÿÿÿÿ8ÄíıÈò1J$408c293c-ba90-4ec1-8e1a-99a5510dee64
+r	java:S106"+Replace this use of System.out by a logger.(ã½Æ¨úÿÿÿÿ8ÅíıÈò1J$fc07e4f5-72db-44f4-89a3-e018db4a6550
+r	java:S106"+Replace this use of System.out by a logger.(–æÆøÿÿÿÿ8ÅíıÈò1J$8029cbdc-013b-406d-b097-014f97a239a0
+r	java:S106"+Replace this use of System.out by a logger.(æ™„¦şÿÿÿÿ8ÆíıÈò1J$2d71a3ad-948a-4083-9d81-cd81c5a1262a
+r	java:S106'"+Replace this use of System.out by a logger.(ÛæÎ½ıÿÿÿÿ8ÇíıÈò1J$b5be914f-562c-4a56-b9fb-dcf3e5b0d41e
+m	java:S106*"+Replace this use of System.out by a logger.(óÎÆ—8ÇíıÈò1J$3fb97047-c2f3-4ad7-8b37-f53607334d57
+l	java:S106-"+Replace this use of System.out by a logger.(š²¤T8ÇíıÈò1J$57015ec1-060d-4d9a-9161-1a8822b72a38
+m	java:S106."+Replace this use of System.out by a logger.(ı²§Æ8ÇíıÈò1J$f7df5d79-f255-4e1d-997d-a99432c46027
+r	java:S1065"+Replace this use of System.out by a logger.(æ™„¦şÿÿÿÿ8ÈíıÈò1J$2d7250df-60d2-46f4-86b2-63d2d154e8c4
+m	java:S106="+Replace this use of System.out by a logger.(ÿøú8ÉíıÈò1J$f851cb8c-5a2f-4956-872d-ef2f83edd560
+m	java:S106M"+Replace this use of System.out by a logger.(˜ÆÔù8ËíıÈò1J$403af991-09c1-4734-9d88-9e938312d693
+r	java:S106N"+Replace this use of System.out by a logger.(„üùÿÿÿÿ8ËíıÈò1J$2a31b5a8-75d9-46cb-ad3a-0919cae81a84
+r	java:S106V"+Replace this use of System.out by a logger.(×÷¥Áûÿÿÿÿ8ËíıÈò1J$c5dc10ed-7bd7-4245-97a8-a3ad3a06f790
+~	java:S125X"<This block of commented-out lines of code should be removed.(˜½¨¸8ÍíıÈò1J$acf09f1a-e554-412e-b4b2-ff8aeb2e8da4
+m	java:S106]"+Replace this use of System.out by a logger.(íë©—8ÎíıÈò1J$807dd35e-bd37-42db-950b-edc7df326f4c
+r	java:S106m"+Replace this use of System.out by a logger.(îøÏÓùÿÿÿÿ8×íıÈò1J$2f90df94-eacb-4af8-a200-b7a6caaf2726
+r	java:S106u"+Replace this use of System.out by a logger.(Æİêùÿÿÿÿ8ÙíıÈò1J$3fd3bbf5-9001-4c68-bbb6-3fee75b5c541
+R
+java:S1128"0Remove this unused import 'user.UserRepository'.(ƒÈ›Üıÿÿÿÿ8ºõÉò1
