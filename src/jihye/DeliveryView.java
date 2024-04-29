@@ -1,15 +1,15 @@
 package jihye;
 
+import user.UserLoginView;
+import user.UserRepository;
+
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static user.UserLoginView.mainPage;
 
 public class DeliveryView {
-
     private static Scanner scanner = new Scanner(System.in);
-
     // 배송조회 시작 화면 메서드
     public static void deliveryMenu() {
         while (true) {
@@ -18,13 +18,14 @@ public class DeliveryView {
             System.out.println("2. 뒤로 가기");
 
             String menuNum = input(">> ");
+                UserLoginView userLoginView = new UserLoginView();
 
             switch (menuNum) {
                 case "1":
                     showPurchaseList();
                     break;
                 case "2":
-                    mainPage();
+                    userLoginView.mainPage();
                     return;
                 default:
                     System.out.println("\n잘못된 메뉴 번호입니다. 제대로 입력해주세요.");
@@ -101,7 +102,8 @@ public class DeliveryView {
                     return; // 무한 루프 탈출
                 } else if (input.equals("2")) {
                     timer.cancel(); // 타이머 취소하여 단계 출력 멈춤
-                    mainPage(); // 다른 클래스의 mainPage() 메서드로 가야 함
+                    UserLoginView userLoginView = new UserLoginView();
+                    userLoginView.mainPage(); // 다른 클래스의 mainPage() 메서드로 가야 함
                     return; // 무한 루프 탈출
                 } else {
                     System.out.println("잘못된 메뉴 번호입니다. 다시 제대로 입력해주세요.");
@@ -109,12 +111,10 @@ public class DeliveryView {
             }
         } while (input.isEmpty()); // 입력이 비어있으면 계속해서 입력 대기
 
-}
+    }
 
-private static String input(String prompt) {
-    System.out.print(prompt);
-    return scanner.nextLine();
+    private static String input(String prompt) {
+        System.out.print(prompt);
+        return scanner.nextLine();
+    }
 }
-}
-
-
