@@ -4,7 +4,9 @@ import user.UserRepository;
 import util.SimpleInput;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import static kibeom.CartRepository.getItems;
@@ -77,7 +79,7 @@ public class CartView {
             System.out.println("입력 예시: crocs, poloCap");
         }
 
-        // 입력값이 null이라면 사용자가 원하지 않는 입력 형식이므로 안내 출력
+        // 입력값이 null 이라면 사용자가 원하지 않는 입력 형식이므로 안내 출력
         if (itemName == null) {
             System.out.println("입력 예시를 따라주세요.");
             return;
@@ -183,29 +185,21 @@ public class CartView {
 
         String[] itemNameList = itemNames.split(","); // 입력값을 배열로 분할
 
-
-
         Map<String, Map<String, Object>> item = CartRepository.getItems();
+        List<String> deletedItems = new ArrayList<>();
 
         for (String itemName : itemNameList) {
-            itemName = itemName.trim();
+            itemName = itemName.strip();
             if (item.containsKey(itemName)) {
-//                System.out.println(itemName + "\n" + item.get(itemName));
-                for (String s : itemNameList) {
-                    System.out.print(s);
-                    System.out.println("  " +item.get(s));
-                }
+                System.out.println(itemName + "\n" + item.get(itemName));
                 System.out.println("1. 삭제하기");
                 System.out.println("2. 계속하기");
                 String answer = SimpleInput.input(">> ");
                 switch (answer) {
                     case "1":
-//                        item.remove(itemName); // 항목 삭제
-                        for (int i = 0; i < itemNameList.length; i++) {
-                            item.remove(itemNameList[i]);
-                        }
-
-                        System.out.println(Arrays.toString(itemNameList) + " 항목이 삭제되었습니다.");
+                        item.remove(itemName); // 항목 삭제
+                        deletedItems.add(itemName);
+                        System.out.println(itemName + " 항목이 삭제되었습니다.");
                         break;
                     case "2":
                         System.out.println(itemName + " 항목을 삭제하지 않습니다.");
@@ -213,11 +207,16 @@ public class CartView {
                     default:
                         System.out.println("1 또는 2를 입력하세요.");
                 }
+            } else {
+                System.out.println(itemName + " 항목이 존재하지 않습니다.");
             }
-        } else {
-            System.out.println(itemName + " 항목이 존재하지 않습니다.");
+        }
+
+        if (!deletedItems.isEmpty()) {
+            System.out.println("삭제된 항목: " + deletedItems);
         }
     }
+
 }
 /*
 
