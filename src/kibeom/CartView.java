@@ -7,6 +7,7 @@ import util.SimpleInput;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,7 @@ import static kibeom.CartRepository.item;
 
 
 public class CartView {
+    static UserLoginView userLoginView = new UserLoginView();
     private static CartRepository cartRepo;
     public static final String RED = "\033[0;31m"; // 콘솔에 색깔 주기
     public static final String RESET = "\033[0m";
@@ -33,7 +35,6 @@ public class CartView {
 
 
     public static void showCartRepository() {
-        UserLoginView userLoginView = new UserLoginView();
         boolean back = true; // 반복문 탈출을 위한 논리값 변수
         while (back) {
             System.out.println("============ 장바구니 목록 =============");
@@ -52,6 +53,7 @@ public class CartView {
                     break;
                 case "3":
                     userLoginView.mainPage();
+                    back = false;
                     break;
                 default:
                     System.out.println("1 ~ 3!");

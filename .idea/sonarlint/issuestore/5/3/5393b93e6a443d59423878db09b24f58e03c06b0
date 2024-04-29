@@ -1,62 +1,57 @@
 
 ¦
-java:S1192O"^Define a constant instead of duplicating this literal "ì…ë ¥ ì˜ˆì‹œ: crocs, poloCap" 3 times.(Ü’Şıÿÿÿÿ8‚‹¡Åò1J$8aee0b5c-6dbf-4feb-9e8e-f68620ab6106
+java:S1192Q"^Define a constant instead of duplicating this literal "ì…ë ¥ ì˜ˆì‹œ: crocs, poloCap" 3 times.(Ü’Şıÿÿÿÿ8‚‹¡Åò1J$cda61967-706e-426d-a8ad-5e573f1206dc
 
-java:S2259º"GA "NullPointerException" could be thrown; "itemNames" is nullable here.(ö‰Áûÿÿÿÿ8¶‹¡Åò1J$08c6d878-ce98-4c90-9637-b4d1169c04e3
-?
-java:S2189&""Add an end condition to this loop.(Ÿ¥¬ñ8Ì›¡Éò1
-T
-java:S2589&"7Remove this expression which always evaluates to "true"(Ÿ¥¬ñ8Í›¡Éò1
+java:S2259¼"GA "NullPointerException" could be thrown; "itemNames" is nullable here.(ö‰Áûÿÿÿÿ8¶‹¡Åò1J$0ffe163f-db9e-4770-a97e-8099923f62f5
 e
-java:S1118"Hide this public constructor.(Ÿ¡¹¸øÿÿÿÿ8¸‹¡Åò1J$eb3eddeb-9be4-437c-8917-22550e85cc4c
+java:S1118"Hide this public constructor.(Ÿ¡¹¸øÿÿÿÿ8û¤ğÊò1J$9672bce5-dbab-49a7-82ed-48d68d0d8c6a
 h
-java:S3010"%Remove this assignment of "cartRepo".(ÏÏÍà8¹‹¡Åò1J$e0790e66-0b31-4ed2-a638-73f0974cd0bf
+java:S3010 "%Remove this assignment of "cartRepo".(ÏÏÍà8¹‹¡Åò1J$4163556b-a7ad-4136-9107-313c515ce72e
 x
-java:S2209"5Change this instance-reference to a static reference.(ÏÏÍà8º‹¡Åò1J$1b8857b3-db0e-4691-970b-b0f1b52f59e4
-m	java:S106'"+Replace this use of System.out by a logger.(Ì„ÖÌ8»‹¡Åò1J$5a30e59c-8c11-4abc-abd7-d901b2a91167
-m	java:S106)"+Replace this use of System.out by a logger.(÷”×é8»‹¡Åò1J$dddab373-15dc-4479-86af-a5ab69d478f8
-r	java:S106*"+Replace this use of System.out by a logger.(Ç©…Öüÿÿÿÿ8¼‹¡Åò1J$1237504a-6bda-48a6-8d3b-674a7362a883
-m	java:S106+"+Replace this use of System.out by a logger.(Ğ«¡›8¼‹¡Åò1J$2a0f6613-1dcc-4d90-a01f-95ff2b016a55
-m	java:S1069"+Replace this use of System.out by a logger.(ï˜Ç×8¼‹¡Åò1J$23f1018c-5ccc-45d0-b45e-1581ef921d9f
+java:S2209 "5Change this instance-reference to a static reference.(ÏÏÍà8º‹¡Åò1J$c3941703-9007-4b94-89b6-900bc2d9e6fb
+m	java:S106("+Replace this use of System.out by a logger.(Ì„ÖÌ8»‹¡Åò1J$7572df18-c423-4d84-bc6f-680616137a38
+m	java:S106*"+Replace this use of System.out by a logger.(÷”×é8»‹¡Åò1J$11a74b36-0024-4a05-b6e0-240b491a9609
+r	java:S106+"+Replace this use of System.out by a logger.(Ç©…Öüÿÿÿÿ8¼‹¡Åò1J$13053425-eb7e-4e78-b269-bcbffde39029
+m	java:S106,"+Replace this use of System.out by a logger.(Ğ«¡›8¼‹¡Åò1J$215ed5d2-09d5-499e-abf1-b1c412591b68
+m	java:S106;"+Replace this use of System.out by a logger.(ï˜Ç×8¼‹¡Åò1J$6b2eb573-d5d7-4b6b-aabe-7bcb16b31080
 š
-java:S3776H"RRefactor this method to reduce its Cognitive Complexity from 34 to the 15 allowed.(éƒ‰ñıÿÿÿÿ8½‹¡Åò1J$47c7ed63-a6e4-4b5d-b9a4-5c5a72466080
-r	java:S106O"+Replace this use of System.out by a logger.(Ü’Şıÿÿÿÿ8¾‹¡Åò1J$5d269099-7e0a-4772-8638-5a5155e405e7
-m	java:S106T"+Replace this use of System.out by a logger.(ÕÍ¥¸8¾‹¡Åò1J$5a68fe8c-f53c-4d8d-8395-c99013141e1c
+java:S3776J"RRefactor this method to reduce its Cognitive Complexity from 34 to the 15 allowed.(éƒ‰ñıÿÿÿÿ8½‹¡Åò1J$bf6e1536-879b-409e-bcfe-9f92064e0012
+r	java:S106Q"+Replace this use of System.out by a logger.(Ü’Şıÿÿÿÿ8¾‹¡Åò1J$543dcc39-d5ce-4d73-be9e-b862116b8986
+m	java:S106V"+Replace this use of System.out by a logger.(ÕÍ¥¸8¾‹¡Åò1J$e9a4b921-8a54-4baa-9eeb-06c1c1376fd2
 |
-java:S2864c"4Iterate over the "entrySet" instead of the "keySet".(£ïì£øÿÿÿÿ8¿‹¡Åò1J$a8dbc693-b35a-4e92-9103-277fa6fcd22b
-m	java:S106m"+Replace this use of System.out by a logger.(‰Ü¦ª8À‹¡Åò1J$b76cda2b-31ca-4d1b-b1f3-944eb17b0a79
-r	java:S106r"+Replace this use of System.out by a logger.(ˆîİÿÿÿÿÿ8À‹¡Åò1J$715824c6-22f6-4b08-8326-d1f5001b20ce
-m	java:S106s"+Replace this use of System.out by a logger.(¡ƒÏ8À‹¡Åò1J$8f34322d-9b4d-4bfe-925e-884ecee7df63
-s	java:S106€"+Replace this use of System.out by a logger.(Ä›Í¬øÿÿÿÿ8Â‹¡Åò1J$d23b85d7-420d-4612-bda0-6d4b02bda75c
-s	java:S106"+Replace this use of System.out by a logger.(Æ˜‡¹üÿÿÿÿ8Â‹¡Åò1J$95141a93-953a-43b9-ae0f-8e4064beb61f
-s	java:S106‚"+Replace this use of System.out by a logger.(‹÷´×şÿÿÿÿ8Â‹¡Åò1J$6a8f9f06-6486-47e3-9a98-56fa4ef979eb
-n	java:S106„"+Replace this use of System.out by a logger.(Ç€Ï°8Â‹¡Åò1J$feaa5325-5d2a-434f-8e73-c9e0b37d2c3f
-s	java:S106ˆ"+Replace this use of System.out by a logger.(è¯Üøÿÿÿÿ8Â‹¡Åò1J$64b1dd2a-b902-4ead-b3e0-fd15a69333b7
-n	java:S106‹"+Replace this use of System.out by a logger.(ç½éÀ8Â‹¡Åò1J$d486dcb4-2abc-4649-a562-e8949b89f3bc
-s	java:S106"+Replace this use of System.out by a logger.(ˆîİÿÿÿÿÿ8Â‹¡Åò1J$c1e1daf8-f6a8-405f-bf03-3d5bad3ae5a3
-s	java:S106”"+Replace this use of System.out by a logger.(Ü’Şıÿÿÿÿ8Ã‹¡Åò1J$fe563135-a2f1-4ae8-a7aa-e2030d78a26d
-n	java:S106—"+Replace this use of System.out by a logger.(Ş×÷Š8Ã‹¡Åò1J$c56442c0-b3ef-44b2-887c-60082feb2ab4
-s	java:S106¡"+Replace this use of System.out by a logger.(²ıÿÿÿÿ8Ä‹¡Åò1J$a8ba7566-02d9-4db8-9610-30f3b50e9d2d
-s	java:S106¢"+Replace this use of System.out by a logger.(Æ˜‡¹üÿÿÿÿ8Ä‹¡Åò1J$ace2c2a5-b5d0-4e83-87f3-223a5aff23f9
-s	java:S106£"+Replace this use of System.out by a logger.(‹÷´×şÿÿÿÿ8Ä‹¡Åò1J$a30b97ee-ae06-41e8-909b-c76c2e763968
-n	java:S106¥"+Replace this use of System.out by a logger.(Ç€Ï°8Ä‹¡Åò1J$ab12ea67-21cd-4578-8036-2748e14175ab
-n	java:S106«"+Replace this use of System.out by a logger.(ç½éÀ8Å‹¡Åò1J$ad7d99f8-e07d-4574-8a62-0c3f700f99fc
-s	java:S106·"+Replace this use of System.out by a logger.(Ü’Şıÿÿÿÿ8Å‹¡Åò1J$280a31cf-28f3-477b-8ba7-0b715d0b308d
-s	java:S106Â"+Replace this use of System.out by a logger.(Ê€Áçùÿÿÿÿ8Æ‹¡Åò1J$d5377efc-debf-4bcb-97b9-11f47c6f48e4
-s	java:S106Ã"+Replace this use of System.out by a logger.(Äª’Åøÿÿÿÿ8Ç‹¡Åò1J$b39a219c-2599-4fcf-b333-8be9006641d0
-m	java:S106Ä"+Replace this use of System.out by a logger.(Á´·-8Ç‹¡Åò1J$ef64ef9c-0504-4edd-8fbd-96229d34afcc
-n	java:S106Ê"+Replace this use of System.out by a logger.(öıÚÂ8Ç‹¡Åò1J$865eb8db-f1c9-4810-9481-e0a14f4454e1
-n	java:S106Í"+Replace this use of System.out by a logger.(íÑ¹ê8Ç‹¡Åò1J$9a91ec79-e097-48c9-8596-b12f46606502
-n	java:S106Ğ"+Replace this use of System.out by a logger.(Ü¿êª8È‹¡Åò1J$998dd399-1be1-4d59-9bb7-19b1895cdd79
-s	java:S106Ó"+Replace this use of System.out by a logger.(ĞÍàşıÿÿÿÿ8È‹¡Åò1J$114e9840-765d-4220-aade-0b36811421ca
-s	java:S106Ø"+Replace this use of System.out by a logger.(¸‡ÎÔûÿÿÿÿ8È‹¡Åò1J$fea91eb8-c105-4528-976e-3631db360296
-„	java:S125à"<This block of commented-out lines of code should be removed.(ÀÒÓ…şÿÿÿÿ8È‹¡Åò1J$fc0114f2-f44c-48fb-ab8a-fed67961aca7
-C
-java:S1128"&Remove this unused import 'user.User'.(¥Ï˜Ò8„œ¡Éò1
-O
-java:S1128
-"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8„œ¡Éò1
-T
-java:S1128"7Remove this unused import 'kibeom.CartRepository.item'.(›Åà˜8„œ¡Éò1
+java:S2864e"4Iterate over the "entrySet" instead of the "keySet".(£ïì£øÿÿÿÿ8¿‹¡Åò1J$435753ac-2ba9-4471-9eef-002197f55ab7
+m	java:S106o"+Replace this use of System.out by a logger.(‰Ü¦ª8À‹¡Åò1J$d0a318cb-a283-4e87-ba3d-900f0bd963e0
+r	java:S106t"+Replace this use of System.out by a logger.(ˆîİÿÿÿÿÿ8À‹¡Åò1J$3f0510ae-b4e7-48c6-9375-5ee21e3aa446
+m	java:S106u"+Replace this use of System.out by a logger.(¡ƒÏ8À‹¡Åò1J$b338411f-637e-4797-b81f-c5196f600e6f
+s	java:S106‚"+Replace this use of System.out by a logger.(Ä›Í¬øÿÿÿÿ8Â‹¡Åò1J$b8e5b555-cf0a-43cb-9f25-9478e43f6448
+s	java:S106ƒ"+Replace this use of System.out by a logger.(Æ˜‡¹üÿÿÿÿ8Â‹¡Åò1J$b0aa678e-f22a-4e2e-af57-5176aa0ae65c
+s	java:S106„"+Replace this use of System.out by a logger.(‹÷´×şÿÿÿÿ8Â‹¡Åò1J$d8e2f830-e90c-4cbd-8c45-915c0e1cbd1d
+n	java:S106†"+Replace this use of System.out by a logger.(Ç€Ï°8Â‹¡Åò1J$8a3ecb84-d239-43e0-b8f9-3dd64180a86f
+s	java:S106Š"+Replace this use of System.out by a logger.(è¯Üøÿÿÿÿ8Â‹¡Åò1J$f40661ef-343f-4858-bc02-577a4d9aee73
+n	java:S106"+Replace this use of System.out by a logger.(ç½éÀ8Â‹¡Åò1J$20f6a9ed-cb23-4ff6-8dac-4d2c68b1891a
+s	java:S106‘"+Replace this use of System.out by a logger.(ˆîİÿÿÿÿÿ8Â‹¡Åò1J$2903e6a1-df0d-408b-a6f7-013d18648498
+s	java:S106–"+Replace this use of System.out by a logger.(Ü’Şıÿÿÿÿ8Ã‹¡Åò1J$26421047-dd18-4675-9a62-030f7c6edc1d
+n	java:S106™"+Replace this use of System.out by a logger.(Ş×÷Š8Ã‹¡Åò1J$0c78aa74-8665-4695-a34b-875b8bbcf191
+s	java:S106£"+Replace this use of System.out by a logger.(²ıÿÿÿÿ8Ä‹¡Åò1J$e2c6173d-8f77-4960-a0aa-29f24754db04
+s	java:S106¤"+Replace this use of System.out by a logger.(Æ˜‡¹üÿÿÿÿ8Ä‹¡Åò1J$98b01f32-e69e-4342-93b9-5dfef6f8a03b
+s	java:S106¥"+Replace this use of System.out by a logger.(‹÷´×şÿÿÿÿ8Ä‹¡Åò1J$bb46332d-4dab-4f75-b50a-02490ad328f5
+n	java:S106§"+Replace this use of System.out by a logger.(Ç€Ï°8Ä‹¡Åò1J$cdd9e2f9-c42e-4a59-98ab-ee6725ec6864
+n	java:S106­"+Replace this use of System.out by a logger.(ç½éÀ8Å‹¡Åò1J$4c5ae550-c5a6-482a-bad7-d081d8563eb7
+s	java:S106¹"+Replace this use of System.out by a logger.(Ü’Şıÿÿÿÿ8Å‹¡Åò1J$fc4b8171-06c8-49e6-9322-f349ce401fb7
+s	java:S106Ä"+Replace this use of System.out by a logger.(Ê€Áçùÿÿÿÿ8Æ‹¡Åò1J$6a455470-5e91-49f6-b2a3-38551f5eb378
+s	java:S106Å"+Replace this use of System.out by a logger.(Äª’Åøÿÿÿÿ8Ç‹¡Åò1J$27502f25-f3e5-472b-abf8-9d00fd503dcb
+m	java:S106Æ"+Replace this use of System.out by a logger.(Á´·-8Ç‹¡Åò1J$c28c491b-868f-4a4f-b5b5-f31b23bb3db9
+n	java:S106Ì"+Replace this use of System.out by a logger.(öıÚÂ8Ç‹¡Åò1J$81d9d31c-d7c3-4766-a4fc-e81f161df066
+n	java:S106Ï"+Replace this use of System.out by a logger.(íÑ¹ê8Ç‹¡Åò1J$e4b03064-2a55-4ed9-8bb5-274466ba5811
+n	java:S106Ò"+Replace this use of System.out by a logger.(Ü¿êª8È‹¡Åò1J$4b7107d5-1ea9-487f-be45-ae3eeb42b276
+s	java:S106Õ"+Replace this use of System.out by a logger.(ĞÍàşıÿÿÿÿ8È‹¡Åò1J$80655dcc-c4f2-4a92-9ab6-c401f39d165e
+s	java:S106Ú"+Replace this use of System.out by a logger.(¸‡ÎÔûÿÿÿÿ8È‹¡Åò1J$e702507f-172f-418d-b55b-2c77f7ecb490
+„	java:S125â"<This block of commented-out lines of code should be removed.(ÀÒÓ…şÿÿÿÿ8È‹¡Åò1J$2db532c4-ba9e-4118-ba4b-e6e2c684d528
+i
+java:S1128"&Remove this unused import 'user.User'.(¥Ï˜Ò8¥ğÊò1J$7a2a0e7d-c187-48db-b8cf-f6b8deb51a16
+u
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8¥ğÊò1J$ebc6a50d-264b-4a05-a43e-a29e6fa77066
+z
+java:S1128"7Remove this unused import 'kibeom.CartRepository.item'.(›Åà˜8¥ğÊò1J$2475d8b0-50ea-4635-b7c2-f1eae64a6cd1
 o
-java:S1068",Remove this unused "cartRepo" private field.(ôÎô8É‹¡Åò1J$bdf5655a-b1f1-4084-8cf3-20da72977273
+java:S1068",Remove this unused "cartRepo" private field.(ôÎô8É‹¡Åò1J$2b767a7b-d647-4bfb-b639-b7db2a17cf5a

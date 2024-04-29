@@ -1,16 +1,16 @@
 
 ›
-java:S1104"XMake loggedInUser a static final constant or non-public and provide accessors if needed.(İóÔ‘8à·¹Èò1J$f1cc0bcf-ffa4-49a6-b361-30bc1f2b8e0d
+java:S1104
+"XMake loggedInUser a static final constant or non-public and provide accessors if needed.(İóÔ‘8Ñ› Ëò1J$d86f0983-fdbd-4103-8414-09941170def4
 u
-java:S1444"2Make this "public static loggedInUser" field final(İóÔ‘8á·¹Èò1J$8989fd74-1bcc-4826-ad3a-077d1eb0960c
+java:S1444
+"2Make this "public static loggedInUser" field final(İóÔ‘8Ñ› Ëò1J$d8722cfd-2cd1-440a-91cf-1a49ffce4987
 e
-java:S2386"Make this member "protected".(ªÂšşüÿÿÿÿ8ş·¹Èò1J$374d5acd-bf15-439e-a6c0-cbcd36e8d4a1
-	java:S100("NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âˆı8„ÑñÈò1J$7920f127-d9ad-4c48-87a1-5b5c61325e6a
+java:S2386	"Make this member "protected".(ªÂšşüÿÿÿÿ8Û› Ëò1J$0c1a9981-0034-4f6b-be5f-9b4d10912a56
+	java:S100,"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âˆı8ß› Ëò1J$b055ff29-9ff0-4a6a-b725-cb9ca3eba624
 ‰
-java:S1126C"AReplace this if-then-else statement by a single return statement.(Ü–ä²øÿÿÿÿ8‡ÑñÈò1J$3f276fa6-ee23-4fdc-8079-db035b5f4bb3
-„
-java:S1126P"AReplace this if-then-else statement by a single return statement.(¼Ñ¯ã8‡ÑñÈò1J$7af265f4-06f4-453a-ba31-d710ab96b19e
+java:S1126G"AReplace this if-then-else statement by a single return statement.(Ü–ä²øÿÿÿÿ8à› Ëò1J$508e0e5f-8eb3-4558-8d88-3d0f1cc20686
 ‰
-java:S1126W"AReplace this if-then-else statement by a single return statement.(û“È´ùÿÿÿÿ8‡ÑñÈò1J$ce5b1f1b-877e-423f-9bb2-a2ac2297c4a4
+java:S1126]"AReplace this if-then-else statement by a single return statement.(û“È´ùÿÿÿÿ8á› Ëò1J$14d2d581-bb8c-45b6-b2cf-19623df0ccb7
 a
-java:S2119b"Save and re-use this "Random".(–áÍÈ8ŠÑñÈò1J$9fda5cce-7e2f-4ded-893f-928a0b96ea3d
+java:S2119h"Save and re-use this "Random".(–áÍÈ8ã› Ëò1J$3e086beb-34e9-438f-93d1-1581d6a6c177

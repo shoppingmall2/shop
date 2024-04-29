@@ -28,3 +28,19 @@ Q
 !src/jihye/DeliveryRepository.java,a/f/af4836da916d8af94d550fa1b673e33293ba1d1c
 M
 src/jihye/DeliveryStatus.java,8/0/8096a3210d07a7ed150bed08c4e81d176a534102
+Q
+!src/seungyeon/ItemRepository.java,c/b/cb9b94703274100e277fd5cb1e053b639af6e0e8
+K
+src/seungyeon/ItemView.java,9/5/95ca4588488728a1861de5140363025c77f28cca
+G
+src/seungyeon/Main.java,3/2/3265e437a907aed0a4aa49376b3571b1c0461d38
+T
+$src/seungyeon/RankingRepository.java,b/f/bfcfed0938bdea71c866d9a98d0d0fca4b753eb1
+I
+src/seungyeon/Search.java,5/1/51daa4a9f41d1821ff7f7493f63113e5564c13bd
+N
+src/seungyeon/RankingView.java,3/4/3458f17609644ffec4d3b66bb2eff304879004d6
+K
+src/seungyeon/category.java,e/3/e31c90916ad6d8ffdfc01375b0bdddb6e42176e0
+B
+src/jihye/Buy.java,e/3/e34249a2f65e88ac53a0edeffe855363a1116e0c
