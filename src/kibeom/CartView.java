@@ -39,10 +39,11 @@ public class CartView {
     public static void showCartRepository() {
         boolean back = true; // 반복문 탈출을 위한 논리값 변수
         while (back) {
-            System.out.println("============ 장바구니 목록 =============");
+            System.out.println("\n=============장바구니 목록==============");
 
             if (CartList.isEmpty()) {
                 System.out.println(BLUE + "장바구니가 비어있습니다." + RESET);
+                System.out.println("========================================");
             } else {
                 showCartRepo();
 
@@ -64,7 +65,7 @@ public class CartView {
                     back = false;
                     break;
                 default:
-                    System.out.println("1 ~ 3!");
+                    System.out.println(RED + "잘못된 메뉴 번호입니다. 다시 선택해주세요." + RESET);
             }
         }
 
@@ -74,8 +75,8 @@ public class CartView {
             List<Cart> cartList = getCartList();
             System.out.println();
             for (Cart cart : cartList) {
-                System.out.println("제품 명 : " + cart.getItemName() + "\n" +
-                        "브랜드 : " + cart.getBrand() + "\n" +
+                System.out.println("브랜드 : " + cart.getBrand() + "\n" +
+                        "제품 명 : " + cart.getItemName() + "\n" +
                         "제품 분류 : " + cart.getType() + "\n" +
                         "제품 가격 : " + cart.getPrice() + "\n" +
                         "성별 : " + cart.getGender() + "\n");
@@ -89,7 +90,7 @@ public class CartView {
 
         for (String itemName : itemsToDelete) {
             CartRepository.deleteItem(itemName.trim()); // 공백 제거
-            System.out.println(itemName.trim() + "이(가) 삭제되었습니다.");
+            System.out.println(" 🗑️ " + itemName.trim() + "이(가) 삭제되었습니다.");
         }
     }
 
@@ -107,7 +108,7 @@ public class CartView {
             for (String singleItem : orderList) {
                 kibeom.Cart orderItem = CartRepository.isContains(singleItem.trim());
                 if (orderItem == null) {
-                    System.out.println(RED + singleItem + " 상품은 장바구니에 없습니다." + RESET);
+                    System.out.println(" ❗ " + singleItem + " 상품은 장바구니에 없습니다.\n");
                     continue;
                 }
                 int price = orderItem.getPrice();
@@ -116,8 +117,8 @@ public class CartView {
             }
         }
 
-        System.out.println("총 주문 가격: " + totalOrderPrice);
-        System.out.println("현재 소지 금액 : " + UserRepository.getUser().getMoney());
+        System.out.println("\n\uD83D\uDCB5 총 주문 가격: " + totalOrderPrice);
+        System.out.println("\uD83D\uDCB0 현재 소지 금액 : " + UserRepository.getUser().getMoney());
 
         String answer = SimpleInput.input("주문하시겠습니까? Y / N\n>> ").toUpperCase();
         switch (answer) {
@@ -130,19 +131,19 @@ public class CartView {
                         buyList.add(new Buy(orderItem.getBrand(), orderItem.getItemName(), orderItem.getPrice(),UserRepository.getUser().getAddress()));
                         CartList.remove(orderItem);
                     }
-                    System.out.println("감사합니다. 주문이 완료 되었습니다.\n총 결제 금액: " + totalOrderPrice + "\n현재 소지 금액: " + currentMoney);
-                    System.out.println("배송지 정보 : " + UserRepository.getUser().getAddress());
+                    System.out.println("\n\uD83D\uDE0A 감사합니다. 주문이 완료 되었습니다.\n\uD83D\uDCB5 총 주문 가격: " + totalOrderPrice + "\n\uD83D\uDCB0 현재 소지 금액: " + currentMoney);
+                    System.out.println("\uD83C\uDFE0 배송지 주소 : " + UserRepository.getUser().getAddress());
                     System.out.println("공휴일 제외, 영업일 기준 1 ~ 3 일 이내 배송됩니다.");
                     SimpleInput.stopInput();
                 } else {
-                    System.out.println("잔액이 부족합니다.");
+                    System.out.println(" ❗ 잔액이 부족합니다.");
                 }
                 break;
             case "N":
-                System.out.println("주문이 취소되었습니다.");
+                System.out.println(" ❗ 주문이 취소되었습니다.");
                 break;
             default:
-                System.out.println("제대로 입력하세요.");
+                System.out.println("RED + \"잘못된 입력입니다. 다시 선택해주세요.\" + RESET");
         }
     }
 }
