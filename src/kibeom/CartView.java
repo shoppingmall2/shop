@@ -1,22 +1,24 @@
 package kibeom;
 
+import seungyeon.Cart;
+import seungyeon.Search;
 import user.User;
 import user.UserLoginView;
 import user.UserRepository;
 import util.SimpleInput;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static kibeom.CartRepository.getItems;
 import static kibeom.CartRepository.item;
 
 
 public class CartView {
+
+    private Search search;
+    private CartRepository cartRepository;
+
     static UserLoginView userLoginView = new UserLoginView();
     private static CartRepository cartRepo;
     public static final String RED = "\033[0;31m"; // 콘솔에 색깔 주기
@@ -160,6 +162,9 @@ public class CartView {
                         int currentMoney = UserRepository.getUser().getMoney() - price; // 소지 금액에서 상품 가격 차감
                         UserRepository.getUser().setMoney(currentMoney);
                         item.remove(itemName); // 주문한 제품 삭제
+                        HashMap<Object, Object> map = new HashMap<>();
+                        map.put("crocs", "SHOES");
+                        Cart.addItem(String.valueOf(map));
                         System.out.println("감사합니다. 주문이 완료 되었습니다.\n총 결제 금액: " + price + "\n현재 소지 금액: " + currentMoney);
                         System.out.println("배송지 정보 : " + UserRepository.getUser().getAddress());
                         System.out.println("공휴일 제외, 영업일 기준 1 ~ 3 일 이내 배송됩니다.");

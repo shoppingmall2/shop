@@ -3,7 +3,8 @@ package user;
 import jihye.DeliveryView;
 import kibeom.CartView;
 
-import static seungyeon.category.openCate;
+import static seungyeon.Category.openCate;
+
 import static user.UserRepository.generateCaptcha;
 import static user.UserRepository.generateThisTime;
 import static util.SimpleInput.input;
