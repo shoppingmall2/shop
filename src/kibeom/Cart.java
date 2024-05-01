@@ -1,5 +1,8 @@
 package kibeom;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Cart {
 
     private String brand;
@@ -9,13 +12,17 @@ public class Cart {
     private String gender;
 
 
+
     public Cart(String brand, String itemName, String type, int price, String gender) {
         this.brand = brand;
         this.itemName = itemName;
         this.type = type;
         this.price = price;
         this.gender = gender;
+
     }
+
+
 
     public Cart() {
     }

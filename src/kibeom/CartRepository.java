@@ -1,17 +1,20 @@
 package kibeom;
 
 
+import seungyeon.Item;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import static jihye.DeliveryRepository.buyList;
+import static seungyeon.ItemRepository.getItems;
 
 public class CartRepository {
     public static List<Cart> CartList = new ArrayList<>();
 
     static {
-        CartList.add(new Cart("유니클로","jacket", "TOP", 130000, "남성"));
-        CartList.add(new Cart("리바이스","jean", "BOTTOM", 30000, "남성"));
-        CartList.add(new Cart("크록스","crocs", "SHOES", 40000, "남성"));
+        CartList.add(new Cart("유니클로", "jacket", "TOP", 130000, "남성"));
     }
 
     public static void addCartList(Cart cart) {
@@ -27,17 +30,7 @@ public class CartRepository {
         CartList = cartList;
     }
 
-    public static void showCartRepository() {
-        List<Cart> cartList = getCartList();
-        System.out.println();
-        for (Cart cart : cartList) {
-            System.out.println( "제품 명 : " + cart.getItemName() + "\n" +
-                    "제품 분류 : " + cart.getType() + "\n" +
-                    "제품 가격 : " + cart.getPrice() + "\n" +
-                    "성별 : " + cart.getGender() + "\n");
-        }
-        System.out.println("======================================");
-    }
+
 
     public static Cart isContains(String itemName) { // 입력값 확인
         for (Cart cart : CartList) {
@@ -58,9 +51,15 @@ public class CartRepository {
         }
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
+    Item buyitem;
+    public static Item addNewItem(String itemName) {
+        List<Item> items1 = getItems();
+        for (Item item : items1) {
+            if (item.getItemName().toLowerCase().equals(itemName)){
+                CartList.add(new Cart(item.getBrand(), item.getItemName(), item.getType(),item.getPrice(),item.getGender()));
+            }
+        }
+        return null;
     }
 }
 

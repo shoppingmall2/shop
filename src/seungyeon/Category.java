@@ -1,5 +1,6 @@
 package seungyeon;
 //
+import kibeom.CartRepository;
 import user.UserLoginView;
 //
 import java.util.HashMap;
@@ -119,7 +120,13 @@ import user.UserLoginView;
 
 import java.util.Scanner;
 
+import static kibeom.CartRepository.CartList;
+import static kibeom.CartRepository.addNewItem;
+import static seungyeon.ItemRepository.items;
+
+
 public class Category {
+
     public static void openCate() {
         ItemRepository itemRepository = new ItemRepository();
         Search search = new Search(itemRepository);
@@ -128,6 +135,7 @@ public class Category {
 
         Scanner scanner = new Scanner(System.in);
         String choice;
+
 
         do {
             System.out.println("1. 제품 검색하기");
@@ -161,7 +169,7 @@ public class Category {
 
         do {
             System.out.print("\n검색 할 상품의 이름을 입력하세요.\n (exit 입력 시 검색 종료)\n\n>> ");
-            itemName = scanner.nextLine().trim();
+            itemName = scanner.nextLine().trim().toLowerCase();
             System.out.print("\n");
 
             if (itemName.equalsIgnoreCase("exit")) {
@@ -179,7 +187,8 @@ public class Category {
 
                 switch (choice) {
                     case "1":
-                        Cart.addItem(itemName);
+
+                        addNewItem(itemName);
                         System.out.println("제품이 장바구니에 추가되었습니다.");
                         break;
                     case "2":

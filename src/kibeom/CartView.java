@@ -16,7 +16,7 @@ import java.util.*;
 
 import static jihye.DeliveryRepository.buyList;
 import static kibeom.CartRepository.CartList;
-
+import static kibeom.CartRepository.getCartList;
 
 
 public class CartView {
@@ -44,7 +44,7 @@ public class CartView {
             if (CartList.isEmpty()) {
                 System.out.println(BLUE + "장바구니가 비어있습니다." + RESET);
             } else {
-                CartRepository.showCartRepository();
+                showCartRepo();
 
             }
             System.out.println("1. 결제하기");
@@ -68,6 +68,19 @@ public class CartView {
             }
         }
 
+    }
+
+    private static void showCartRepo() {
+            List<Cart> cartList = getCartList();
+            System.out.println();
+            for (Cart cart : cartList) {
+                System.out.println("제품 명 : " + cart.getItemName() + "\n" +
+                        "브랜드 : " + cart.getBrand() + "\n" +
+                        "제품 분류 : " + cart.getType() + "\n" +
+                        "제품 가격 : " + cart.getPrice() + "\n" +
+                        "성별 : " + cart.getGender() + "\n");
+            }
+            System.out.println("======================================");
     }
 
     private static void deleteItem() {
