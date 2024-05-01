@@ -18,8 +18,14 @@ public class UserRepository {
                 23, "서울특별시 대림동", "남", "상후잉"));
         userList.add(new User("진상훈", "kk002281", "t1231231nsdldkdlel@naver.com",
                 19, "서울특별시 대동", "남", "김"));
+<<<<<<< HEAD
+        userList.add(new User("강지혜", "1", "t1231231nsdldkdlel@naver.com",
+                19, "서울특별시 대동", "남", "김"));
+
+=======
         userList.add(new User("한기범", "gksrlqja", "hgb926@naver.com",
                 27, "서울특별시 관악구 봉천로 305", "남", "기범"));
+>>>>>>> e27756bca7ef7d92e8c6c56027e87a16fd77bcde
     }
 
 

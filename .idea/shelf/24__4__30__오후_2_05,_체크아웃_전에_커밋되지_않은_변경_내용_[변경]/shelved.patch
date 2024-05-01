@@ -1,0 +1,95 @@
+Index: src/user/UserLoginView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package user;\r\n\r\nimport static jihye.DeliveryView.deliveryMenu;\r\nimport static user.UserRepository.printLoggedInUserInfo;\r\nimport static util.SimpleInput.input;\r\n\r\npublic class UserLoginView {\r\n    public static UserRepository ur;\r\n\r\n    public static void start() {\r\n\r\n        // repository.load();\r\n\r\n        while (true) {\r\n            System.out.println(\"\\n============쇼핑몰 프로그램==============\");\r\n            System.out.println(\"1. 회원가입\");\r\n            System.out.println(\"2. 로그인\");\r\n            System.out.println(\"3. 프로그램 종료\");\r\n            System.out.println(\"========================================\");\r\n\r\n            String menuNum = input(\">> \");\r\n\r\n            switch (menuNum) {\r\n                case \"1\":\r\n                    signUpUser();\r\n                    break;\r\n                case \"2\":\r\n                    callLogin();\r\n                    break;\r\n                case \"3\":\r\n                    boolean flag = exitProgram();\r\n                    if (flag) return;\r\n                default:\r\n                    System.out.println(\"\\n메뉴를 잘못 선택했습니다.\");\r\n            }\r\n        }\r\n    } // start end\r\n\r\n    private static void signUpUser() {\r\n        System.out.println(\"***************회원가입 필수 입력 항목************\");\r\n        String name = input(\"이름 : \");\r\n        String password = input(\"비밀번호 : \");\r\n        String email = input(\"이메일 : \");\r\n        String nickname = input(\"별명 : \");\r\n        int age = Integer.parseInt(input(\"나이 : \"));\r\n        String gender = input(\"성별 : \");\r\n        String address = input(\"주소 : \");\r\n\r\n        User newUser = new User(name, password, email, age, address, gender, nickname);\r\n        UserRepository.addUser(newUser);\r\n    }\r\n\r\n    private static void callLogin() {\r\n        System.out.println(\"***************로그인 필수 입력 항목************\");\r\n        String name = input(\"이름 : \");\r\n        String password = input(\"비밀번호 : \");\r\n        UserRepository.login(name, password);\r\n        mainPage();\r\n    }\r\n\r\n    public static void mainPage() {\r\n        boolean b = ur.loginTrue();\r\n        while (b) {\r\n            System.out.println(\"\\n=============카테고리 페이지==============\");\r\n            System.out.println(\"1. 카테고리\");\r\n            System.out.println(\"2. 마이페이지\");\r\n            System.out.println(\"3. 비밀번호 변경\");\r\n            System.out.println(\"4. 배송조회\");\r\n            System.out.println(\"5. 장바구니\");\r\n            System.out.println(\"6. 로그아웃\");\r\n            System.out.println(\"========================================\");\r\n\r\n\r\n            String menuNum = input(\">> \");\r\n\r\n            switch (menuNum) {\r\n                case \"1\":\r\n//                    signUpUser();\r\n                    break;\r\n                case \"2\":\r\n                    printLoggedInUserInfo();\r\n                    break;\r\n                case \"3\":\r\n                    passwordChange();\r\n                    break;\r\n                case \"4\":\r\n                    deliveryMenu();\r\n                    break;\r\n                case \"6\":\r\n                    byebye();\r\n                    b = false;\r\n                    break;\r\n                default:\r\n                    System.out.println(\"\\n메뉴를 잘못 선택했습니다.\");\r\n            }\r\n        }\r\n    } // start\r\n\r\n\r\n\r\n    public static void byebye() {\r\n        UserRepository.logout();\r\n    }\r\n\r\n\r\n    static boolean exitProgram() {\r\n        String exit = input(\"- 프로그램을 종료합니까? [y/n]\\n>> \");\r\n        if (exit.equals(\"y\")) {\r\n            System.out.println(\"프로그램을 종료합니다!\");\r\n            return true;\r\n        } else {\r\n            System.out.println(\"프로그램 종료를 취소합니다.\");\r\n            return false;\r\n        }\r\n    }\r\n\r\n\r\n    public static void passwordChange() {\r\n        String pas = input(\"현재 비밀번호를 입력해주세요.\");\r\n        String newPas = input(\"변경할 비밀번호를 입력해주세요.\");\r\n        String pass = UserRepository.getPass();\r\n\r\n        if (pass.equals(pas)) {\r\n            UserRepository.ChangePass(newPas);\r\n        }\r\n//        boolean b = ur.mypage();\r\n//        while (b) {\r\n//            String oldPass = input(\"현재 비밀번호를 입력해주세요\");\r\n//            String newPass = input(\"변경 할 비밀번호를 입력해주세요\");\r\n//        }\r\n    }\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/user/UserLoginView.java b/src/user/UserLoginView.java
+--- a/src/user/UserLoginView.java	(revision c026665c80f06d3525a4f196816783c9fc4acc2c)
++++ b/src/user/UserLoginView.java	(date 1714380600900)
+@@ -12,7 +12,7 @@
+         // repository.load();
+ 
+         while (true) {
+-            System.out.println("\n============쇼핑몰 프로그램==============");
++            System.out.println("\n============\uD83D\uDC5C쇼핑몰 프로그램\uD83D\uDC5C==============");
+             System.out.println("1. 회원가입");
+             System.out.println("2. 로그인");
+             System.out.println("3. 프로그램 종료");
+@@ -37,7 +37,7 @@
+     } // start end
+ 
+     private static void signUpUser() {
+-        System.out.println("***************회원가입 필수 입력 항목************");
++        System.out.println("***************회원가입 필요 양식************");
+         String name = input("이름 : ");
+         String password = input("비밀번호 : ");
+         String email = input("이메일 : ");
+@@ -51,7 +51,7 @@
+     }
+ 
+     private static void callLogin() {
+-        System.out.println("***************로그인 필수 입력 항목************");
++        System.out.println("***************로그인**************");
+         String name = input("이름 : ");
+         String password = input("비밀번호 : ");
+         UserRepository.login(name, password);
+@@ -61,7 +61,7 @@
+     public static void mainPage() {
+         boolean b = ur.loginTrue();
+         while (b) {
+-            System.out.println("\n=============카테고리 페이지==============");
++            System.out.println("\n=============📜카테고리 페이지📜==============");
+             System.out.println("1. 카테고리");
+             System.out.println("2. 마이페이지");
+             System.out.println("3. 비밀번호 변경");
+Index: src/jihye/DeliveryView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package jihye;\r\n\r\nimport java.util.Scanner;\r\nimport java.util.Timer;\r\nimport java.util.TimerTask;\r\n\r\nimport static user.UserLoginView.mainPage;\r\n\r\npublic class DeliveryView {\r\n\r\n    private static Scanner scanner = new Scanner(System.in);\r\n\r\n    // 배송조회 시작 화면 메서드\r\n    public static void deliveryMenu() {\r\n        while (true) {\r\n            System.out.println(\"=======================배송조회=========================\");\r\n            System.out.println(\"1. 구매 목록 보기\");\r\n            System.out.println(\"2. 뒤로 가기\");\r\n\r\n            String menuNum = input(\">> \");\r\n\r\n            switch (menuNum) {\r\n                case \"1\":\r\n                    showPurchaseList();\r\n                    break;\r\n                case \"2\":\r\n                    mainPage();\r\n                    return;\r\n                default:\r\n                    System.out.println(\"\\n잘못된 메뉴 번호입니다. 제대로 입력해주세요.\");\r\n                    break;\r\n            }\r\n        }\r\n    }\r\n\r\n    // 1. 구매 목록 보기 기능 메서드\r\n    private static void showPurchaseList() {\r\n        System.out.println(\"\\n========================구매 목록=============================\");\r\n        // DeliveryRepository 클래스에 임시로 넣어둔 리스트 반복해서 가져오기\r\n        for (Buy buy : DeliveryRepository.buyList) {\r\n            System.out.println(\"브랜드: \" + buy.getBrand() + \", 상품명: \" + buy.getProductName()\r\n                    + \", 상품 금액 : \" + buy.getOrderTotalValue() + \", 주소 : \" + buy.getAddress());\r\n        }\r\n        System.out.println(\"=============================================================\");\r\n        System.out.println(\"\\n1. 구매 상품 배송 현황 확인하기\");\r\n        String menuNum2 = input(\">> \");\r\n        switch (menuNum2) {\r\n            case \"1\":\r\n                deliveryStatus();\r\n                break;\r\n            default:\r\n                System.out.println(\"\\n잘못된 메뉴 번호입니다. 제대로 입력해주세요.\");\r\n                break;\r\n\r\n        }\r\n    }\r\n\r\n    // 구매 상품 배송 현황 확인하는 기능 메서드\r\n    private static void deliveryStatus() {\r\n        System.out.println(\"\\n==========================배송 현황==========================\");\r\n\r\n        String[] steps = {\">> 주문 확인 중 \\uD83D\\uDED2\", \" → 배송 준비 중 \\uD83D\\uDCE6\", \" → 배송 중 \\uD83D\\uDE9A\", \" → 배송 완료 \\u2705\"}; // 모든 단계를 정의\r\n\r\n        StringBuilder currentSteps = new StringBuilder(); // 현재까지의 단계를 저장할 문자열\r\n\r\n        Timer timer = new Timer();\r\n        timer.schedule(new TimerTask() {\r\n            int currentStepIndex = 0; // 현재 진행 중인 단계 인덱스로 가져오기\r\n\r\n            @Override\r\n            public void run() {\r\n                // 현재 단계 추가\r\n                currentSteps.append(steps[currentStepIndex]);\r\n\r\n                // 현재까지의 단계 출력\r\n                System.out.print(\"\\r\" + currentSteps.toString());\r\n                System.out.flush(); // 출력을 강제로 갱신\r\n\r\n                // 다음 단계 인덱스로 이동\r\n                currentStepIndex++;\r\n\r\n                // 모든 단계가 출력되었다면 타이머 종료\r\n                if (currentStepIndex == steps.length) {\r\n                    timer.cancel();\r\n                    System.out.println(); // 줄 바꿈 추가\r\n\r\n                    //selectMenu();\r\n                }\r\n            }\r\n        }, 0, 5000); // 처음 실행 후 3초마다 단계 진행되도록\r\n\r\n        System.out.println(\"  \\u2705 배송 현황 확인 완료시 아래 원하시는 메뉴를 입력하세요.\\n   \\uD83E\\uDC7B \\uD83E\\uDC7B \\uD83E\\uDC7B \\uD83E\\uDC7B \\uD83E\\uDC7B \\uD83E\\uDC7B \\n1. 구매 목록 재확인 하기 \\n2. 카테고리 페이지로 가기\\n\");\r\n        // 사용자 입력 대기\r\n        String input;\r\n        do {\r\n            input = input(\">> \").trim(); // 사용자 입력 받고 앞뒤 공백 제거\r\n            if (!input.isEmpty()) { // 입력이 비어있지 않으면\r\n                if (input.equals(\"1\")) {\r\n                    timer.cancel(); // 타이머 취소하여 단계 출력 멈춤\r\n                    showPurchaseList(); // 구매 목록 재확인 메서드 호출\r\n                    return; // 무한 루프 탈출\r\n                } else if (input.equals(\"2\")) {\r\n                    timer.cancel(); // 타이머 취소하여 단계 출력 멈춤\r\n                    mainPage(); // 다른 클래스의 mainPage() 메서드로 가야 함\r\n                    return; // 무한 루프 탈출\r\n                } else {\r\n                    System.out.println(\"잘못된 메뉴 번호입니다. 다시 제대로 입력해주세요.\");\r\n                }\r\n            }\r\n        } while (input.isEmpty()); // 입력이 비어있으면 계속해서 입력 대기\r\n\r\n}\r\n\r\nprivate static String input(String prompt) {\r\n    System.out.print(prompt);\r\n    return scanner.nextLine();\r\n}\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/jihye/DeliveryView.java b/src/jihye/DeliveryView.java
+--- a/src/jihye/DeliveryView.java	(revision c026665c80f06d3525a4f196816783c9fc4acc2c)
++++ b/src/jihye/DeliveryView.java	(date 1714380600902)
+@@ -13,7 +13,7 @@
+     // 배송조회 시작 화면 메서드
+     public static void deliveryMenu() {
+         while (true) {
+-            System.out.println("=======================배송조회=========================");
++            System.out.println("\n=======================배송조회=========================");
+             System.out.println("1. 구매 목록 보기");
+             System.out.println("2. 뒤로 가기");
+ 
+@@ -35,7 +35,7 @@
+ 
+     // 1. 구매 목록 보기 기능 메서드
+     private static void showPurchaseList() {
+-        System.out.println("\n========================구매 목록=============================");
++        System.out.println("\n========================🛒구매 목록🛒=============================");
+         // DeliveryRepository 클래스에 임시로 넣어둔 리스트 반복해서 가져오기
+         for (Buy buy : DeliveryRepository.buyList) {
+             System.out.println("브랜드: " + buy.getBrand() + ", 상품명: " + buy.getProductName()
+@@ -55,9 +55,10 @@
+         }
+     }
+ 
++
+     // 구매 상품 배송 현황 확인하는 기능 메서드
+     private static void deliveryStatus() {
+-        System.out.println("\n==========================배송 현황==========================");
++        System.out.println("\n==========================🚚배송 현황🚚==========================");
+ 
+         String[] steps = {">> 주문 확인 중 \uD83D\uDED2", " → 배송 준비 중 \uD83D\uDCE6", " → 배송 중 \uD83D\uDE9A", " → 배송 완료 \u2705"}; // 모든 단계를 정의
+ 
+@@ -89,7 +90,7 @@
+             }
+         }, 0, 5000); // 처음 실행 후 3초마다 단계 진행되도록
+ 
+-        System.out.println("  \u2705 배송 현황 확인 완료시 아래 원하시는 메뉴를 입력하세요.\n   \uD83E\uDC7B \uD83E\uDC7B \uD83E\uDC7B \uD83E\uDC7B \uD83E\uDC7B \uD83E\uDC7B \n1. 구매 목록 재확인 하기 \n2. 카테고리 페이지로 가기\n");
++        System.out.println(" \u2705 배송 현황 확인 완료시 아래 원하시는 메뉴를 입력하세요.\n   \uDC7B \uD83E\uDC7B \uD83E\uDC7B \uD83E\uDC7B \uD83E\uDC7B \uD83E\uDC7B \n1. 구매 목록 재확인 하기 \n2. 카테고리 페이지로 가기\n");
+         // 사용자 입력 대기
+         String input;
+         do {

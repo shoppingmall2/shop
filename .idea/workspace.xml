@@ -5,13 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8da80d29-be93-4260-b68c-117ae77cadc4" name="변경" comment=":bug: id 로그인 부분에서 repository에서 출력하는 부분 수정.">
+<<<<<<< HEAD
+      <change afterPath="$PROJECT_DIR$/src/jihye/BuyRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jihye/DeliveryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__25___6_12__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__25___6_12__________.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__25___6_12__________1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__25___6_12__________1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__29___3_17__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__29___3_17__________.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__29___6_20__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__29___6_20__________.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/kibeom/CartRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/kibeom/CartRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/jihye/Buy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/jihye/Buy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/jihye/DeliveryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/jihye/DeliveryRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/jihye/DeliveryView$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/jihye/DeliveryView.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/shop/kibeom/CartView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/kibeom/CartView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jihye/Buy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jihye/Buy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jihye/DeliveryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jihye/DeliveryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jihye/DeliveryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jihye/DeliveryView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kibeom/CartView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kibeom/CartView.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kibeom/CartView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kibeom/CartView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/UserLoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/UserLoginView.java" afterDir="false" />
+>>>>>>> e27756bca7ef7d92e8c6c56027e87a16fd77bcde
+      <change beforePath="$PROJECT_DIR$/src/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/UserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +74,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/shoppingmall2/shop.git&quot;,
-    &quot;accountId&quot;: &quot;9e10bbbc-4ddd-4eb9-b8f8-379149853e81&quot;
+    &quot;accountId&quot;: &quot;1b1c7b4d-3a7c-4f00-b33e-120301932d13&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -69,12 +87,30 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main2 병합 중&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/jinsanghun/Desktop/delopjava/shop/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;프로젝트&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;애플리케이션.Main.executor&quot;: &quot;Run&quot;,
+    &quot;애플리케이션.MyInfoMain.executor&quot;: &quot;Run&quot;,
+    &quot;애플리케이션.ShoppingRepository.executor&quot;: &quot;Run&quot;
+=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "seungyeonz에 #15개",
+    "git-widget-placeholder": "hun",
     "kotlin-language-version-configured": "true",
     "onboarding.tips.debug.path": "/Users/jinsanghun/Desktop/delopjava/shop/src/Main.java",
     "project.structure.last.edited": "프로젝트",
@@ -84,8 +120,9 @@
     "애플리케이션.Main.executor": "Run",
     "애플리케이션.MyInfoMain.executor": "Run",
     "애플리케이션.ShoppingRepository.executor": "Run"
+>>>>>>> e27756bca7ef7d92e8c6c56027e87a16fd77bcde
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="sanghun" />
@@ -188,7 +225,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -200,6 +249,7 @@
     <MESSAGE value=":white_check_mark: 마이페이지 추가" />
     <MESSAGE value=":white_check_mark: 자동입력 방지, 비밀번호 수정, 이메일 수정 추가 완료" />
     <MESSAGE value=":white_check_mark: id 로그인 부분에서 repository에서 출력하는 부분 수정." />
-    <option name="LAST_COMMIT_MESSAGE" value=":white_check_mark: id 로그인 부분에서 repository에서 출력하는 부분 수정." />
+    <MESSAGE value=":bug: id 로그인 부분에서 repository에서 출력하는 부분 수정." />
+    <option name="LAST_COMMIT_MESSAGE" value=":bug: id 로그인 부분에서 repository에서 출력하는 부분 수정." />
   </component>
 </project>
