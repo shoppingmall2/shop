@@ -9,8 +9,9 @@ public class CartRepository {
     public static List<Cart> CartList = new ArrayList<>();
 
     static {
-        CartList.add(new Cart("jacket", "TOP", 130000, "남성"));
-        CartList.add(new Cart("jean", "BOTTOM", 30000, "남성"));
+        CartList.add(new Cart("유니클로","jacket", "TOP", 130000, "남성"));
+        CartList.add(new Cart("리바이스","jean", "BOTTOM", 30000, "남성"));
+        CartList.add(new Cart("크록스","crocs", "SHOES", 40000, "남성"));
     }
 
     public static void addCartList(Cart cart) {
@@ -35,9 +36,9 @@ public class CartRepository {
             System.out.println( "제품 명 : " + cart.getItemName() + "\n" +
                     "제품 분류 : " + cart.getType() + "\n" +
                     "제품 가격 : " + cart.getPrice() + "\n" +
-                    "성별 : " + cart.getGender() + "\n" + "\n");
+                    "성별 : " + cart.getGender() + "\n");
         }
-
+        System.out.println("======================================");
     }
 
     public static Cart isContains(String itemName) { // 입력값 확인
