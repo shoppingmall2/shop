@@ -5,37 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8da80d29-be93-4260-b68c-117ae77cadc4" name="변경" comment=":bug: id 로그인 부분에서 repository에서 출력하는 부분 수정.">
-      <change afterPath="$PROJECT_DIR$/src/seungyeon/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/seungyeon/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/seungyeon/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__25___6_12__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__25___6_12__________.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__25___6_12__________1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__25___6_12__________1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__29___3_17__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__29___3_17__________.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__29___6_20__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__29___6_20__________.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/UserLoginView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/jihye2/Category.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/jihye2/Clothes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/jihye2/Nike.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/kibeom/CartRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/kibeom/CartRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/kibeom/CartView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/kibeom/CartView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/ItemRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/ItemRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/ItemView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/RankingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/RankingRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/RankingView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/RankingView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/Search.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/Search.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kibeom/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kibeom/CartRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kibeom/CartView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kibeom/CartView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seungyeon/ItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seungyeon/ItemRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seungyeon/ItemView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seungyeon/RankingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seungyeon/RankingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seungyeon/RankingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seungyeon/RankingView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seungyeon/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seungyeon/Search.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seungyeon/category.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/UserLoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/UserLoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__5__1___11_53__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__5__1___11_53__________.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,23 +67,23 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/jinsanghun/Desktop/delopjava/shop/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;프로젝트&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;애플리케이션.Main.executor&quot;: &quot;Run&quot;,
-    &quot;애플리케이션.MyInfoMain.executor&quot;: &quot;Run&quot;,
-    &quot;애플리케이션.ShoppingRepository.executor&quot;: &quot;Run&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "seungyeonz",
+    "kotlin-language-version-configured": "true",
+    "onboarding.tips.debug.path": "/Users/jinsanghun/Desktop/delopjava/shop/src/Main.java",
+    "project.structure.last.edited": "프로젝트",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "애플리케이션.Main.executor": "Run",
+    "애플리케이션.MyInfoMain.executor": "Run",
+    "애플리케이션.ShoppingRepository.executor": "Run"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="sanghun" />
