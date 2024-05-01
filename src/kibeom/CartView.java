@@ -1,16 +1,18 @@
 package kibeom;
 
+import jihye.Buy;
+import static jihye.DeliveryRepository.buyList;
+
+import jihye.BuyRepository;
+import jihye.DeliveryRepository;
+import jihye.DeliveryView;
 import user.User;
 import user.UserLoginView;
 import user.UserRepository;
 import util.SimpleInput;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static kibeom.CartRepository.getItems;
 import static kibeom.CartRepository.item;
@@ -70,10 +72,9 @@ public class CartView {
     한번에 2개 이상 주문하는 경우 입력값을 , 를 기준으로 배열에 담고
     그 배열의 인덱스로 item 의 price 에 접근.
     분기가 까다로워서 리팩터링 못하겠음
-     */
+     */   public static String itemName = null;
     private static void order() {
         // 주문할 제품명을 입력 받음
-        String itemName = null;
         try {
             itemName = SimpleInput.input("주문 하고 싶은 제품명을 입력해주세요. \n" + BLUE + "(여러 개일 경우 쉼표 ','로 구분)" + RESET + "\n>> ").trim();
         } catch (Exception e) {
@@ -123,10 +124,17 @@ public class CartView {
                     if (UserRepository.getUser().getMoney() >= sum) { // 잔액 확인
                         int currentMoney = UserRepository.getUser().getMoney() - sum; // 소지 금액에서 주문 총액 차감
                         UserRepository.getUser().setMoney(currentMoney);
+                        item.remove(itemName); // 주문한 제품 삭제
+
+                        // 주문한 상품 정보를 DeliveryView 클래스로 전달
+                        // null 지옥에서 빠지기 위한 3.
+                        //DeliveryView.addPurchasedItem(itemName);
+                        DeliveryView.addPurchasedItem(itemName);
+
                         // 주문한 제품 삭제
-                        for (String orderItem : orderList) {
-                            item.remove(orderItem.trim());
-                        }
+//                        for (String orderItem : orderList) {
+//                            item.remove(orderItem.trim());
+//                        }
                         System.out.println("감사합니다. 주문이 완료 되었습니다.\n총 결제 금액: " + sum + "\n현재 소지 금액: " + currentMoney);
                         System.out.println("배송지 정보 : " + UserRepository.getUser().getAddress());
                         System.out.println("공휴일 제외, 영업일 기준 1 ~ 3 일 이내 배송됩니다.");
@@ -160,6 +168,16 @@ public class CartView {
                         int currentMoney = UserRepository.getUser().getMoney() - price; // 소지 금액에서 상품 가격 차감
                         UserRepository.getUser().setMoney(currentMoney);
                         item.remove(itemName); // 주문한 제품 삭제
+                        //DeliveryRepository deliveryRepository = new DeliveryRepository();
+                        //HashMap buy = deliveryRepository.buy(itemName);
+                        //System.out.println("buy = " + buy);
+
+                        //DeliveryRepository.showPurchaseList(itemName);
+                        // 주문한 상품 정보를 DeliveryView 클래스로 전달
+                        // null 지옥에서 빠지기 위한 4.
+                        DeliveryView.addPurchasedItem(itemName);
+
+                        //buyList.add(new Buy(itemName, (String) item.get(itemName).get("gender"), (Integer) item.get(itemName).get("price"), (String) item.get(itemName).get("type")));
                         System.out.println("감사합니다. 주문이 완료 되었습니다.\n총 결제 금액: " + price + "\n현재 소지 금액: " + currentMoney);
                         System.out.println("배송지 정보 : " + UserRepository.getUser().getAddress());
                         System.out.println("공휴일 제외, 영업일 기준 1 ~ 3 일 이내 배송됩니다.");

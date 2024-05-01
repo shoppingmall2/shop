@@ -3,57 +3,57 @@ package jihye;
 public class Buy {
 
     // 구매한 목록을 위한 상품 정보 하나하나
-    private String brand;  // 브랜드명
-    private String productName;   // 상품명
-    private int orderTotalValue;    // 가격
-    private String address;      // 주소
+    private String itemName;  // 브랜드명
+    private String type;   // 상품명
+    private int price;    // 가격
+    private String gender;      // 주소
 
-    public Buy(String brand, String productName, int orderTotalValue, String address) {
-        this.brand = brand;
-        this.productName = productName;
-        this.orderTotalValue = orderTotalValue;
-        this.address = address;
+    public Buy(String itemName, String type, int price, String gender) {
+        this.itemName = itemName;
+        this.type = type;
+        this.price = price;
+        this.gender = gender;
     }
 
-    public String getBrand() {
-        return brand;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getType() {
+        return type;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public int getOrderTotalValue() {
-        return orderTotalValue;
+    public int getPrice() {
+        return price;
     }
 
-    public void setOrderTotalValue(int orderTotalValue) {
-        this.orderTotalValue = orderTotalValue;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public String getAddress() {
-        return address;
+    public String getGender() {
+        return gender;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     @Override
     public String toString() {
         return "Buy{" +
-                "brand='" + brand + '\'' +
-                ", productName='" + productName + '\'' +
-                ", orderTotalValue=" + orderTotalValue +
-                ", address='" + address + '\'' +
+                "itemName='" + itemName + '\'' +
+                ", type='" + type + '\'' +
+                ", price=" + price +
+                ", gender='" + gender + '\'' +
                 '}';
     }
 }

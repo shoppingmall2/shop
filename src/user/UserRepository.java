@@ -16,6 +16,8 @@ public class UserRepository {
                 23, "서울특별시 대림동", "남", "상후잉"));
         userList.add(new User("진상훈", "kk002281", "t1231231nsdldkdlel@naver.com",
                 19, "서울특별시 대동", "남", "김"));
+        userList.add(new User("강지혜", "1", "t1231231nsdldkdlel@naver.com",
+                19, "서울특별시 대동", "남", "김"));
 
     }
 
