@@ -1,6 +1,5 @@
 package kibeom;
 
-import seungyeon.Cart;
 import seungyeon.Search;
 import jihye.Buy;
 
@@ -12,12 +11,9 @@ import util.SimpleInput;
 import java.lang.reflect.Array;
 import java.util.*;
 
-import static kibeom.CartRepository.getItems;
-import static kibeom.CartRepository.item;
 import java.util.*;
 
 import static kibeom.CartRepository.CartList;
-import static seungyeon.ItemRepository.addDeliveryItem;
 
 
 public class CartView {
@@ -32,7 +28,6 @@ public class CartView {
     public static final String BLUE = "\033[0;34m";
 
 
-
     public CartView() {
         this.cartRepo = new CartRepository();
     }
@@ -44,7 +39,7 @@ public class CartView {
             System.out.println("============ 장바구니 목록 =============");
 
             if (CartList.isEmpty()) {
-                System.out.println(BLUE+"장바구니가 비어있습니다."+RESET);
+                System.out.println(BLUE + "장바구니가 비어있습니다." + RESET);
             } else {
                 CartRepository.showCartRepository();
 
@@ -94,9 +89,9 @@ public class CartView {
             totalOrderPrice = 0;
 
             for (String singleItem : orderList) {
-                Cart orderItem = CartRepository.isContains(singleItem.trim());
+                kibeom.Cart orderItem = CartRepository.isContains(singleItem.trim());
                 if (orderItem == null) {
-                    System.out.println(RED +singleItem  +" 상품은 장바구니에 없습니다."+RESET);
+                    System.out.println(RED + singleItem + " 상품은 장바구니에 없습니다." + RESET);
                     continue;
                 }
                 int price = orderItem.getPrice();
@@ -133,4 +128,5 @@ public class CartView {
                 System.out.println("제대로 입력하세요.");
         }
     }
+}
 

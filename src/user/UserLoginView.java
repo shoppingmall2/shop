@@ -4,9 +4,9 @@ import jihye.DeliveryView;
 import kibeom.CartView;
 
 
+import static seungyeon.Category.openCate;
 import static user.UserRepository.generateCaptcha;
 import static user.UserRepository.generateThisTime;
-import static seungyeon.category.openCate;
 import static user.UserRepository.*;
 import static util.SimpleInput.input;
 
@@ -121,7 +121,6 @@ public class UserLoginView {
                     System.out.println(YELLOW + "! 자동 입력 방지 문자를 확인해주세요" + RESET);
                     System.out.println(GREEN + "# 1. 자동 입력 방지 문자 새로고침하기" + RESET);
                     int menuNum = Integer.parseInt(input(">> "));
-
                     switch (menuNum) {
                         case 1:
                             captcha = generateCaptcha(6);
