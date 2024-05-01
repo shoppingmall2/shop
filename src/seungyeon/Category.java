@@ -120,6 +120,15 @@ import user.UserLoginView;
 import java.util.Scanner;
 
 public class Category {
+    public static final String RESET = "\033[0m";
+    public static final String RED = "\033[0;31m";
+    public static final String GREEN = "\033[0;32m";
+    public static final String YELLOW = "\033[0;33m";
+    public static final String BLUE = "\033[0;34m";
+    public static final String PURPLE = "\033[0;35m";
+    public static final String CYAN = "\033[0;36m";
+    public static final String WHITE = "\033[0;37m";
+
     public static void openCate() {
         ItemRepository itemRepository = new ItemRepository();
         Search search = new Search(itemRepository);
@@ -130,10 +139,12 @@ public class Category {
         String choice;
 
         do {
+            System.out.println("\n============\uD83C\uDFF7\uFE0F제품 카테고리\uD83C\uDFF7\uFE0F============");
             System.out.println("1. 제품 검색하기");
             System.out.println("2. 제품 랭킹 보기");
-            System.out.println("3. 뒤로가기\n");
-            System.out.print("메뉴를 선택하세요: ");
+            System.out.println("3. 뒤로가기");
+            System.out.println("========================================");
+            System.out.print(">> ");
             choice = scanner.nextLine();
 
             switch (choice) {
@@ -149,7 +160,7 @@ public class Category {
                     userLoginView.mainPage();
                     break;
                 default:
-                    System.out.println("잘못된 선택입니다. 다시 선택해주세요.");
+                    System.out.println(RED + "잘못된 메뉴 번호입니다. 다시 선택해주세요." + RESET);
             }
         } while (!choice.equals("3"));
 
@@ -160,38 +171,36 @@ public class Category {
         String itemName;
 
         do {
-            System.out.print("\n검색 할 상품의 이름을 입력하세요.\n (exit 입력 시 검색 종료)\n\n>> ");
+            System.out.print("\n검색 할 상품의 이름을 입력하세요.\n" + BLUE + "(exit 입력 시 검색 종료)" + RESET + "\n>> ");
             itemName = scanner.nextLine().trim();
-            System.out.print("\n");
-
+            //System.out.print("\n");
             if (itemName.equalsIgnoreCase("exit")) {
                 break;
             }
-
             boolean found = search.searchItemByName(itemName);
 
             if (found) {
                 System.out.println("\n1. 제품 장바구니에 넣기");
                 System.out.println("2. 재 검색하기");
                 System.out.println("3. 뒤로가기");
-                System.out.print("\n메뉴를 선택하세요: ");
+                System.out.print(">> ");
                 String choice = scanner.nextLine();
 
                 switch (choice) {
                     case "1":
                         Cart.addItem(itemName);
-                        System.out.println("제품이 장바구니에 추가되었습니다.");
+                        System.out.println("✨ 제품이 장바구니에 추가되었습니다.");
                         break;
                     case "2":
                         break;
                     case "3":
                         return;
                     default:
-                        System.out.println("잘못된 선택입니다. 다시 선택해주세요.");
+                        System.out.println(RED + "잘못된 메뉴 번호입니다. 다시 선택해주세요." + RESET);
                         break;
                 }
             } else {
-                System.out.println("검색한 제품을 찾을 수 없습니다.");
+                System.out.println("⚠ 검색한 제품을 찾을 수 없습니다.");
             }
         } while (true);
     }
