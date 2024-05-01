@@ -23,7 +23,7 @@ public class User {
         this.address = address;
         this.gender = gender;
         this.nickname = nickname;
-        this.money = 100000; // 0427 money 추가
+        this.money = 300000; // 0427 money 추가
     }
 
     public int getMoney() {

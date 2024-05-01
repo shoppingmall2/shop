@@ -11,9 +11,8 @@ import util.SimpleInput;
 import java.lang.reflect.Array;
 import java.util.*;
 
-import java.util.*;
-
 import static kibeom.CartRepository.CartList;
+import static jihye.DeliveryRepository.buyList;
 
 
 public class CartView {
@@ -111,6 +110,7 @@ public class CartView {
                     UserRepository.getUser().setMoney(currentMoney);
                     for (String singleItem : orderList) {
                         Cart orderItem = CartRepository.isContains(singleItem.trim());
+                        buyList.add(new Buy(orderItem.getBrand(), orderItem.getItemName(), orderItem.getPrice(),UserRepository.getUser().getAddress()));
                         CartList.remove(orderItem);
                     }
                     System.out.println("감사합니다. 주문이 완료 되었습니다.\n총 결제 금액: " + totalOrderPrice + "\n현재 소지 금액: " + currentMoney);

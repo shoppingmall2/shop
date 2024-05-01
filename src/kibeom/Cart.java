@@ -2,13 +2,15 @@ package kibeom;
 
 public class Cart {
 
+    private String brand;
     private String itemName;
     private String type;
     private int price;
     private String gender;
 
 
-    public Cart(String itemName, String type, int price, String gender) {
+    public Cart(String brand, String itemName, String type, int price, String gender) {
+        this.brand = brand;
         this.itemName = itemName;
         this.type = type;
         this.price = price;
@@ -18,14 +20,24 @@ public class Cart {
     public Cart() {
     }
 
+
     @Override
     public String toString() {
         return "Cart{" +
-                "itemName='" + itemName + '\'' +
+                "brand='" + brand + '\'' +
+                ", itemName='" + itemName + '\'' +
                 ", type='" + type + '\'' +
                 ", price=" + price +
                 ", gender='" + gender + '\'' +
                 '}';
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public String getItemName() {
