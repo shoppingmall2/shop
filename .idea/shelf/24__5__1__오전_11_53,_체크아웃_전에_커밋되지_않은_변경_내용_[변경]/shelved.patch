@@ -1,0 +1,1199 @@
+Index: src/user/UserLoginView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package user;\r\n\r\nimport jihye.DeliveryView;\r\nimport kibeom.CartView;\r\n\r\nimport static seungyeon.category.openCate;\r\nimport static user.UserRepository.generateCaptcha;\r\nimport static user.UserRepository.generateThisTime;\r\nimport static util.SimpleInput.input;\r\n\r\npublic class UserLoginView {\r\n    static UserRepository ur;\r\n    public static final String RESET = \"\\033[0m\";\r\n    public static final String GREEN = \"\\033[0;32m\";\r\n    public static final String YELLOW = \"\\033[0;33m\";\r\n    public static final String BLUE = \"\\033[0;34m\";\r\n    public static final String PURPLE = \"\\033[0;35m\";\r\n    public static final String CYAN = \"\\033[0;36m\";\r\n    public static final String WHITE = \"\\033[0;37m\";\r\n\r\n    public void start() {\r\n\r\n        // repository.load();\r\n\r\n        while (true) {\r\n            System.out.println(\"\\n============쇼핑몰 프로그램==============\");\r\n            System.out.println(\"1. 회원가입\");\r\n            System.out.println(\"2. 로그인\");\r\n            System.out.println(\"3. 프로그램 종료\");\r\n            System.out.println(\"========================================\");\r\n\r\n            String menuNum = input(\">> \");\r\n\r\n            switch (menuNum) {\r\n                case \"1\":\r\n                    signUpUser();\r\n                    break;\r\n                case \"2\":\r\n                    callLogin();\r\n                    break;\r\n                case \"3\":\r\n                    boolean flag = exitProgram();\r\n                    if (flag) return;\r\n                default:\r\n                    System.out.println(\"\\n메뉴를 잘못 선택했습니다.\");\r\n            }\r\n        }\r\n    } // start end\r\n\r\n    private static void signUpUser() {\r\n        String password = null;\r\n        System.out.println(\"***************회원가입 필수 입력 항목************\");\r\n        String name = input(GREEN+ \"이름 : \"+ RESET);\r\n        System.out.println(\"가입 가능한 회원입니다.\");\r\n        while (true) {\r\n            System.out.println(GREEN+ \"비밀번호는 8글자 이상이여야 합니다.\" + RESET);\r\n            String passwordChek = input(GREEN+ \"비밀번호 : \"+ RESET);\r\n            if (passwordChek.length() >= 8 ) {\r\n                password = passwordChek;\r\n                System.out.println(GREEN+ \"사용 가능한 패스워드입니다.\"+RESET);\r\n                break;\r\n            } else {\r\n                System.out.println(YELLOW+ \"가입 시 비밀번호 조건을 확인해주세요.\"+RESET);\r\n            }\r\n        }\r\n        String email = input(GREEN+ \"이메일 : \"+RESET);\r\n        String nickname = input(GREEN+ \"별명 : \"+RESET);\r\n        int age = Integer.parseInt(input(GREEN+ \"나이 : \"+RESET));\r\n        String gender = input(GREEN+ \"성별 : \"+RESET);\r\n        String address = input(GREEN+ \"주소 : \"+RESET);\r\n        String captcha = generateCaptcha(6);\r\n        String agree = input(GREEN+ \"개인정보 수집 및 회원가입에 동의하시겠습니까? [Y, N]\\n >> \"+RESET).toUpperCase();\r\n        if (agree.equals(\"Y\")){\r\n            System.out.println(GREEN+ generateThisTime() + \"에 개인정보에 동의하셨습니다.\"+RESET);\r\n            System.out.println(GREEN+ \"자동 입력 방지 문자: \" + captcha+RESET);\r\n            while (true) {\r\n                String captchaTrue = input(GREEN+ \"자동 입력 방지 문자를 보이는대로 입력해주세요. \\n >>\"+RESET);\r\n                if (captchaTrue.equals(captcha))  {\r\n                    User newUser = new User(name, password, email, age, address, gender, nickname);\r\n                    UserRepository.addUser(newUser);\r\n                    System.out.println(GREEN+ \"#. 회원가입이 완료되었습니다.\"+RESET);\r\n                    break;\r\n                } else {\r\n                    System.out.println(YELLOW+ \"! 자동 입력 방지 문자를 확인해주세요\"+RESET);\r\n                    System.out.println(GREEN+ \"# 1. 자동 입력 방지 문자 새로고침하기\"+RESET);\r\n                    int menuNum = Integer.parseInt(input(\">> \"));\r\n\r\n                    switch (menuNum) {\r\n                        case 1 :\r\n                            captcha = generateCaptcha(6);\r\n                            System.out.println(GREEN+ \"자동 입력 방지 문자: \" + captcha+RESET);\r\n                    }\r\n                }\r\n            }\r\n        } else {\r\n            System.out.println(YELLOW+ \"그럼 가입하지마\"+RESET);\r\n        }\r\n    }\r\n\r\n    private void callLogin() {\r\n        System.out.println(\"***************로그인 필수 입력 항목************\");\r\n        String name = input(\"이름 : \");\r\n        String password = input(\"비밀번호 : \");\r\n        boolean login = UserRepository.login(name, password);\r\n        if (login) {\r\n            System.out.println(\"로그인 성공!\");\r\n            System.out.printf(\"%s님 환영합니다.\",name);\r\n        } else {\r\n            System.out.println(\"회원정보를 확인해주세요.\");\r\n        }\r\n\r\n        mainPage();\r\n    }\r\n\r\n    public void mainPage() {\r\n        boolean b = ur.loginTrue();\r\n        while (b) {\r\n            System.out.println(\"\\n=============카테고리 페이지==============\");\r\n            System.out.println(\"1. 카테고리\");\r\n            System.out.println(\"2. 마이페이지\");\r\n            System.out.println(\"3. 회원정보 수정\");\r\n            System.out.println(\"4. 배송조회\");\r\n            System.out.println(\"5. 장바구니\");\r\n            System.out.println(\"6. 로그아웃\");\r\n            System.out.println(\"========================================\");\r\n\r\n\r\n            String menuNum = input(\">> \");\r\n\r\n            switch (menuNum) {\r\n                case \"1\":\r\n                    openCate();\r\n                    break;\r\n                case \"2\":\r\n                    printLoggedInUserInfo();\r\n                    break;\r\n                case \"3\":\r\n                    passCheck();\r\n                    check = true;\r\n                    break;\r\n                case\"4\":\r\n                    DeliveryView deliveryView = new DeliveryView();\r\n                    deliveryView.deliveryMenu();\r\n                    break;\r\n                case\"5\":\r\n                    CartView cartView = new CartView();\r\n                    cartView.showCartRepository();\r\n                case \"6\":\r\n                    byebye();\r\n                    break;\r\n                default:\r\n                    System.out.println(\"\\n메뉴를 잘못 선택했습니다.\");\r\n            }\r\n        }\r\n    } // start\r\n\r\n    public void byebye() {\r\n        UserRepository.logout();\r\n        System.out.println(\"로그아웃 되었습니다.\");\r\n        start();\r\n    }\r\n\r\n\r\n    boolean check = true;\r\n    public void passCheck() {\r\n        boolean b = ur.loginTrue();\r\n        while (b && check) {\r\n            String check = input(\"현재 로그인한 계정의 비밀번호를 입력해주세요. \");\r\n            boolean isLogin = UserRepository.loginCheck(check);\r\n            if (isLogin) {\r\n                changeInfo();\r\n            } else {\r\n                System.out.println(\"비밀번호를 확인해주세요\");\r\n                break;\r\n            }\r\n        }\r\n    }\r\n\r\n    public void changeInfo() {\r\n        boolean b = ur.loginTrue();\r\n        while (b && check) {\r\n            System.out.println(\"\\n=============회원정보 수정==============\");\r\n            System.out.println(\"# 1. 별명 변경하기\");\r\n            System.out.println(\"# 2. 배송지 수정하기\");\r\n            System.out.println(\"# 3. 이메일 변경하기\");\r\n            System.out.println(\"# 4. 비밀번호 변경하기\");\r\n            System.out.println(\"# 5. 뒤로가기\");\r\n            System.out.println(\"========================================\");\r\n\r\n\r\n            String menuNum = input(\">> \");\r\n\r\n            switch (menuNum) {\r\n                case \"1\":\r\n                    nicknameChange();\r\n                    break;\r\n                case \"2\":\r\n                    printLoggedInUserInfo();\r\n                    break;\r\n                case \"3\":\r\n                    check=true;\r\n                    emailChange();\r\n                    break;\r\n                case \"4\":\r\n                    check = true;\r\n                    passwordChange();\r\n                    break;\r\n                case \"5\":\r\n                    mainPage();\r\n                case \"6\":\r\n                    byebye();\r\n                    b = false;\r\n                    break;\r\n                default:\r\n                    System.out.println(\"\\n메뉴를 잘못 선택했습니다.\");\r\n            }\r\n        }\r\n    }\r\n\r\n\r\n    boolean exitProgram() {\r\n        String exit = input(\"- 프로그램을 종료합니까? [y/n]\\n>> \");\r\n        if (exit.equals(\"y\")) {\r\n            System.out.println(\"프로그램을 종료합니다!\");\r\n            return true;\r\n        } else {\r\n            System.out.println(\"프로그램 종료를 취소합니다.\");\r\n            return false;\r\n        }\r\n    }\r\n\r\n\r\n\r\n    public static void printLoggedInUserInfo() {\r\n        if (UserRepository.loggedInUser != null) {\r\n            System.out.println(\"***************로그인한 회원 정보**************\");\r\n            System.out.println(\"이름 : \" + UserRepository.loggedInUser.getName());\r\n            System.out.println(\"나이 : \" + UserRepository.loggedInUser.getAge());\r\n            System.out.println(\"배송지 주소 : \"+ UserRepository.loggedInUser.getAddress());\r\n            System.out.println(\"별명 : \" + UserRepository.loggedInUser.getNickname());\r\n            System.out.println(\"성별 : \" +UserRepository.loggedInUser.getGender());\r\n            System.out.println(\"이메일 : \" + UserRepository.loggedInUser.getEmail());\r\n            System.out.println(\"비번 : \" + UserRepository.blindPassword());\r\n        } else {\r\n            System.out.println(\"로그인한 회원이 없습니다.\");\r\n        }\r\n    }\r\n\r\n\r\n    public void passwordChange() {\r\n        System.out.println(\"현재 비밀번호를 입력해주세요\");\r\n        String pas = input(\">> \");\r\n        String pass = UserRepository.getPass();\r\n        if (pass.equals(pas)) {\r\n            System.out.println(\"변경할 비밀번호를 입력해주세요.\");\r\n            String newPas = input(\">> \");\r\n            UserRepository.ChangePass(newPas);\r\n            System.out.println(\"#. 비밀번호가 변경되었습니다.\");\r\n            check = false;\r\n        } else {\r\n            System.out.println(\"비밀번호가 일치하지 않습니다.\");\r\n\r\n        }\r\n    }\r\n    public void nicknameChange() {\r\n        System.out.println(\"변경할 닉네임을 입력해주세요.\");\r\n        String newNick = input(\">> \");\r\n        UserRepository.changeNickname(newNick);\r\n        System.out.printf(\"#. 닉네임이 %s 로 변경되었습니다.\", newNick);\r\n        check = false;\r\n    }\r\n    public void emailChange() {\r\n        System.out.println(\"현재 이메일을 입력해주세요\");\r\n        String thismail = input(\">> \");\r\n        String oldmail = UserRepository.getEmail();\r\n        if (oldmail.equals(thismail)) {\r\n            System.out.println(\"변경할 이메일을 입력해주세요.\");\r\n            String newEmail = input(\">> \");\r\n            UserRepository.changeEmail(newEmail);\r\n            System.out.println(\"#. 이메일이 변경되었습니다.\");\r\n            check = false;\r\n        } else {\r\n            System.out.println(\"이메일이 일치하지 않습니다.\");\r\n\r\n        }\r\n    }\r\n\r\n}\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/user/UserLoginView.java b/src/user/UserLoginView.java
+--- a/src/user/UserLoginView.java	(revision f2eff2403dd8fe76519c7c00213e2f34bf8ecd2f)
++++ b/src/user/UserLoginView.java	(date 1714531843165)
+@@ -3,7 +3,8 @@
+ import jihye.DeliveryView;
+ import kibeom.CartView;
+ 
+-import static seungyeon.category.openCate;
++import static seungyeon.Category.openCate;
++
+ import static user.UserRepository.generateCaptcha;
+ import static user.UserRepository.generateThisTime;
+ import static util.SimpleInput.input;
+Index: src/seungyeon/RankingRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package seungyeon;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.HashMap;\r\nimport java.util.List;\r\nimport java.util.Map;\r\nimport java.util.Random;\r\n\r\n\r\n\r\npublic class RankingRepository {\r\n    private ItemRepository itemRepository;\r\n    private Map<String, Integer> rankings;\r\n\r\n    public RankingRepository(ItemRepository itemRepository) {\r\n        this.itemRepository = itemRepository;\r\n        rankings = new HashMap<>();\r\n        // 아이템 랭킹 초기화\r\n        initializeRankings();\r\n    }\r\n\r\n    private void initializeRankings() {\r\n        Map<String, Map<String, Object>> items = itemRepository.getItems();\r\n        for (String itemName : items.keySet()) {\r\n            Map<String, Object> itemDetails = items.get(itemName);\r\n            int price = (int) itemDetails.get(\"price\");\r\n            rankings.put(itemName, price);\r\n        }\r\n    }\r\n\r\n    // 랜덤으로 상위 N개의 아이템을 가져오는 메서드\r\n    public Map<String, Integer> getTopRankings(int n) {\r\n        Map<String, Integer> topRankings = new HashMap<>();\r\n        List<String> itemNames = new ArrayList<>(rankings.keySet());\r\n        Random random = new Random();\r\n\r\n        for (int i = 0; i < n; i++) {\r\n            String itemName = itemNames.get(random.nextInt(itemNames.size()));\r\n            topRankings.put(itemName, rankings.get(itemName));\r\n        }\r\n\r\n        return topRankings;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/seungyeon/RankingRepository.java b/src/seungyeon/RankingRepository.java
+--- a/src/seungyeon/RankingRepository.java	(revision f2eff2403dd8fe76519c7c00213e2f34bf8ecd2f)
++++ b/src/seungyeon/RankingRepository.java	(date 1714529327958)
+@@ -7,36 +7,70 @@
+ import java.util.Random;
+ 
+ 
++//
++//public class RankingRepository {
++//    private ItemRepository itemRepository;
++//    private Map<String, Integer> rankings;
++//
++//    public RankingRepository(ItemRepository itemRepository) {
++//        this.itemRepository = itemRepository;
++//        rankings = new HashMap<>();
++//        // 아이템 랭킹 초기화
++//        initializeRankings();
++//    }
++//
++//    private void initializeRankings() {
++//        Map<String, Map<String, Object>> items = itemRepository.getItems();
++//        for (String itemName : items.keySet()) {
++//            Map<String, Object> itemDetails = items.get(itemName);
++//            int price = (int) itemDetails.get("price");
++//            rankings.put(itemName, price);
++//        }
++//    }
++//
++//    // 랜덤으로 상위 N개의 아이템을 가져오는 메서드
++//    public Map<String, Integer> getTopRankings(int n) {
++//        Map<String, Integer> topRankings = new HashMap<>();
++//        List<String> itemNames = new ArrayList<>(rankings.keySet());
++//        Random random = new Random();
++//
++//        for (int i = 0; i < n; i++) {
++//            String itemName = itemNames.get(random.nextInt(itemNames.size()));
++//            topRankings.put(itemName, rankings.get(itemName));
++//        }
++//
++//        return topRankings;
++//    }
++//}
++
++import java.util.ArrayList;
++import java.util.List;
++import java.util.Random;
+ 
+ public class RankingRepository {
+     private ItemRepository itemRepository;
+-    private Map<String, Integer> rankings;
++    private List<Item> rankings;
+ 
+     public RankingRepository(ItemRepository itemRepository) {
+         this.itemRepository = itemRepository;
+-        rankings = new HashMap<>();
+-        // 아이템 랭킹 초기화
++        rankings = new ArrayList<>();
+         initializeRankings();
+     }
+ 
+     private void initializeRankings() {
+-        Map<String, Map<String, Object>> items = itemRepository.getItems();
+-        for (String itemName : items.keySet()) {
+-            Map<String, Object> itemDetails = items.get(itemName);
+-            int price = (int) itemDetails.get("price");
+-            rankings.put(itemName, price);
++        List<Item> items = itemRepository.getItems();
++        for (Item item : items) {
++            rankings.add(item);
+         }
+     }
+ 
+-    // 랜덤으로 상위 N개의 아이템을 가져오는 메서드
+-    public Map<String, Integer> getTopRankings(int n) {
+-        Map<String, Integer> topRankings = new HashMap<>();
+-        List<String> itemNames = new ArrayList<>(rankings.keySet());
++    public List<Item> getTopRankings(int n) {
++        List<Item> topRankings = new ArrayList<>();
+         Random random = new Random();
+ 
+         for (int i = 0; i < n; i++) {
+-            String itemName = itemNames.get(random.nextInt(itemNames.size()));
+-            topRankings.put(itemName, rankings.get(itemName));
++            Item item = rankings.get(random.nextInt(rankings.size()));
++            topRankings.add(item);
+         }
+ 
+         return topRankings;
+Index: src/seungyeon/RankingView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package seungyeon;\r\n\r\nimport java.util.Map;\r\n\r\npublic class RankingView {\r\n    public void displayTopRankings(Map<String, Integer> topRankings) {\r\n        System.out.println(\"Top 10 Rankings:\");\r\n        int rank = 1;\r\n        for (String itemName : topRankings.keySet()) {\r\n            int price = topRankings.get(itemName);\r\n            System.out.println(rank + \". \" + itemName + \" - Price: \" + price);\r\n            rank++;\r\n        }\r\n        System.out.print(\"\\n\");\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/seungyeon/RankingView.java b/src/seungyeon/RankingView.java
+--- a/src/seungyeon/RankingView.java	(revision f2eff2403dd8fe76519c7c00213e2f34bf8ecd2f)
++++ b/src/seungyeon/RankingView.java	(date 1714529299017)
+@@ -1,14 +1,28 @@
+ package seungyeon;
+ 
+ import java.util.Map;
++//
++//public class RankingView {
++//    public void displayTopRankings(Map<String, Integer> topRankings) {
++//        System.out.println("Top 10 Rankings:");
++//        int rank = 1;
++//        for (String itemName : topRankings.keySet()) {
++//            int price = topRankings.get(itemName);
++//            System.out.println(rank + ". " + itemName + " - Price: " + price);
++//            rank++;
++//        }
++//        System.out.print("\n");
++//    }
++//}
++
++import java.util.List;
+ 
+ public class RankingView {
+-    public void displayTopRankings(Map<String, Integer> topRankings) {
++    public void displayTopRankings(List<Item> topRankings) {
+         System.out.println("Top 10 Rankings:");
+         int rank = 1;
+-        for (String itemName : topRankings.keySet()) {
+-            int price = topRankings.get(itemName);
+-            System.out.println(rank + ". " + itemName + " - Price: " + price);
++        for (Item item : topRankings) {
++            System.out.println(rank + ". " + item.getItemName() + " - Price: " + item.getPrice());
+             rank++;
+         }
+         System.out.print("\n");
+Index: src/seungyeon/ItemRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package seungyeon;\r\n\r\nimport java.util.HashMap;\r\nimport java.util.Map;\r\nimport java.util.Objects;\r\n\r\npublic class ItemRepository {\r\n    private Map<String, Map<String, Object>> item;\r\n\r\n    public ItemRepository() {\r\n        item = new HashMap<>();\r\n        // 상품 초기화\r\n        addItem(\"crocs\", \"SHOES\", 40000, \"unisex\");\r\n        addItem(\"t-shirt\", \"TOP\", 20000, \"male\");\r\n        addItem(\"nikeAirForce\", \"SHOES\", 80000, \"unisex\");\r\n        addItem(\"jean\", \"BOTTOM\", 30000, \"unisex\");\r\n        addItem(\"riderJacket\", \"TOP\", 90000, \"male\");\r\n        addItem(\"poloCap\", \"CAP\", 60000, \"unisex\");\r\n        addItem(\"Zara Coat\", \"OUTERWEAR\", 90000, \"unisex\");\r\n        addItem(\"Uniqlo Sweater\", \"TOP\", 45000, \"unisex\");\r\n        addItem(\"Levi's Jeans\", \"BOTTOM\", 35000, \"unisex\");\r\n        addItem(\"Gucci Scarf\", \"ACCESSORY\", 15000, \"unisex\");\r\n        addItem(\"Louis Vuitton Belt\", \"ACCESSORY\", 25000, \"unisex\");\r\n        addItem(\"Prada Wallet\", \"ACCESSORY\", 35000, \"unisex\");\r\n        addItem(\"Adidas Hoodie\", \"TOP\", 50000, \"unisex\");\r\n        addItem(\"Nike Sneakers\", \"SHOES\", 60000, \"unisex\");\r\n        addItem(\"H&M Dress\", \"DRESS\", 70000, \"female\");\r\n        addItem(\"Rolex Watch\", \"ACCESSORY\", 30000, \"unisex\");\r\n        addItem(\"Ray-Ban Sunglasses\", \"ACCESSORY\", 20000, \"unisex\");\r\n        addItem(\"North Face Backpack\", \"BAG\", 40000, \"unisex\");\r\n        addItem(\"Zara Coat\", \"OUTERWEAR\", 90000, \"unisex\");\r\n        addItem(\"Uniqlo Sweater\", \"TOP\", 45000, \"unisex\");\r\n        addItem(\"Levi's Jeans\", \"BOTTOM\", 35000, \"unisex\");\r\n        addItem(\"Gucci Scarf\", \"ACCESSORY\", 15000, \"unisex\");\r\n        addItem(\"Louis Vuitton Belt\", \"ACCESSORY\", 25000, \"unisex\");\r\n        addItem(\"Prada Wallet\", \"ACCESSORY\", 35000, \"unisex\");\r\n        addItem(\"Calvin Klein T-shirt\", \"TOP\", 25000, \"male\");\r\n        addItem(\"Puma Joggers\", \"BOTTOM\", 40000, \"male\");\r\n        addItem(\"Tommy Hilfiger Polo Shirt\", \"TOP\", 45000, \"male\");\r\n        addItem(\"Under Armour Hoodie\", \"TOP\", 55000, \"male\");\r\n        addItem(\"New Balance Running Shoes\", \"SHOES\", 70000, \"male\");\r\n        addItem(\"Givenchy Hoodie\", \"TOP\", 70000, \"male\");\r\n        addItem(\"Louis Vuitton Sneakers\", \"SHOES\", 90000, \"unisex\");\r\n        addItem(\"Gucci Bag\", \"BAG\", 180000, \"female\");\r\n        addItem(\"Givenchy Hoodie\", \"TOP\", 130000, \"male\");\r\n        addItem(\"Chanel Bag\", \"BAG\", 400000, \"female\");\r\n        addItem(\"Burberry Trench Coat\", \"OUTERWEAR\", 300000, \"unisex\");\r\n        addItem(\"Hermes Scarf\", \"ACCESSORY\", 150000, \"unisex\");\r\n        addItem(\"Louis Vuitton Sunglasses\", \"ACCESSORY\", 180000, \"unisex\");\r\n        addItem(\"Gucci Dress\", \"DRESS\", 300000, \"female\");\r\n        addItem(\"Armani Suit\", \"SUIT\", 600000, \"male\");\r\n        addItem(\"Gucci Dress\", \"DRESS\", 250000, \"female\");\r\n        addItem(\"Armani Suit\", \"SUIT\", 500000, \"male\");\r\n// 나머지 상품들도 같은 방식으로 브랜드명과 함께 추가할 수 있습니다.\r\n\r\n    }\r\n\r\n    public void addItem(String itemName, String type, int price, String gender) {\r\n        Map<String, Object> itemDetails = new HashMap<>();\r\n        itemDetails.put(\"type\", type);\r\n        itemDetails.put(\"price\", price);\r\n        itemDetails.put(\"gender\", gender);\r\n        item.put(itemName, itemDetails);\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n    public Map<String, Map<String, Object>> getItems() {\r\n        return item;\r\n    }\r\n\r\n    public ItemRepository(Map<String, Map<String, Object>> item) {\r\n        this.item = item;\r\n    }\r\n\r\n    public Map<String, Map<String, Object>> getItem() {\r\n        return item;\r\n    }\r\n\r\n    @Override\r\n    public boolean equals(Object o) {\r\n        if (this == o) return true;\r\n        if (o == null || getClass() != o.getClass()) return false;\r\n        ItemRepository that = (ItemRepository) o;\r\n        return Objects.equals(item, that.item);\r\n    }\r\n\r\n    @Override\r\n    public int hashCode() {\r\n        return Objects.hashCode(item);\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return \"CartRepository{\" +\r\n                \"item=\" + item +\r\n                '}';\r\n    }\r\n}\r\n/*\r\n        ========= 값에 접근하는 법 =========\r\n        public static void main(String[] args) {\r\n\r\n        CartRepository cartRepository = new CartRepository();\r\n\r\n        // 장바구니에 담긴 상품 출력\r\n        Map<String, Map<String, Object>> items = cartRepository.getItems();\r\n        for (String s : items.keySet()) {\r\n            System.out.println(items.get(s).get(\"price\"));\r\n        }\r\n    }\r\n */\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/seungyeon/ItemRepository.java b/src/seungyeon/ItemRepository.java
+--- a/src/seungyeon/ItemRepository.java	(revision f2eff2403dd8fe76519c7c00213e2f34bf8ecd2f)
++++ b/src/seungyeon/ItemRepository.java	(date 1714531843170)
+@@ -1,104 +1,168 @@
+ package seungyeon;
+ 
+-import java.util.HashMap;
+-import java.util.Map;
+-import java.util.Objects;
++//import java.util.HashMap;
++//import java.util.Map;
++//import java.util.Objects;
++//
++//public class ItemRepository {
++//    private Map<String, Map<String, Object>> item;
++//
++//    public ItemRepository() {
++//        item = new HashMap<>();
++//        // 상품 초기화
++//        addItem("crocs", "SHOES", 40000, "unisex");
++//        addItem("t-shirt", "TOP", 20000, "male");
++//        addItem("nikeAirForce", "SHOES", 80000, "unisex");
++//        addItem("jean", "BOTTOM", 30000, "unisex");
++//        addItem("riderJacket", "TOP", 90000, "male");
++//        addItem("poloCap", "CAP", 60000, "unisex");
++//        addItem("Zara Coat", "OUTERWEAR", 90000, "unisex");
++//        addItem("Uniqlo Sweater", "TOP", 45000, "unisex");
++//        addItem("Levi's Jeans", "BOTTOM", 35000, "unisex");
++//        addItem("Gucci Scarf", "ACCESSORY", 15000, "unisex");
++//        addItem("Louis Vuitton Belt", "ACCESSORY", 25000, "unisex");
++//        addItem("Prada Wallet", "ACCESSORY", 35000, "unisex");
++//        addItem("Adidas Hoodie", "TOP", 50000, "unisex");
++//        addItem("Nike Sneakers", "SHOES", 60000, "unisex");
++//        addItem("H&M Dress", "DRESS", 70000, "female");
++//        addItem("Rolex Watch", "ACCESSORY", 30000, "unisex");
++//        addItem("Balenciaga Sunglasses", "ACCESSORY", 20000, "unisex");
++//        addItem("North Face Backpack", "BAG", 40000, "unisex");
++//        addItem("Zara Coat", "OUTERWEAR", 90000, "unisex");
++//        addItem("Uniqlo Sweater", "TOP", 45000, "unisex");
++//        addItem("Levi's Jeans", "BOTTOM", 35000, "unisex");
++//        addItem("Gucci Scarf", "ACCESSORY", 15000, "unisex");
++//        addItem("Louis Vuitton Belt", "ACCESSORY", 25000, "unisex");
++//        addItem("Prada Wallet", "ACCESSORY", 35000, "unisex");
++//        addItem("Calvin Klein T-shirt", "TOP", 25000, "male");
++//        addItem("Puma Joggers", "BOTTOM", 40000, "male");
++//        addItem("Tommy Hilfiger Polo Shirt", "TOP", 45000, "male");
++//        addItem("Under Armour Hoodie", "TOP", 55000, "male");
++//        addItem("New Balance Running Shoes", "SHOES", 70000, "male");
++//        addItem("Givenchy Hoodie", "TOP", 70000, "male");
++//        addItem("Louis Vuitton Sneakers", "SHOES", 90000, "unisex");
++//        addItem("Gucci Bag", "BAG", 180000, "female");
++//        addItem("Givenchy Hoodie", "TOP", 130000, "male");
++//        addItem("Chanel Bag", "BAG", 400000, "female");
++//        addItem("Burberry Trench Coat", "OUTERWEAR", 300000, "unisex");
++//        addItem("Hermes Scarf", "ACCESSORY", 150000, "unisex");
++//        addItem("Louis Vuitton Sunglasses", "ACCESSORY", 180000, "unisex");
++//        addItem("Gucci Dress", "DRESS", 300000, "female");
++//        addItem("Armani Suit", "SUIT", 600000, "male");
++//        addItem("Gucci Dress", "DRESS", 250000, "female");
++//        addItem("Armani Suit", "SUIT", 500000, "male");
++//// 나머지 상품들도 같은 방식으로 브랜드명과 함께 추가할 수 있습니다.
++//
++//    }
++//
++//    public void addItem(String itemName, String type, int price, String gender) {
++//        Map<String, Object> itemDetails = new HashMap<>();
++//        itemDetails.put("type", type);
++//        itemDetails.put("price", price);
++//        itemDetails.put("gender", gender);
++//        item.put(itemName, itemDetails);
++//    }
++//
++//
++//
++//
++//
++//    public Map<String, Map<String, Object>> getItems() {
++//        return item;
++//    }
++//
++//    public ItemRepository(Map<String, Map<String, Object>> item) {
++//        this.item = item;
++//    }
++//
++//    public Map<String, Map<String, Object>> getItem() {
++//        return item;
++//    }
++//
++//    @Override
++//    public boolean equals(Object o) {
++//        if (this == o) return true;
++//        if (o == null || getClass() != o.getClass()) return false;
++//        ItemRepository that = (ItemRepository) o;
++//        return Objects.equals(item, that.item);
++//    }
++//
++//    @Override
++//    public int hashCode() {
++//        return Objects.hashCode(item);
++//    }
++//
++//    @Override
++//    public String toString() {
++//        return "CartRepository{" +
++//                "item=" + item +
++//                '}';
++//    }
++//}
++
++import java.util.ArrayList;
++import java.util.List;
+ 
+ public class ItemRepository {
+-    private Map<String, Map<String, Object>> item;
++    private List<Item> items;
+ 
+     public ItemRepository() {
+-        item = new HashMap<>();
++        items = new ArrayList<>();
+         // 상품 초기화
+-        addItem("crocs", "SHOES", 40000, "unisex");
+-        addItem("t-shirt", "TOP", 20000, "male");
+-        addItem("nikeAirForce", "SHOES", 80000, "unisex");
+-        addItem("jean", "BOTTOM", 30000, "unisex");
+-        addItem("riderJacket", "TOP", 90000, "male");
+-        addItem("poloCap", "CAP", 60000, "unisex");
+-        addItem("Zara Coat", "OUTERWEAR", 90000, "unisex");
+-        addItem("Uniqlo Sweater", "TOP", 45000, "unisex");
+-        addItem("Levi's Jeans", "BOTTOM", 35000, "unisex");
+-        addItem("Gucci Scarf", "ACCESSORY", 15000, "unisex");
+-        addItem("Louis Vuitton Belt", "ACCESSORY", 25000, "unisex");
+-        addItem("Prada Wallet", "ACCESSORY", 35000, "unisex");
+-        addItem("Adidas Hoodie", "TOP", 50000, "unisex");
+-        addItem("Nike Sneakers", "SHOES", 60000, "unisex");
+-        addItem("H&M Dress", "DRESS", 70000, "female");
+-        addItem("Rolex Watch", "ACCESSORY", 30000, "unisex");
+-        addItem("Ray-Ban Sunglasses", "ACCESSORY", 20000, "unisex");
+-        addItem("North Face Backpack", "BAG", 40000, "unisex");
+-        addItem("Zara Coat", "OUTERWEAR", 90000, "unisex");
+-        addItem("Uniqlo Sweater", "TOP", 45000, "unisex");
+-        addItem("Levi's Jeans", "BOTTOM", 35000, "unisex");
+-        addItem("Gucci Scarf", "ACCESSORY", 15000, "unisex");
+-        addItem("Louis Vuitton Belt", "ACCESSORY", 25000, "unisex");
+-        addItem("Prada Wallet", "ACCESSORY", 35000, "unisex");
+-        addItem("Calvin Klein T-shirt", "TOP", 25000, "male");
+-        addItem("Puma Joggers", "BOTTOM", 40000, "male");
+-        addItem("Tommy Hilfiger Polo Shirt", "TOP", 45000, "male");
+-        addItem("Under Armour Hoodie", "TOP", 55000, "male");
+-        addItem("New Balance Running Shoes", "SHOES", 70000, "male");
+-        addItem("Givenchy Hoodie", "TOP", 70000, "male");
+-        addItem("Louis Vuitton Sneakers", "SHOES", 90000, "unisex");
+-        addItem("Gucci Bag", "BAG", 180000, "female");
+-        addItem("Givenchy Hoodie", "TOP", 130000, "male");
+-        addItem("Chanel Bag", "BAG", 400000, "female");
+-        addItem("Burberry Trench Coat", "OUTERWEAR", 300000, "unisex");
+-        addItem("Hermes Scarf", "ACCESSORY", 150000, "unisex");
+-        addItem("Louis Vuitton Sunglasses", "ACCESSORY", 180000, "unisex");
+-        addItem("Gucci Dress", "DRESS", 300000, "female");
+-        addItem("Armani Suit", "SUIT", 600000, "male");
+-        addItem("Gucci Dress", "DRESS", 250000, "female");
+-        addItem("Armani Suit", "SUIT", 500000, "male");
+-// 나머지 상품들도 같은 방식으로 브랜드명과 함께 추가할 수 있습니다.
++        addItem(new Item("crocs", "SHOES", 40000, "unisex"));
++        addItem(new Item("nikeAirForce", "SHOES", 80000, "unisex"));
++        addItem(new Item("jean", "BOTTOM", 30000, "unisex"));
++        addItem(new Item("riderJacket", "TOP", 90000, "male"));
++        addItem(new Item("poloCap", "CAP", 60000, "unisex"));
++        addItem(new Item("Zara Coat", "OUTERWEAR", 90000, "unisex"));
++//        addItem("Uniqlo Sweater", "TOP", 45000, "unisex");
++//        addItem("Levi's Jeans", "BOTTOM", 35000, "unisex");
++//        addItem("Gucci Scarf", "ACCESSORY", 15000, "unisex");
++//        addItem("Louis Vuitton Belt", "ACCESSORY", 25000, "unisex");
++//        addItem("Prada Wallet", "ACCESSORY", 35000, "unisex");
++//        addItem("Adidas Hoodie", "TOP", 50000, "unisex");
++//        addItem("Nike Sneakers", "SHOES", 60000, "unisex");
++//        addItem("H&M Dress", "DRESS", 70000, "female");
++//        addItem("Rolex Watch", "ACCESSORY", 30000, "unisex");
++//        addItem("Balenciaga Sunglasses", "ACCESSORY", 20000, "unisex");
++//        addItem("North Face Backpack", "BAG", 40000, "unisex");
++//        addItem("Zara Coat", "OUTERWEAR", 90000, "unisex");
++//        addItem("Uniqlo Sweater", "TOP", 45000, "unisex");
++//        addItem("Levi's Jeans", "BOTTOM", 35000, "unisex");
++//        addItem("Gucci Scarf", "ACCESSORY", 15000, "unisex");
++//        addItem("Louis Vuitton Belt", "ACCESSORY", 25000, "unisex");
++//        addItem("Prada Wallet", "ACCESSORY", 35000, "unisex");
++//        addItem("Calvin Klein T-shirt", "TOP", 25000, "male");
++//        addItem("Puma Joggers", "BOTTOM", 40000, "male");
++//        addItem("Tommy Hilfiger Polo Shirt", "TOP", 45000, "male");
++//        addItem("Under Armour Hoodie", "TOP", 55000, "male");
++//        addItem("New Balance Running Shoes", "SHOES", 70000, "male");
++//        addItem("Givenchy Hoodie", "TOP", 70000, "male");
++//        addItem("Louis Vuitton Sneakers", "SHOES", 90000, "unisex");
++//        addItem("Gucci Bag", "BAG", 180000, "female");
++//        addItem("Givenchy Hoodie", "TOP", 130000, "male");
++//        addItem("Chanel Bag", "BAG", 400000, "female");
++//        addItem("Burberry Trench Coat", "OUTERWEAR", 300000, "unisex");
++        // 나머지 상품들 추가...
++    }
+ 
++    public void addItem(Item item) {
++        items.add(item);
+     }
+ 
+-    public void addItem(String itemName, String type, int price, String gender) {
+-        Map<String, Object> itemDetails = new HashMap<>();
+-        itemDetails.put("type", type);
+-        itemDetails.put("price", price);
+-        itemDetails.put("gender", gender);
+-        item.put(itemName, itemDetails);
++    public List<Item> getItems() {
++        return items;
+     }
+ 
++}
+ 
+ 
+ 
+ 
+-    public Map<String, Map<String, Object>> getItems() {
+-        return item;
+-    }
+ 
+-    public ItemRepository(Map<String, Map<String, Object>> item) {
+-        this.item = item;
+-    }
++// getter methods...
+ 
+-    public Map<String, Map<String, Object>> getItem() {
+-        return item;
+-    }
+ 
+-    @Override
+-    public boolean equals(Object o) {
+-        if (this == o) return true;
+-        if (o == null || getClass() != o.getClass()) return false;
+-        ItemRepository that = (ItemRepository) o;
+-        return Objects.equals(item, that.item);
+-    }
+-
+-    @Override
+-    public int hashCode() {
+-        return Objects.hashCode(item);
+-    }
+-
+-    @Override
+-    public String toString() {
+-        return "CartRepository{" +
+-                "item=" + item +
+-                '}';
+-    }
+-}
+ /*
+         ========= 값에 접근하는 법 =========
+         public static void main(String[] args) {
+Index: src/seungyeon/Search.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package seungyeon;\r\n\r\nimport java.util.Map;\r\n\r\npublic class Search {\r\n    private ItemRepository itemRepository;\r\n\r\n    public Search(ItemRepository itemRepository) {\r\n        this.itemRepository = itemRepository;\r\n    }\r\n\r\n    public boolean searchItemByName(String itemName) {\r\n        Map<String, Map<String, Object>> items = itemRepository.getItems();\r\n        boolean found = false; // 제품을 찾았는지 여부\r\n        int count = 0; // 제품 번호\r\n\r\n\r\n        for (String name : items.keySet()) {\r\n            // 대소문자 구분 없이 검색하므로 모두 소문자로 변환하여 비교\r\n            if (name.toLowerCase().contains(itemName.toLowerCase())) {\r\n                found = true;\r\n                count++;\r\n                if (count > 1) {\r\n                    // 첫 번째 제품 이후에는 빈 줄 추가\r\n                    System.out.println();\r\n                }\r\n                Map<String, Object> itemDetails = items.get(name);\r\n                System.out.println(\"Item \" + count + \":\");\r\n                System.out.println(\"Name: \" + name);\r\n                System.out.println(\"Type: \" + itemDetails.get(\"type\"));\r\n                System.out.println(\"Price: \" + itemDetails.get(\"price\"));\r\n                System.out.println(\"Gender: \" + itemDetails.get(\"gender\"));\r\n            }\r\n        }\r\n\r\n        if (!found) {\r\n            System.out.println(\"입력한 제품을 찾을 수 없습니다.\\n\");\r\n        }\r\n        return found;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/seungyeon/Search.java b/src/seungyeon/Search.java
+--- a/src/seungyeon/Search.java	(revision f2eff2403dd8fe76519c7c00213e2f34bf8ecd2f)
++++ b/src/seungyeon/Search.java	(date 1714531331488)
+@@ -1,6 +1,54 @@
+ package seungyeon;
++//
++//import kibeom.CartRepository;
++//
++//import java.util.Map;
++//
++//public class Search {
++//    private ItemRepository itemRepository;
++//    private CartRepository cartRepository;
++//
++//    public Search(ItemRepository itemRepository) {
++//        this.itemRepository = itemRepository;
++//        this.cartRepository = cartRepository;
++//    }
++//
++//    public boolean searchItemByName(String itemName) {
++//        Map<String, Map<String, Object>> items = itemRepository.getItems();
++//        boolean found = false; // 제품을 찾았는지 여부
++//        int count = 0; // 제품 번호
++//
++//
++//        for (String name : items.keySet()) {
++//            // 대소문자 구분 없이 검색하므로 모두 소문자로 변환하여 비교
++//            if (name.toLowerCase().contains(itemName.toLowerCase())) {
++//                found = true;
++//                count++;
++//                if (count > 1) {
++//                    // 첫 번째 제품 이후에는 빈 줄 추가
++//                    System.out.println();
++//                }
++//                Map<String, Object> itemDetails = items.get(name);
++////                System.out.println("Item.java " + count + ":");
++//                System.out.println(count+". " + name);
++//                System.out.println("상품 가격: " +  itemDetails.get("price")+ "원");
++//                System.out.println("상품 분류: " + itemDetails.get("type"));
++//                System.out.println("성별: " + itemDetails.get("gender"));
++//            }
++//        }
++//
++////        if (!found) {
++////            System.out.println("입력한 제품을 찾을 수 없습니다.\n");
++////        }
++//        return found;
++//
++//
++//
++//
++//    }
++//}
+ 
+-import java.util.Map;
++import java.util.List;
+ 
+ public class Search {
+     private ItemRepository itemRepository;
+@@ -10,32 +58,25 @@
+     }
+ 
+     public boolean searchItemByName(String itemName) {
+-        Map<String, Map<String, Object>> items = itemRepository.getItems();
+-        boolean found = false; // 제품을 찾았는지 여부
+-        int count = 0; // 제품 번호
++        List<Item> items = itemRepository.getItems();
++        boolean found = false;
++        int count = 0;
+ 
+-
+-        for (String name : items.keySet()) {
+-            // 대소문자 구분 없이 검색하므로 모두 소문자로 변환하여 비교
+-            if (name.toLowerCase().contains(itemName.toLowerCase())) {
++        for (Item item : items) {
++            if (item.getItemName().toLowerCase().contains(itemName.toLowerCase())) {
+                 found = true;
+                 count++;
+                 if (count > 1) {
+-                    // 첫 번째 제품 이후에는 빈 줄 추가
+                     System.out.println();
+                 }
+-                Map<String, Object> itemDetails = items.get(name);
+-                System.out.println("Item " + count + ":");
+-                System.out.println("Name: " + name);
+-                System.out.println("Type: " + itemDetails.get("type"));
+-                System.out.println("Price: " + itemDetails.get("price"));
+-                System.out.println("Gender: " + itemDetails.get("gender"));
++                System.out.println(count + ". " + item.getItemName());
++                System.out.println("상품 가격: " + item.getPrice() + "원");
++                System.out.println("상품 분류: " + item.getType());
++                System.out.println("성별: " + item.getGender());
+             }
+         }
+ 
+-        if (!found) {
+-            System.out.println("입력한 제품을 찾을 수 없습니다.\n");
+-        }
+         return found;
+     }
+ }
++
+Index: src/seungyeon/category.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/seungyeon/category.java b/src/seungyeon/category.java
+deleted file mode 100644
+--- a/src/seungyeon/category.java	(revision f2eff2403dd8fe76519c7c00213e2f34bf8ecd2f)
++++ /dev/null	(revision f2eff2403dd8fe76519c7c00213e2f34bf8ecd2f)
+@@ -1,76 +0,0 @@
+-package seungyeon;
+-
+-import user.UserLoginView;
+-
+-import java.util.Map;
+-import java.util.Scanner;
+-
+-public class category {
+-        // ItemRepository 객체 생성
+-    public static void openCate() {
+-        ItemRepository itemRepository = new ItemRepository();
+-        // Search 객체 생성
+-        Search search = new Search(itemRepository);
+-        // RankingRepository 객체 생성
+-        RankingRepository rankingRepository = new RankingRepository(itemRepository);
+-        // RankingView 객체 생성
+-        RankingView rankingView = new RankingView();
+-
+-        Scanner scanner = new Scanner(System.in);
+-        String choice;
+-
+-        do {
+-            System.out.println("1. 제품 검색하기");
+-            System.out.println("2. 제품 랭킹 보기");
+-            System.out.println("3. 뒤로가기\n");
+-            System.out.print("메뉴를 선택하세요: ");
+-            choice = scanner.nextLine();
+-
+-            switch (choice) {
+-                case "1":
+-                    // 아이템 검색하기
+-                    searchItem(search, scanner);
+-                    break;
+-                case "2":
+-                    // 상위 10개 아이템 랭킹 보기 - 입력할때마다 랜덤
+-                    System.out.print("\n");
+-                    displayTopRankings(rankingRepository, rankingView);
+-                    break;
+-                case "3":
+-                    UserLoginView userLoginView = new UserLoginView();
+-                    userLoginView.mainPage();
+-                    break;
+-                default:
+-                    System.out.println("잘못된 선택입니다. 다시 선택해주세요.");
+-            }
+-        } while (!choice.equals("3"));
+-
+-        scanner.close();
+-    }
+-    // 제품 검색 기능
+-    public static void searchItem(Search search, Scanner scanner) {
+-        String itemName;
+-
+-        do {
+-            // 사용자로부터 검색할 상품의 이름을 입력 받음
+-            System.out.print("\n검색 할 상품의 이름을 입력하세요.\n (exit 입력 시 검색 종료)\n\n>> ");
+-            itemName = scanner.nextLine();
+-            System.out.print("\n");
+-
+-            // 만약 상품 이름이 "exit"이면 종료
+-            if (itemName.equalsIgnoreCase("exit")) {
+-                break;
+-            }
+-
+-            // 검색한 상품 출력
+-            search.searchItemByName(itemName);
+-        } while (true);
+-    }
+-
+-    // 제품 랭킹 보기 메뉴 기능
+-    public static void displayTopRankings(RankingRepository rankingRepository, RankingView rankingView) {
+-        // 상위 10개 랭킹 출력 / 항상 랜덤
+-        Map<String, Integer> topRankings = rankingRepository.getTopRankings(10);
+-        rankingView.displayTopRankings(topRankings);
+-    }
+-}
+Index: src/seungyeon/ItemView.java
+===================================================================
+diff --git a/src/seungyeon/ItemView.java b/src/seungyeon/ItemView.java
+deleted file mode 100644
+--- a/src/seungyeon/ItemView.java	(revision f2eff2403dd8fe76519c7c00213e2f34bf8ecd2f)
++++ /dev/null	(revision f2eff2403dd8fe76519c7c00213e2f34bf8ecd2f)
+@@ -1,4 +0,0 @@
+-package seungyeon;
+-
+-public class ItemView {
+-}
+Index: src/kibeom/CartView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package kibeom;\r\n\r\nimport user.User;\r\nimport user.UserLoginView;\r\nimport user.UserRepository;\r\nimport util.SimpleInput;\r\n\r\nimport java.lang.reflect.Array;\r\nimport java.util.ArrayList;\r\n\r\nimport java.util.Arrays;\r\nimport java.util.List;\r\nimport java.util.Map;\r\n\r\nimport static kibeom.CartRepository.getItems;\r\nimport static kibeom.CartRepository.item;\r\n\r\n\r\npublic class CartView {\r\n    static UserLoginView userLoginView = new UserLoginView();\r\n    private static CartRepository cartRepo;\r\n    public static final String RED = \"\\033[0;31m\"; // 콘솔에 색깔 주기\r\n    public static final String RESET = \"\\033[0m\";\r\n    public static final String GREEN = \"\\033[0;32m\";\r\n    public static final String YELLOW = \"\\033[0;33m\";\r\n    public static final String BLUE = \"\\033[0;34m\";\r\n    public static final String PURPLE = \"\\033[0;35m\";\r\n    public static final String CYAN = \"\\033[0;36m\";\r\n    public static final String WHITE = \"\\033[0;37m\";\r\n\r\n    public CartView() {\r\n        this.cartRepo = new CartRepository();\r\n\r\n    }\r\n\r\n\r\n    public static void showCartRepository() {\r\n        boolean back = true; // 반복문 탈출을 위한 논리값 변수\r\n        while (back) {\r\n            System.out.println(\"============ 장바구니 목록 =============\");\r\n            CartRepository.showCartRepository();\r\n            System.out.println(\"1. 결제하기\");\r\n            System.out.println(\"2. 장바구니 물품 빼기\");\r\n            System.out.println(\"3. 뒤로 가기\");\r\n            String num = SimpleInput.input(\">> \");\r\n\r\n            switch (num) {\r\n                case \"1\":\r\n                    order();\r\n                    break;\r\n                case \"2\":\r\n                    deleteItem();\r\n                    break;\r\n                case \"3\":\r\n                    userLoginView.mainPage();\r\n                    back = false;\r\n                    break;\r\n                default:\r\n                    System.out.println(\"1 ~ 3!\");\r\n            }\r\n        }\r\n\r\n    }\r\n\r\n\r\n    /*\r\n    order() 주문하는 메서드\r\n    코드가 긴 이유는 한개만 주문하는 경우와\r\n    한번에 2개 이상 주문하는 경우로 분기가 나뉘어 길어짐\r\n    한번에 2개 이상 주문하는 경우 입력값을 , 를 기준으로 배열에 담고\r\n    그 배열의 인덱스로 item 의 price 에 접근.\r\n    분기가 까다로워서 리팩터링 못하겠음\r\n     */\r\n    private static void order() {\r\n        // 주문할 제품명을 입력 받음\r\n        String itemName = null;\r\n        try {\r\n            itemName = SimpleInput.input(\"주문 하고 싶은 제품명을 입력해주세요. \\n\" + BLUE + \"(여러 개일 경우 쉼표 ','로 구분)\" + RESET + \"\\n>> \").trim();\r\n        } catch (Exception e) {\r\n            // 예상치 못한 입력 형식에 대한 안내\r\n            System.out.println(\"입력 예시: crocs, poloCap\");\r\n        }\r\n\r\n        // 입력값이 null 이라면 사용자가 원하지 않는 입력 형식이므로 안내 출력\r\n        if (itemName == null) {\r\n            System.out.println(\"입력 예시를 따라주세요.\");\r\n            return;\r\n        }\r\n\r\n        String[] orderList = null;\r\n\r\n        // 장바구니 아이템 맵을 가져옴\r\n        Map<String, Map<String, Object>> item = getItems();\r\n\r\n        if (itemName.contains(\",\")) { // 2개 이상 주문하는 경우\r\n            orderList = itemName.split(\",\");\r\n            int sum = 0; // 주문 총액을 담을 변수\r\n            for (int i = 0; i < orderList.length; i++) {\r\n                // 주문한 상품명이 장바구니에 있는지 확인\r\n                boolean found = false;\r\n                for (String cartItem : item.keySet()) {\r\n                    if (cartItem.trim().equals(orderList[i].trim())) {\r\n                        found = true;\r\n                        int price = (int) item.get(cartItem).get(\"price\"); // 상품 가격 가져오기\r\n                        sum += price;\r\n                        break;\r\n                    }\r\n                }\r\n                if (!found) {\r\n                    // 장바구니에 없는 상품 알림\r\n                    System.out.println(RED + orderList[i] + \" 상품은 장바구니에 없습니다.\" + RESET);\r\n                }\r\n            }\r\n\r\n            // 현재 사용자의 소지금 및 총 주문 가격 출력\r\n            System.out.println(\"현재 소지 금액: \" + UserRepository.getUser().getMoney());\r\n            System.out.println(\"총 주문 가격: \" + sum);\r\n\r\n            // 주문 여부 확인\r\n            String answer = SimpleInput.input(\"주문하시겠습니까? Y / N\\n>> \").toUpperCase();\r\n            switch (answer) {\r\n                case \"Y\":\r\n                    if (UserRepository.getUser().getMoney() >= sum) { // 잔액 확인\r\n                        int currentMoney = UserRepository.getUser().getMoney() - sum; // 소지 금액에서 주문 총액 차감\r\n                        UserRepository.getUser().setMoney(currentMoney);\r\n                        // 주문한 제품 삭제\r\n                        for (String orderItem : orderList) {\r\n                            item.remove(orderItem.trim());\r\n                        }\r\n                        System.out.println(\"감사합니다. 주문이 완료 되었습니다.\\n총 결제 금액: \" + sum + \"\\n현재 소지 금액: \" + currentMoney);\r\n                        System.out.println(\"배송지 정보 : \" + UserRepository.getUser().getAddress());\r\n                        System.out.println(\"공휴일 제외, 영업일 기준 1 ~ 3 일 이내 배송됩니다.\");\r\n                    } else {\r\n                        System.out.println(\"잔액이 부족합니다.\");\r\n                    }\r\n                    break;\r\n                case \"N\":\r\n                    System.out.println(\"주문이 취소되었습니다.\");\r\n                    break;\r\n                default:\r\n                    System.out.println(\"제대로 입력하세요.\");\r\n            }\r\n\r\n        } else { // 한 개만 주문하는 경우\r\n            System.out.println(\"현재 소지 금액: \" + UserRepository.getUser().getMoney());\r\n            int price = 0;\r\n            try {\r\n                price = (int) item.get(itemName).get(\"price\");\r\n            } catch (Exception e) {\r\n                System.out.println(\"입력 예시: crocs, poloCap\");\r\n                return;\r\n            }\r\n            System.out.println(\"총 주문 가격: \" + price);\r\n\r\n            // 주문 여부 확인\r\n            String answer = SimpleInput.input(\"주문하시겠습니까? Y / N\\n>> \").toUpperCase();\r\n            switch (answer) {\r\n                case \"Y\":\r\n                    if (UserRepository.getUser().getMoney() >= price) {  // 잔액 확인\r\n                        int currentMoney = UserRepository.getUser().getMoney() - price; // 소지 금액에서 상품 가격 차감\r\n                        UserRepository.getUser().setMoney(currentMoney);\r\n                        item.remove(itemName); // 주문한 제품 삭제\r\n                        System.out.println(\"감사합니다. 주문이 완료 되었습니다.\\n총 결제 금액: \" + price + \"\\n현재 소지 금액: \" + currentMoney);\r\n                        System.out.println(\"배송지 정보 : \" + UserRepository.getUser().getAddress());\r\n                        System.out.println(\"공휴일 제외, 영업일 기준 1 ~ 3 일 이내 배송됩니다.\");\r\n                    } else {\r\n                        System.out.println(\"잔액이 부족합니다.\");\r\n                    }\r\n                    break;\r\n                case \"N\":\r\n                    break;\r\n                default:\r\n                    System.out.println(\"제대로 입력하세요.\");\r\n            }\r\n        }\r\n    }\r\n\r\n    // 한번에 두개 삭제 구현해야 함\r\n    public static void deleteItem() {\r\n        // 삭제할 제품명 입력 받음\r\n        String itemNames = null;\r\n        try {\r\n            itemNames = SimpleInput.input(\"삭제 하고 싶은 제품명을 입력해주세요. \\n\" + BLUE + \"(여러 개일 경우 쉼표 ','로 구분)\" + RESET + \"\\n>> \").strip();\r\n        } catch (Exception e) {\r\n            System.out.println(\"입력 예시: crocs, poloCap\");\r\n        }\r\n\r\n        String[] itemNameList = itemNames.split(\",\"); // 입력값을 배열로 분할\r\n\r\n        Map<String, Map<String, Object>> item = getItems();\r\n        List<String> deletedItems = new ArrayList<>();\r\n\r\n        for (String itemName : itemNameList) {\r\n            itemName = itemName.strip();\r\n            if (item.containsKey(itemName)) {\r\n                System.out.println(itemName + \"\\n\" + item.get(itemName));\r\n                System.out.println(\"1. 삭제하기\");\r\n                System.out.println(\"2. 계속하기\");\r\n                String answer = SimpleInput.input(\">> \");\r\n                switch (answer) {\r\n                    case \"1\":\r\n                        item.remove(itemName); // 항목 삭제\r\n                        deletedItems.add(itemName);\r\n                        System.out.println(itemName + \" 항목이 삭제되었습니다.\");\r\n                        break;\r\n                    case \"2\":\r\n                        System.out.println(itemName + \" 항목을 삭제하지 않습니다.\");\r\n                        break;\r\n                    default:\r\n                        System.out.println(\"1 또는 2를 입력하세요.\");\r\n                }\r\n            } else {\r\n                System.out.println(itemName + \" 항목이 존재하지 않습니다.\");\r\n            }\r\n        }\r\n\r\n        if (!deletedItems.isEmpty()) {\r\n            System.out.println(\"삭제된 항목: \" + deletedItems);\r\n        }\r\n    }\r\n\r\n}\r\n/*\r\n\r\n    // 전체 도서 정보를 출력\r\n    private void displayAllBooks() {\r\n        System.out.println(\"\\n=============== 전체 도서 목록 ================\");\r\n        Book[] informationList = repository.getAllBooksInfo();\r\n\r\n        for (int i = 0; i < informationList.length; i++) {\r\n            Book book = informationList[i];\r\n            System.out.printf(\"%d. %s\\n\", i+1, book.info());\r\n        }\r\n\r\n */\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/kibeom/CartView.java b/src/kibeom/CartView.java
+--- a/src/kibeom/CartView.java	(revision f2eff2403dd8fe76519c7c00213e2f34bf8ecd2f)
++++ b/src/kibeom/CartView.java	(date 1714463863046)
+@@ -1,22 +1,24 @@
+ package kibeom;
+ 
++import seungyeon.Cart;
++import seungyeon.Search;
+ import user.User;
+ import user.UserLoginView;
+ import user.UserRepository;
+ import util.SimpleInput;
+ 
+ import java.lang.reflect.Array;
+-import java.util.ArrayList;
+-
+-import java.util.Arrays;
+-import java.util.List;
+-import java.util.Map;
++import java.util.*;
+ 
+ import static kibeom.CartRepository.getItems;
+ import static kibeom.CartRepository.item;
+ 
+ 
+ public class CartView {
++
++    private Search search;
++    private CartRepository cartRepository;
++
+     static UserLoginView userLoginView = new UserLoginView();
+     private static CartRepository cartRepo;
+     public static final String RED = "\033[0;31m"; // 콘솔에 색깔 주기
+@@ -160,6 +162,9 @@
+                         int currentMoney = UserRepository.getUser().getMoney() - price; // 소지 금액에서 상품 가격 차감
+                         UserRepository.getUser().setMoney(currentMoney);
+                         item.remove(itemName); // 주문한 제품 삭제
++                        HashMap<Object, Object> map = new HashMap<>();
++                        map.put("crocs", "SHOES");
++                        Cart.addItem(String.valueOf(map));
+                         System.out.println("감사합니다. 주문이 완료 되었습니다.\n총 결제 금액: " + price + "\n현재 소지 금액: " + currentMoney);
+                         System.out.println("배송지 정보 : " + UserRepository.getUser().getAddress());
+                         System.out.println("공휴일 제외, 영업일 기준 1 ~ 3 일 이내 배송됩니다.");
+Index: src/kibeom/CartRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package kibeom;\r\nimport util.SimpleInput;\r\n\r\nimport java.util.HashMap;\r\nimport java.util.Map;\r\nimport java.util.Objects;\r\n\r\nimport java.util.HashMap;\r\nimport java.util.Map;\r\nimport java.util.Objects;\r\n\r\npublic class CartRepository {\r\n    // 장바구니 물품 관리\r\n    static Map<String, Map<String, Object>> item;\r\n\r\n    public CartRepository() {\r\n        item = new HashMap<>();\r\n        // 상품 초기화\r\n        addItem(\"crocs\", \"SHOES\", 40000, \"unisex\");\r\n        addItem(\"t-shirt\", \"TOP\", 20000, \"male\");\r\n        addItem(\"nikeAirForce\", \"SHOES\", 80000, \"unisex\");\r\n        addItem(\"jean\", \"BOTTOM\", 30000, \"unisex\");\r\n        addItem(\"riderJacket\", \"TOP\", 90000, \"male\");\r\n        addItem(\"poloCap\", \"CAP\", 60000, \"unisex\");\r\n    }\r\n\r\n\r\n    /*\r\n    장바구니인 item 에 속성 추가. 분류, 가격, 성별\r\n     */\r\n    public void addItem(String itemName, String type, int price, String gender) {\r\n        Map<String, Object> itemDetails = new HashMap<>();\r\n        itemDetails.put(\"type\", type);\r\n        itemDetails.put(\"price\", price);\r\n        itemDetails.put(\"gender\", gender);\r\n\r\n        item.put(itemName, itemDetails);\r\n    }\r\n\r\n\r\n    /*\r\n    상품 전체 출력 메서드\r\n     */\r\n    public static void showCartRepository() {\r\n        int num = 1;\r\n        for (String s : item.keySet()) {\r\n            System.out.println(num++ + \". \" +  s);\r\n            Map<String, Object> product = item.get(s);\r\n            System.out.println(\"상품 가격: \" + product.get(\"price\") + \"원\");\r\n            System.out.println(\"상품 분류: \" + product.get(\"type\"));\r\n            System.out.println(\"성별: \" + product.get(\"gender\"));\r\n            System.out.println();\r\n        }\r\n    }\r\n\r\n\r\n    public static Map<String, Map<String, Object>> getItems() {\r\n        return item;\r\n    }\r\n\r\n\r\n\r\n    @Override\r\n    public boolean equals(Object o) {\r\n        if (this == o) return true;\r\n        if (o == null || getClass() != o.getClass()) return false;\r\n        CartRepository that = (CartRepository) o;\r\n        return Objects.equals(item, that.item);\r\n    }\r\n\r\n    @Override\r\n    public int hashCode() {\r\n        return Objects.hashCode(item);\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return \"CartRepository\" +\r\n                \"item=\" + item\r\n                ;\r\n    }\r\n}\r\n\r\n/*\r\n        ========= 값에 접근하는 법 =========\r\n        public static void main(String[] args) {\r\n\r\n        CartRepository cartRepository = new CartRepository();\r\n\r\n        // 장바구니에 담긴 상품 출력\r\n        Map<String, Map<String, Object>> items = cartRepository.getItems();\r\n        for (String s : items.keySet()) {\r\n            System.out.println(items.get(s).get(\"price\"));\r\n        }\r\n    }\r\n */\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/kibeom/CartRepository.java b/src/kibeom/CartRepository.java
+--- a/src/kibeom/CartRepository.java	(revision f2eff2403dd8fe76519c7c00213e2f34bf8ecd2f)
++++ b/src/kibeom/CartRepository.java	(date 1714460259676)
+@@ -16,19 +16,15 @@
+     public CartRepository() {
+         item = new HashMap<>();
+         // 상품 초기화
+-        addItem("crocs", "SHOES", 40000, "unisex");
+-        addItem("t-shirt", "TOP", 20000, "male");
+-        addItem("nikeAirForce", "SHOES", 80000, "unisex");
+-        addItem("jean", "BOTTOM", 30000, "unisex");
+-        addItem("riderJacket", "TOP", 90000, "male");
+-        addItem("poloCap", "CAP", 60000, "unisex");
++
+     }
+ 
++//    CartRepository.addItem();
+ 
+     /*
+     장바구니인 item 에 속성 추가. 분류, 가격, 성별
+      */
+-    public void addItem(String itemName, String type, int price, String gender) {
++    public static void addItem(String itemName, String type, int price, String gender) {
+         Map<String, Object> itemDetails = new HashMap<>();
+         itemDetails.put("type", type);
+         itemDetails.put("price", price);
+Index: src/seungyeon/Item.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/seungyeon/Item.java b/src/seungyeon/Item.java
+new file mode 100644
+--- /dev/null	(date 1714531520091)
++++ b/src/seungyeon/Item.java	(date 1714531520091)
+@@ -0,0 +1,60 @@
++package seungyeon;
++
++public class Item {
++    private String itemName;
++    private String type;
++    private int price;
++    private String gender;
++
++    public Item(String itemName, String type, int price, String gender) {
++        this.itemName = itemName;
++        this.type = type;
++        this.price = price;
++        this.gender = gender;
++    }
++
++    // Getter methods...
++
++    public String getItemName() {
++        return itemName;
++    }
++
++    public String getType() {
++        return type;
++    }
++
++    public int getPrice() {
++        return price;
++    }
++
++    public String getGender() {
++        return gender;
++    }
++
++    public void setItemName(String itemName) {
++        this.itemName = itemName;
++    }
++
++    public void setType(String type) {
++        this.type = type;
++    }
++
++    public void setPrice(int price) {
++        this.price = price;
++    }
++
++    public void setGender(String gender) {
++        this.gender = gender;
++    }
++
++    @Override
++    public String toString() {
++        return "Item{" +
++                "itemName='" + itemName + '\'' +
++                ", type='" + type + '\'' +
++                ", price=" + price +
++                ", gender='" + gender + '\'' +
++                '}';
++    }
++}
++
+Index: src/seungyeon/Cart.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/seungyeon/Cart.java b/src/seungyeon/Cart.java
+new file mode 100644
+--- /dev/null	(date 1714530229854)
++++ b/src/seungyeon/Cart.java	(date 1714530229854)
+@@ -0,0 +1,59 @@
++package seungyeon;
++//
++//import kibeom.CartRepository;
++//import user.User;
++//
++//import java.util.ArrayList;
++//import java.util.List;
++//
++//public class Cart {
++//    private final static List<String> items = new ArrayList<>();
++//
++//    public Cart() {
++//
++//    }
++//
++//
++//
++//
++//    // 제품을 장바구니에 추가하는 메서드
++//    public static void addItem(String item) {
++//        items.add(item);
++//////        getitemList();
++//
++//    }
++//
++//    public static void getitemList() {
++//        for (String item : items) {
++//            System.out.println("item = " + item);
++//        }
++//    }
++//}
++//
++
++import java.util.ArrayList;
++import java.util.List;
++
++public class Cart {
++    private static final List<String> items = new ArrayList<>();
++
++    public Cart() {
++
++    }
++
++    public static void addItem(String item) {
++        items.add(item);
++        // getitemList(); // 주석 처리된 부분은 필요하지 않을 것 같아 주석 처리했습니다.
++    }
++
++    public static void getitemList() {
++        for (String item : items) {
++            System.out.println("item = " + item);
++        }
++    }
++}
++
++
++
++
++
+Index: src/seungyeon/Category.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/seungyeon/Category.java b/src/seungyeon/Category.java
+new file mode 100644
+--- /dev/null	(date 1714531520095)
++++ b/src/seungyeon/Category.java	(date 1714531520095)
+@@ -0,0 +1,203 @@
++package seungyeon;
++//
++import user.UserLoginView;
++//
++import java.util.HashMap;
++import java.util.List;
++import java.util.Map;
++import java.util.Scanner;
++//
++//public class category {
++//        // ItemRepository 객체 생성
++//    public static void openCate() {
++//        ItemRepository itemRepository = new ItemRepository();
++//
++//        // Search 객체 생성
++//        Search search = new Search(itemRepository);
++//        // RankingRepository 객체 생성
++//        RankingRepository rankingRepository = new RankingRepository(itemRepository);
++//        // RankingView 객체 생성
++//        RankingView rankingView = new RankingView();
++//
++////        // Cart 객체 생성
++////        Cart cart = new Cart();
++//
++//        Scanner scanner = new Scanner(System.in);
++//        String choice;
++//
++//        do {
++//            System.out.println("1. 제품 검색하기");
++//            System.out.println("2. 제품 랭킹 보기");
++//            System.out.println("3. 뒤로가기\n");
++//            System.out.print("메뉴를 선택하세요: ");
++//            choice = scanner.nextLine();
++//
++//            switch (choice) {
++//                case "1":
++//                    // 아이템 검색하기
++//                    searchItem(search, scanner);
++//                    break;
++//                case "2":
++//                    // 상위 10개 아이템 랭킹 보기 - 입력할때마다 랜덤
++//                    System.out.print("\n");
++//                    displayTopRankings(rankingRepository, rankingView);
++//                    break;
++//                case "3":
++//                    UserLoginView userLoginView = new UserLoginView();
++//                    userLoginView.mainPage();
++//                    break;
++//                default:
++//                    System.out.println("잘못된 선택입니다. 다시 선택해주세요.");
++//            }
++//        } while (!choice.equals("3"));
++//
++//        scanner.close();
++//    }
++//    // 제품 검색 기능
++//    public static void searchItem(Search search, Scanner scanner) {
++//        String itemName;
++//
++//        do {
++//            // 사용자로부터 검색할 상품의 이름을 입력 받음
++//            System.out.print("\n검색 할 상품의 이름을 입력하세요.\n (exit 입력 시 검색 종료)\n\n>> ");
++//            itemName = scanner.nextLine().trim();
++//            System.out.print("\n");
++//
++//            // 만약 상품 이름이 "exit"이면 종료
++//            if (itemName.equalsIgnoreCase("exit")) {
++//                break;
++//            }
++//
++//            // 검색한 상품 출력
++//            boolean found = search.searchItemByName(itemName);
++//
++//
++//            // 제품이 검색되었을 경우에만 메뉴 표시
++//            if (found) {
++//                System.out.println("\n1. 제품 장바구니에 넣기");
++//                System.out.println("2. 재 검색하기");
++//                System.out.println("3. 뒤로가기");
++//                System.out.print("\n메뉴를 선택하세요: ");
++//                String choice = scanner.nextLine();
++//
++//                switch (choice) {
++//                    case "1":
++//                        // 제품 장바구니에 넣기
++//
++////                        CartRepository.addItem(itemName);
++//
++//                        System.out.println("제품이 장바구니에 추가되었습니다.");
++//
++//                        break;
++//                    case "2":
++//                        // 재 검색하기 - do-while 루프를 다시 실행함
++//                        break;
++//                    case "3":
++//                        // 뒤로가기
++//                        return;
++//                    default:
++//                        System.out.println("잘못된 선택입니다. 다시 선택해주세요.");
++//                        break;
++//                }
++//            } else {
++//                // 제품이 검색되지 않았을 때
++//                System.out.println("검색한 제품을 찾을 수 없습니다.");
++//            }
++//
++//        } while (true);
++//    }
++//
++//    // 제품 랭킹 보기 메뉴 기능
++//    public static void displayTopRankings(RankingRepository rankingRepository, RankingView rankingView) {
++//        // 상위 10개 랭킹 출력 / 항상 랜덤
++//        Map<String, Integer> topRankings = rankingRepository.getTopRankings(10);
++//        rankingView.displayTopRankings(topRankings);
++//    }
++//}
++
++import user.UserLoginView;
++
++import java.util.Scanner;
++
++public class Category {
++    public static void openCate() {
++        ItemRepository itemRepository = new ItemRepository();
++        Search search = new Search(itemRepository);
++        RankingRepository rankingRepository = new RankingRepository(itemRepository);
++        RankingView rankingView = new RankingView();
++
++        Scanner scanner = new Scanner(System.in);
++        String choice;
++
++        do {
++            System.out.println("1. 제품 검색하기");
++            System.out.println("2. 제품 랭킹 보기");
++            System.out.println("3. 뒤로가기\n");
++            System.out.print("메뉴를 선택하세요: ");
++            choice = scanner.nextLine();
++
++            switch (choice) {
++                case "1":
++                    searchItem(search, scanner);
++                    break;
++                case "2":
++                    System.out.print("\n");
++                    displayTopRankings(rankingRepository, rankingView);
++                    break;
++                case "3":
++                    UserLoginView userLoginView = new UserLoginView();
++                    userLoginView.mainPage();
++                    break;
++                default:
++                    System.out.println("잘못된 선택입니다. 다시 선택해주세요.");
++            }
++        } while (!choice.equals("3"));
++
++        scanner.close();
++    }
++
++    public static void searchItem(Search search, Scanner scanner) {
++        String itemName;
++
++        do {
++            System.out.print("\n검색 할 상품의 이름을 입력하세요.\n (exit 입력 시 검색 종료)\n\n>> ");
++            itemName = scanner.nextLine().trim();
++            System.out.print("\n");
++
++            if (itemName.equalsIgnoreCase("exit")) {
++                break;
++            }
++
++            boolean found = search.searchItemByName(itemName);
++
++            if (found) {
++                System.out.println("\n1. 제품 장바구니에 넣기");
++                System.out.println("2. 재 검색하기");
++                System.out.println("3. 뒤로가기");
++                System.out.print("\n메뉴를 선택하세요: ");
++                String choice = scanner.nextLine();
++
++                switch (choice) {
++                    case "1":
++                        Cart.addItem(itemName);
++                        System.out.println("제품이 장바구니에 추가되었습니다.");
++                        break;
++                    case "2":
++                        break;
++                    case "3":
++                        return;
++                    default:
++                        System.out.println("잘못된 선택입니다. 다시 선택해주세요.");
++                        break;
++                }
++            } else {
++                System.out.println("검색한 제품을 찾을 수 없습니다.");
++            }
++        } while (true);
++    }
++//
++    public static void displayTopRankings(RankingRepository rankingRepository, RankingView rankingView) {
++        List<Item> topRankings = rankingRepository.getTopRankings(10);
++        rankingView.displayTopRankings((List<Item>) topRankings);
++    }
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"8da80d29-be93-4260-b68c-117ae77cadc4\" name=\"변경\" comment=\":bug: id 로그인 부분에서 repository에서 출력하는 부분 수정.\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/0/3/035b8b3dfe06ce3eb0beaabdea603616ac4e8ad7\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/2/8/2828edb626a9c77e3d3f1d148565ca9a5440fbc5\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/8/5/8524ab1ca1022eb6b281b089012711c6d6337ea2\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/9/4/94d1f1c59569b7e8ca9c19cf7b7ba0da8b3231f5\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/a/c/ac822f1c488eb960ee600189908db72d5dd7eace\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/a/e/aec509fe123bb509d8d85d59a5ca814ac9d1f35b\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/d/7/d738a5fa1ed701028095bdc55c4f59be138693e8\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/3/035b8b3dfe06ce3eb0beaabdea603616ac4e8ad7\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/6/26384d3b28cd8eed4e0eda97c35b50cddcd6fccf\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/8/2828edb626a9c77e3d3f1d148565ca9a5440fbc5\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/f/4f632ce4fd86243275355a7130e36166a5512c52\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/5/8524ab1ca1022eb6b281b089012711c6d6337ea2\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/4/94d1f1c59569b7e8ca9c19cf7b7ba0da8b3231f5\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/c/9c27d43556258bdbb1b76555b172bfaf06253d8f\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/c/ac822f1c488eb960ee600189908db72d5dd7eace\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/e/aec509fe123bb509d8d85d59a5ca814ac9d1f35b\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/7/d738a5fa1ed701028095bdc55c4f59be138693e8\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/out/production/shop/User.class\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/out/production/shop/UserLoginView.class\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/out/production/shop/UserRepository.class\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/out/production/shop/seungyeon/ItemRepository.class\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/out/production/shop/seungyeon/ItemView.class\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/out/production/shop/seungyeon/RankingRepository.class\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/out/production/shop/seungyeon/RankingView.class\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/out/production/shop/seungyeon/Search.class\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/seungyeon/ItemRepository.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/seungyeon/ItemView.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/seungyeon/RankingRepository.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/seungyeon/RankingView.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/seungyeon/Search.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/seungyeon/category.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/0/b/0b362daf7f8e44a056fb57cab2fd53bceb3bcbee\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/0/b/0b362daf7f8e44a056fb57cab2fd53bceb3bcbee\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/1970e762e03b5ddc17b1ea246ac3444250802c24\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/1970e762e03b5ddc17b1ea246ac3444250802c24\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/4/b/4b067ed1a2545769c497135973a8661d86159fb8\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/4/b/4b067ed1a2545769c497135973a8661d86159fb8\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/5/3/5393b93e6a443d59423878db09b24f58e03c06b0\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/5/3/5393b93e6a443d59423878db09b24f58e03c06b0\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/9/2/924f089edb4af5ee45c8a9d1129cd28e2b368138\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/9/2/924f089edb4af5ee45c8a9d1129cd28e2b368138\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/a/c/acab9b4a4a5b7d4adde7cee922ab534a863aaba4\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/a/c/acab9b4a4a5b7d4adde7cee922ab534a863aaba4\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/shop/Main.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/shop/Main.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/shop/kibeom/CartView.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/shop/kibeom/CartView.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/shop/kibeom/Test.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/shop/user/UserLoginView.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/shop/user/UserLoginView.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/shop/user/UserRepository.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/shop/user/UserRepository.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Main.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/kibeom/CartView.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/kibeom/CartView.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/kibeom/Test.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/kibeom/Test.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/user/UserLoginView.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/user/UserLoginView.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/user/UserRepository.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/user/UserRepository.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Enum\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <favorite-branches>\r\n      <branch-storage>\r\n        <map>\r\n          <entry type=\"LOCAL\">\r\n            <value>\r\n              <list>\r\n                <branch-info repo=\"$PROJECT_DIR$\" source=\"sanghun\" />\r\n              </list>\r\n            </value>\r\n          </entry>\r\n        </map>\r\n      </branch-storage>\r\n    </favorite-branches>\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;hun2zz&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/shoppingmall2/shop.git&quot;,\r\n    &quot;accountId&quot;: &quot;1b1c7b4d-3a7c-4f00-b33e-120301932d13&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 6\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2fa5K2VJclFdr1XzXlD1ekRS0Xm\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"SONARLINT_PRECOMMIT_ANALYSIS\": \"true\",\r\n    \"git-widget-placeholder\": \"main2 병합 중\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"onboarding.tips.debug.path\": \"/Users/jinsanghun/Desktop/delopjava/shop/src/Main.java\",\r\n    \"project.structure.last.edited\": \"프로젝트\",\r\n    \"project.structure.proportion\": \"0.0\",\r\n    \"project.structure.side.proportion\": \"0.0\",\r\n    \"settings.editor.selected.configurable\": \"preferences.pluginManager\",\r\n    \"애플리케이션.Main.executor\": \"Run\",\r\n    \"애플리케이션.MyInfoMain.executor\": \"Run\",\r\n    \"애플리케이션.ShoppingRepository.executor\": \"Run\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveInnerDialog.RECENTS_KEY\">\r\n      <recent name=\"sanghun\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"애플리케이션.Main\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"shop\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"MyInfoMain\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"MyInfoMain\" />\r\n      <module name=\"shop\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ShoppingRepository\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"ShoppingRepository\" />\r\n      <module name=\"shop\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"애플리케이션.Main\" />\r\n        <item itemvalue=\"애플리케이션.ShoppingRepository\" />\r\n        <item itemvalue=\"애플리케이션.MyInfoMain\" />\r\n        <item itemvalue=\"애플리케이션.Main\" />\r\n        <item itemvalue=\"애플리케이션.ShoppingRepository\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"애플리케이션 수준\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"디폴트 작업\">\r\n      <changelist id=\"8da80d29-be93-4260-b68c-117ae77cadc4\" name=\"변경\" comment=\"\" />\r\n      <created>1714026281027</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1714026281027</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\":white_check_mark: 초기 파일 생성\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1714026392130</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1714026392130</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\":white_check_mark: 초기 파일 생성\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1714026470678</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1714026470678</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\":white_check_mark: 초기 파일 생성\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1714026711494</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1714026711494</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\":white_check_mark: 초기 로그인 회원가입 기능 구현\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1714113244123</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1714113244123</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\":white_check_mark: 마이페이지 추가\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1714141519304</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1714141519304</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\":white_check_mark: 자동입력 방지, 비밀번호 수정, 이메일 수정 추가 완료\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1714210544448</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1714210544448</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"7\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\":white_check_mark: 초기 파일 생성\" />\r\n    <MESSAGE value=\":white_check_mark: 초기 로그인 회원가입 기능 구현\" />\r\n    <MESSAGE value=\":white_check_mark: 마이페이지 추가\" />\r\n    <MESSAGE value=\":white_check_mark: 자동입력 방지, 비밀번호 수정, 이메일 수정 추가 완료\" />\r\n    <MESSAGE value=\":white_check_mark: id 로그인 부분에서 repository에서 출력하는 부분 수정.\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\":white_check_mark: id 로그인 부분에서 repository에서 출력하는 부분 수정.\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision f2eff2403dd8fe76519c7c00213e2f34bf8ecd2f)
++++ b/.idea/workspace.xml	(date 1714531874363)
+@@ -5,56 +5,33 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="8da80d29-be93-4260-b68c-117ae77cadc4" name="변경" comment=":bug: id 로그인 부분에서 repository에서 출력하는 부분 수정.">
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/3/035b8b3dfe06ce3eb0beaabdea603616ac4e8ad7" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/8/2828edb626a9c77e3d3f1d148565ca9a5440fbc5" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/5/8524ab1ca1022eb6b281b089012711c6d6337ea2" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/4/94d1f1c59569b7e8ca9c19cf7b7ba0da8b3231f5" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/c/ac822f1c488eb960ee600189908db72d5dd7eace" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/e/aec509fe123bb509d8d85d59a5ca814ac9d1f35b" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/7/d738a5fa1ed701028095bdc55c4f59be138693e8" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/3/035b8b3dfe06ce3eb0beaabdea603616ac4e8ad7" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/6/26384d3b28cd8eed4e0eda97c35b50cddcd6fccf" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/8/2828edb626a9c77e3d3f1d148565ca9a5440fbc5" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/f/4f632ce4fd86243275355a7130e36166a5512c52" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/5/8524ab1ca1022eb6b281b089012711c6d6337ea2" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/4/94d1f1c59569b7e8ca9c19cf7b7ba0da8b3231f5" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/c/9c27d43556258bdbb1b76555b172bfaf06253d8f" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/c/ac822f1c488eb960ee600189908db72d5dd7eace" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/e/aec509fe123bb509d8d85d59a5ca814ac9d1f35b" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/7/d738a5fa1ed701028095bdc55c4f59be138693e8" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/out/production/shop/User.class" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/out/production/shop/UserLoginView.class" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/out/production/shop/UserRepository.class" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/ItemRepository.class" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/ItemView.class" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/RankingRepository.class" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/RankingView.class" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/Search.class" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/seungyeon/ItemRepository.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/seungyeon/ItemView.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/seungyeon/RankingRepository.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/seungyeon/RankingView.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/seungyeon/Search.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/seungyeon/category.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/b/0b362daf7f8e44a056fb57cab2fd53bceb3bcbee" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/b/0b362daf7f8e44a056fb57cab2fd53bceb3bcbee" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/1970e762e03b5ddc17b1ea246ac3444250802c24" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/1970e762e03b5ddc17b1ea246ac3444250802c24" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/b/4b067ed1a2545769c497135973a8661d86159fb8" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/b/4b067ed1a2545769c497135973a8661d86159fb8" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/3/5393b93e6a443d59423878db09b24f58e03c06b0" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/3/5393b93e6a443d59423878db09b24f58e03c06b0" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/2/924f089edb4af5ee45c8a9d1129cd28e2b368138" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/2/924f089edb4af5ee45c8a9d1129cd28e2b368138" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/c/acab9b4a4a5b7d4adde7cee922ab534a863aaba4" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/c/acab9b4a4a5b7d4adde7cee922ab534a863aaba4" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/seungyeon/Cart.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/seungyeon/Category.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/seungyeon/Item.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__25___6_12__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__25___6_12__________.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__25___6_12__________1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__25___6_12__________1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__29___3_17__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__29___3_17__________.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__29___6_20__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__29___6_20__________.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/shop/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/Main.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/shop/User.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/shop/UserLoginView.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/shop/UserRepository.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/shop/jihye2/Category.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/shop/jihye2/Clothes.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/shop/jihye2/Nike.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/shop/kibeom/CartRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/kibeom/CartRepository.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/out/production/shop/kibeom/CartView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/kibeom/CartView.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/shop/kibeom/Test.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserRepository.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/ItemRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/ItemRepository.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/Search.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/Search.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/kibeom/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kibeom/CartRepository.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/kibeom/CartView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kibeom/CartView.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/kibeom/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kibeom/Test.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/seungyeon/ItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seungyeon/ItemRepository.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/seungyeon/ItemView.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/seungyeon/RankingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seungyeon/RankingRepository.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/seungyeon/RankingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seungyeon/RankingView.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/seungyeon/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seungyeon/Search.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/seungyeon/category.java" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/user/UserLoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/UserLoginView.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/UserRepository.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -99,7 +76,7 @@
+   <component name="GithubPullRequestsUISettings">{
+   &quot;selectedUrlAndAccountId&quot;: {
+     &quot;url&quot;: &quot;https://github.com/shoppingmall2/shop.git&quot;,
+-    &quot;accountId&quot;: &quot;1b1c7b4d-3a7c-4f00-b33e-120301932d13&quot;
++    &quot;accountId&quot;: &quot;9e10bbbc-4ddd-4eb9-b8f8-379149853e81&quot;
+   }
+ }</component>
+   <component name="ProjectColorInfo">{
+@@ -112,23 +89,23 @@
+   <component name="ProjectViewState">
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+-    "git-widget-placeholder": "main2 병합 중",
+-    "kotlin-language-version-configured": "true",
+-    "onboarding.tips.debug.path": "/Users/jinsanghun/Desktop/delopjava/shop/src/Main.java",
+-    "project.structure.last.edited": "프로젝트",
+-    "project.structure.proportion": "0.0",
+-    "project.structure.side.proportion": "0.0",
+-    "settings.editor.selected.configurable": "preferences.pluginManager",
+-    "애플리케이션.Main.executor": "Run",
+-    "애플리케이션.MyInfoMain.executor": "Run",
+-    "애플리케이션.ShoppingRepository.executor": "Run"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/jinsanghun/Desktop/delopjava/shop/src/Main.java&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;프로젝트&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
++    &quot;애플리케이션.Main.executor&quot;: &quot;Run&quot;,
++    &quot;애플리케이션.MyInfoMain.executor&quot;: &quot;Run&quot;,
++    &quot;애플리케이션.ShoppingRepository.executor&quot;: &quot;Run&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="MoveInnerDialog.RECENTS_KEY">
+       <recent name="sanghun" />

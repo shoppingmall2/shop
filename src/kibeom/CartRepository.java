@@ -18,8 +18,6 @@ public class CartRepository {
         CartList.add(cart);
     }
 
-    public CartRepository() {
-    }
 
     public static List<Cart> getCartList() {
         return CartList;

@@ -1,0 +1,69 @@
+<changelist name="24__5__1__오전_11_53,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]" date="1714532023431" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/24__5__1__오전_11_53,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]/shelved.patch" />
+  <option name="DESCRIPTION" value="24. 5. 1. 오전 11:53, 체크아웃 전에 커밋되지 않은 변경 내용 [변경]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/shop/User.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/shop/seungyeon/ItemView.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/shop/seungyeon/ItemRepository.class" />
+    <option name="AFTER_PATH" value="out/production/shop/seungyeon/ItemRepository.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/24__5__1__오전_11_53,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]/ItemRepository.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/shop/seungyeon/Search.class" />
+    <option name="AFTER_PATH" value="out/production/shop/seungyeon/Search.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/24__5__1__오전_11_53,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]/Search.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/shop/jihye2/Clothes.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/shop/jihye2/Nike.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/shop/kibeom/CartRepository.class" />
+    <option name="AFTER_PATH" value="out/production/shop/kibeom/CartRepository.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/24__5__1__오전_11_53,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]/CartRepository.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/shop/UserRepository.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/shop/seungyeon/RankingView.class" />
+    <option name="AFTER_PATH" value="out/production/shop/seungyeon/RankingView.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/24__5__1__오전_11_53,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]/RankingView.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/shop/UserLoginView.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/shop/kibeom/CartView.class" />
+    <option name="AFTER_PATH" value="out/production/shop/kibeom/CartView.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/24__5__1__오전_11_53,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]/CartView.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/shop/jihye2/Category.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/shop/seungyeon/RankingRepository.class" />
+    <option name="AFTER_PATH" value="out/production/shop/seungyeon/RankingRepository.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/24__5__1__오전_11_53,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]/RankingRepository.class" />
+  </binary>
+</changelist>
