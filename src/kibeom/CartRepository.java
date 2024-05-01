@@ -1,92 +1,65 @@
 package kibeom;
-import util.SimpleInput;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class CartRepository {
-    // 장바구니 물품 관리
-    static Map<String, Map<String, Object>> item;
+    public static List<Cart> CartList = new ArrayList<>();
 
-    public CartRepository() {
-        item = new HashMap<>();
-        // 상품 초기화
-
+    static {
+        CartList.add(new Cart("jacket", "TOP", 130000, "남성"));
+        CartList.add(new Cart("jean", "BOTTOM", 30000, "남성"));
     }
 
-//    CartRepository.addItem();
-
-    /*
-    장바구니인 item 에 속성 추가. 분류, 가격, 성별
-     */
-    public static void addItem(String itemName, String type, int price, String gender) {
-        Map<String, Object> itemDetails = new HashMap<>();
-        itemDetails.put("type", type);
-        itemDetails.put("price", price);
-        itemDetails.put("gender", gender);
-
-        item.put(itemName, itemDetails);
+    public static void addCartList(Cart cart) {
+        CartList.add(cart);
     }
 
 
-    /*
-    상품 전체 출력 메서드
-     */
+    public static List<Cart> getCartList() {
+        return CartList;
+    }
+
+    public static void setCartList(List<Cart> cartList) {
+        CartList = cartList;
+    }
+
     public static void showCartRepository() {
-        int num = 1;
-        for (String s : item.keySet()) {
-            System.out.println(num++ + ". " +  s);
-            Map<String, Object> product = item.get(s);
-            System.out.println("상품 가격: " + product.get("price") + "원");
-            System.out.println("상품 분류: " + product.get("type"));
-            System.out.println("성별: " + product.get("gender"));
-            System.out.println();
+        List<Cart> cartList = getCartList();
+        System.out.println();
+        for (Cart cart : cartList) {
+            System.out.println( "제품 명 : " + cart.getItemName() + "\n" +
+                    "제품 분류 : " + cart.getType() + "\n" +
+                    "제품 가격 : " + cart.getPrice() + "\n" +
+                    "성별 : " + cart.getGender() + "\n" + "\n");
         }
+
     }
 
-
-    public static Map<String, Map<String, Object>> getItems() {
-        return item;
+    public static Cart isContains(String itemName) { // 입력값 확인
+        for (Cart cart : CartList) {
+            if (cart.getItemName().equals(itemName)) {
+                return cart;
+            }
+        }
+        return null;
     }
 
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CartRepository that = (CartRepository) o;
-        return Objects.equals(item, that.item);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(item);
+    public static void deleteItem(String itemNames) {
+        Iterator<Cart> iterator = CartList.iterator();
+        while (iterator.hasNext()) {
+            Cart cart = iterator.next();
+            if (cart.getItemName().equals(itemNames)) {
+                iterator.remove();
+            }
+        }
     }
 
     @Override
     public String toString() {
-        return "CartRepository" +
-                "item=" + item
-                ;
+        return super.toString();
     }
 }
 
-/*
-        ========= 값에 접근하는 법 =========
-        public static void main(String[] args) {
-
-        CartRepository cartRepository = new CartRepository();
-
-        // 장바구니에 담긴 상품 출력
-        Map<String, Map<String, Object>> items = cartRepository.getItems();
-        for (String s : items.keySet()) {
-            System.out.println(items.get(s).get("price"));
-        }
-    }
- */
