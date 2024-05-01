@@ -21,7 +21,7 @@ public class BuyRepository {
     // 상품 이름으로 상품 정보 찾기 메서드
     public static Buy getItemByName(String itemName) {
         for (Buy item : itemList) {
-            if (item.getItemName().equals(itemName)) {
+            if (item.getProductName().equals(itemName)) {
                 return item;
             }
         }
