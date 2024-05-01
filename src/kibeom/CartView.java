@@ -1,11 +1,15 @@
 package kibeom;
 
 import jihye.Buy;
+<<<<<<< HEAD
 import static jihye.DeliveryRepository.buyList;
 
 import jihye.BuyRepository;
 import jihye.DeliveryRepository;
 import jihye.DeliveryView;
+=======
+
+>>>>>>> e27756bca7ef7d92e8c6c56027e87a16fd77bcde
 import user.User;
 import user.UserLoginView;
 import user.UserRepository;
@@ -13,9 +17,13 @@ import util.SimpleInput;
 
 import java.lang.reflect.Array;
 import java.util.*;
+<<<<<<< HEAD
+=======
 
-import static kibeom.CartRepository.getItems;
-import static kibeom.CartRepository.item;
+import static jihye.DeliveryRepository.buyList;
+import static kibeom.CartRepository.CartList;
+>>>>>>> e27756bca7ef7d92e8c6c56027e87a16fd77bcde
+
 
 
 public class CartView {
@@ -23,16 +31,12 @@ public class CartView {
     private static CartRepository cartRepo;
     public static final String RED = "\033[0;31m"; // 콘솔에 색깔 주기
     public static final String RESET = "\033[0m";
-    public static final String GREEN = "\033[0;32m";
-    public static final String YELLOW = "\033[0;33m";
     public static final String BLUE = "\033[0;34m";
-    public static final String PURPLE = "\033[0;35m";
-    public static final String CYAN = "\033[0;36m";
-    public static final String WHITE = "\033[0;37m";
+
+
 
     public CartView() {
         this.cartRepo = new CartRepository();
-
     }
 
 
@@ -40,7 +44,13 @@ public class CartView {
         boolean back = true; // 반복문 탈출을 위한 논리값 변수
         while (back) {
             System.out.println("============ 장바구니 목록 =============");
-            CartRepository.showCartRepository();
+
+            if (CartList.isEmpty()) {
+                System.out.println(BLUE+"장바구니가 비어있습니다."+RESET);
+            } else {
+                CartRepository.showCartRepository();
+
+            }
             System.out.println("1. 결제하기");
             System.out.println("2. 장바구니 물품 빼기");
             System.out.println("3. 뒤로 가기");
@@ -64,7 +74,11 @@ public class CartView {
 
     }
 
+    private static void deleteItem() {
+        String itemNames = SimpleInput.input("삭제 하고 싶은 제품명을 입력해주세요. \n" + BLUE + "(여러 개일 경우 쉼표 ','로 구분)" + RESET + "\n>> ").strip();
+        String[] itemsToDelete = itemNames.split(","); // 입력값이 두개 이상일때 사용됨
 
+<<<<<<< HEAD
     /*
     order() 주문하는 메서드
     코드가 긴 이유는 한개만 주문하는 경우와
@@ -190,64 +204,67 @@ public class CartView {
                 default:
                     System.out.println("제대로 입력하세요.");
             }
+=======
+        for (String itemName : itemsToDelete) {
+            CartRepository.deleteItem(itemName.trim()); // 공백 제거
+            System.out.println(itemName.trim() + "이(가) 삭제되었습니다.");
+>>>>>>> e27756bca7ef7d92e8c6c56027e87a16fd77bcde
         }
     }
 
-    // 한번에 두개 삭제 구현해야 함
-    public static void deleteItem() {
-        // 삭제할 제품명 입력 받음
-        String itemNames = null;
-        try {
-            itemNames = SimpleInput.input("삭제 하고 싶은 제품명을 입력해주세요. \n" + BLUE + "(여러 개일 경우 쉼표 ','로 구분)" + RESET + "\n>> ").strip();
-        } catch (Exception e) {
-            System.out.println("입력 예시: crocs, poloCap");
-        }
+    private static void order() {
 
-        String[] itemNameList = itemNames.split(","); // 입력값을 배열로 분할
+        String[] orderList = null;
+        int totalOrderPrice = 0;
+        boolean back = true;
+        while (back) {
+            String itemName = SimpleInput.input("주문 하고 싶은 제품명을 입력해주세요. \n" + BLUE + "(여러 개일 경우 쉼표 ','로 구분)" + RESET + "\n>> ").trim();
 
-        Map<String, Map<String, Object>> item = getItems();
-        List<String> deletedItems = new ArrayList<>();
+            orderList = itemName.split(","); // 입력값 2개 이상일때.
+            totalOrderPrice = 0;
 
-        for (String itemName : itemNameList) {
-            itemName = itemName.strip();
-            if (item.containsKey(itemName)) {
-                System.out.println(itemName + "\n" + item.get(itemName));
-                System.out.println("1. 삭제하기");
-                System.out.println("2. 계속하기");
-                String answer = SimpleInput.input(">> ");
-                switch (answer) {
-                    case "1":
-                        item.remove(itemName); // 항목 삭제
-                        deletedItems.add(itemName);
-                        System.out.println(itemName + " 항목이 삭제되었습니다.");
-                        break;
-                    case "2":
-                        System.out.println(itemName + " 항목을 삭제하지 않습니다.");
-                        break;
-                    default:
-                        System.out.println("1 또는 2를 입력하세요.");
+            for (String singleItem : orderList) {
+                Cart orderItem = CartRepository.isContains(singleItem.trim());
+                if (orderItem == null) {
+                    System.out.println(RED +singleItem  +" 상품은 장바구니에 없습니다."+RESET);
+                    continue;
                 }
-            } else {
-                System.out.println(itemName + " 항목이 존재하지 않습니다.");
+                int price = orderItem.getPrice();
+                totalOrderPrice += price;
+                back = false;
             }
         }
 
-        if (!deletedItems.isEmpty()) {
-            System.out.println("삭제된 항목: " + deletedItems);
+        System.out.println("총 주문 가격: " + totalOrderPrice);
+        System.out.println("현재 소지 금액 : " + UserRepository.getUser().getMoney());
+
+        String answer = SimpleInput.input("주문하시겠습니까? Y / N\n>> ").toUpperCase();
+        switch (answer) {
+            case "Y":
+                if (UserRepository.getUser().getMoney() >= totalOrderPrice) { // 유저 보유 금액 확인
+                    int currentMoney = UserRepository.getUser().getMoney() - totalOrderPrice;
+                    UserRepository.getUser().setMoney(currentMoney);
+                    for (String singleItem : orderList) {
+                        Cart orderItem = CartRepository.isContains(singleItem.trim());
+                        buyList.add(new Buy(orderItem.getBrand(), orderItem.getItemName(), orderItem.getPrice(),UserRepository.getUser().getAddress()));
+                        CartList.remove(orderItem);
+                    }
+                    System.out.println("감사합니다. 주문이 완료 되었습니다.\n총 결제 금액: " + totalOrderPrice + "\n현재 소지 금액: " + currentMoney);
+                    System.out.println("배송지 정보 : " + UserRepository.getUser().getAddress());
+                    System.out.println("공휴일 제외, 영업일 기준 1 ~ 3 일 이내 배송됩니다.");
+                    SimpleInput.stopInput();
+                } else {
+                    System.out.println("잔액이 부족합니다.");
+                }
+                break;
+            case "N":
+                System.out.println("주문이 취소되었습니다.");
+                break;
+            default:
+                System.out.println("제대로 입력하세요.");
         }
     }
 
 }
-/*
 
-    // 전체 도서 정보를 출력
-    private void displayAllBooks() {
-        System.out.println("\n=============== 전체 도서 목록 ================");
-        Book[] informationList = repository.getAllBooksInfo();
 
-        for (int i = 0; i < informationList.length; i++) {
-            Book book = informationList[i];
-            System.out.printf("%d. %s\n", i+1, book.info());
-        }
-
- */

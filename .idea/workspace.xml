@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8da80d29-be93-4260-b68c-117ae77cadc4" name="변경" comment=":bug: id 로그인 부분에서 repository에서 출력하는 부분 수정.">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/src/jihye/BuyRepository.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/jihye/DeliveryManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__25___6_12__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__25___6_12__________.xml" afterDir="false" />
@@ -22,6 +23,12 @@
       <change beforePath="$PROJECT_DIR$/src/jihye/DeliveryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jihye/DeliveryRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jihye/DeliveryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jihye/DeliveryView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kibeom/CartView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kibeom/CartView.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/UserLoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/UserLoginView.java" afterDir="false" />
+>>>>>>> e27756bca7ef7d92e8c6c56027e87a16fd77bcde
       <change beforePath="$PROJECT_DIR$/src/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/UserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,6 +87,7 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -95,6 +103,24 @@
     &quot;애플리케이션.Main.executor&quot;: &quot;Run&quot;,
     &quot;애플리케이션.MyInfoMain.executor&quot;: &quot;Run&quot;,
     &quot;애플리케이션.ShoppingRepository.executor&quot;: &quot;Run&quot;
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "hun",
+    "kotlin-language-version-configured": "true",
+    "onboarding.tips.debug.path": "/Users/jinsanghun/Desktop/delopjava/shop/src/Main.java",
+    "project.structure.last.edited": "프로젝트",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "애플리케이션.Main.executor": "Run",
+    "애플리케이션.MyInfoMain.executor": "Run",
+    "애플리케이션.ShoppingRepository.executor": "Run"
+>>>>>>> e27756bca7ef7d92e8c6c56027e87a16fd77bcde
   }
 }</component>
   <component name="RecentsManager">

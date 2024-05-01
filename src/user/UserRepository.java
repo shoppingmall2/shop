@@ -1,5 +1,6 @@
 package user;
 
+import java.awt.desktop.UserSessionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.*;
@@ -10,15 +11,21 @@ public class UserRepository {
     public static User loggedInUser; // 현재 로그인한 사용자 정보를 저장하는 변수
     private static int loginTrueGood;
     private static int mypagepass;
+    private static User searchUser;
 
     static {
         userList.add(new User("진훈", "kk00228", "tkdgnsdldkdlel@naver.com",
                 23, "서울특별시 대림동", "남", "상후잉"));
         userList.add(new User("진상훈", "kk002281", "t1231231nsdldkdlel@naver.com",
                 19, "서울특별시 대동", "남", "김"));
+<<<<<<< HEAD
         userList.add(new User("강지혜", "1", "t1231231nsdldkdlel@naver.com",
                 19, "서울특별시 대동", "남", "김"));
 
+=======
+        userList.add(new User("한기범", "gksrlqja", "hgb926@naver.com",
+                27, "서울특별시 관악구 봉천로 305", "남", "기범"));
+>>>>>>> e27756bca7ef7d92e8c6c56027e87a16fd77bcde
     }
 
 
@@ -32,6 +39,16 @@ public class UserRepository {
 
     public static String getPass() {
         return loggedInUser.getPassword();
+    }
+
+    public static String srPass() {
+        String password =  searchUser.getPassword();
+        if (password.length() <= 1) {
+            return password; // 패스워드 길이가 2 이하인 경우에는 그대로 반환
+        }
+        char[] hiddenChars = new char[password.length() - 3]; // '*'로 대체할 문자열 배열 생성
+        Arrays.fill(hiddenChars, '*'); // '*'로 채워진 배열 생성
+        return password.substring(0, 3) + new String(hiddenChars); //
     }
 
     public static String getNickName() {
@@ -57,6 +74,7 @@ public class UserRepository {
         loggedInUser.setEmail(email);
     }
 
+
     // 사용자 로그인 메서드
     public static boolean login(String username, String password) {
         for (User user : userList) {
@@ -67,6 +85,28 @@ public class UserRepository {
             }
         }
         return false;
+    }
+    public static boolean alreadyLogId(String id) {
+        for (User user:userList) {
+            if (user.getName().equals(id)) {
+                searchUser = user;
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean alreadyMail(String mail) {
+        if (searchUser.getEmail().equals(mail)) {
+            return false;
+        }
+        return true;
+    }
+    public static boolean alreadyAge(int age) {
+        if (searchUser.getAge() == age) {
+            return false;
+        }
+        return true;
     }
 
     public static boolean loginCheck(String checkPassword) {
@@ -123,6 +163,7 @@ public class UserRepository {
         return "현재 시간: " + year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
     }
 
+
     public static String blindPassword() {
         String password = loggedInUser.getPassword();
         if (password.length() <= 1) {
@@ -132,4 +173,16 @@ public class UserRepository {
         Arrays.fill(hiddenChars, '*'); // '*'로 채워진 배열 생성
         return password.substring(0, 1) + new String(hiddenChars); // 처음 한 글자와 '*'로 대체된 문자열 합침
     }
+
+//    public static String searchPass(User getPassUserName) {
+//        String password = getPassUserName.getPassword();
+//        if (password.length() <= 1) {
+//            return password; // 패스워드 길이가 2 이하인 경우에는 그대로 반환
+//        }
+//        char[] hiddenChars = new char[password.length() - 1]; // '*'로 대체할 문자열 배열 생성
+//        Arrays.fill(hiddenChars, '*'); // '*'로 채워진 배열 생성
+//        return password.substring(0, 4) + new String(hiddenChars); // 처음 한 글자와 '*'로 대체된 문자열 합침
+//    }
+
+
 }
