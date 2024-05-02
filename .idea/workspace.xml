@@ -4,27 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="782c1936-6cda-4c00-8e13-add87572afbb" name="변경" comment=":bug: id 로그인 부분에서 repository에서 출력하는 부분 수정.">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__30___2_05__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__30___2_05__________.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__30___2_06__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__30___2_06__________.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__30___2_06__________1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__30___2_06__________1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__5__1___11_53__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__5__1___11_53__________.xml" afterDir="false" />
+    <list default="true" id="782c1936-6cda-4c00-8e13-add87572afbb" name="변경" comment=":bug: 파일 컨플릭트 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/jihye/DeliveryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/jihye/DeliveryRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/kibeom/CartRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/kibeom/CartRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/kibeom/CartView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/kibeom/CartView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/ItemRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/ItemRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/RankingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/RankingRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/Search.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/Search.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jihye/DeliveryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jihye/DeliveryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jihye/DeliveryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jihye/DeliveryView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kibeom/CartView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kibeom/CartView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/SimpleInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/SimpleInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/RankingView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/RankingView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seungyeon/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seungyeon/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seungyeon/RankingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seungyeon/RankingView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/UserLoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/UserLoginView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -57,7 +56,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value=":bug: 파일 컨플릭트 수정" />
-    <MESSAGE value=":bug: id 로그인 부분에서 repository에서 출력하는 부분 수정." />
-    <option name="LAST_COMMIT_MESSAGE" value=":bug: id 로그인 부분에서 repository에서 출력하는 부분 수정." />
+    <option name="LAST_COMMIT_MESSAGE" value=":bug: 파일 컨플릭트 수정" />
   </component>
 </project>
