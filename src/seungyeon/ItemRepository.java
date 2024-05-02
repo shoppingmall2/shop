@@ -104,47 +104,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemRepository {
-    private List<Item> items;
+    public static List<Item> items;
 
-    public ItemRepository() {
+    public  ItemRepository() {
         items = new ArrayList<>();
         // 상품 초기화
-        addItem(new Item("crocs", "SHOES", 40000, "unisex"));
-        addItem(new Item("nikeAirForce", "SHOES", 80000, "unisex"));
-        addItem(new Item("jean", "BOTTOM", 30000, "unisex"));
-        addItem(new Item("riderJacket", "TOP", 90000, "male"));
-        addItem(new Item("poloCap", "CAP", 60000, "unisex"));
-        addItem(new Item("Zara Coat", "OUTERWEAR", 90000, "unisex"));
-        addItem(new Item("Uniqlo Sweater", "TOP", 45000, "unisex"));
-        addItem(new Item("Levi's Jeans", "BOTTOM", 35000, "unisex"));
-        addItem(new Item("Gucci Scarf", "ACCESSORY", 15000, "unisex"));
-        addItem(new Item("Louis Vuitton Belt", "ACCESSORY", 25000, "unisex"));
-        addItem(new Item("Prada Wallet", "ACCESSORY", 35000, "unisex"));
-        addItem(new Item("Adidas Hoodie", "TOP", 50000, "unisex"));
-        addItem(new Item("Nike Sneakers", "SHOES", 60000, "unisex"));
-        addItem(new Item("H&M Dress", "DRESS", 70000, "female"));
-        addItem(new Item("Rolex Watch", "ACCESSORY", 30000, "unisex"));
-        addItem(new Item("Balenciaga Sunglasses", "ACCESSORY", 20000, "unisex"));
-        addItem(new Item("North Face Backpack", "BAG", 40000, "unisex"));
-        addItem(new Item("Zara Coat", "OUTERWEAR", 90000, "unisex"));
-        addItem(new Item("Uniqlo Sweater", "TOP", 45000, "unisex"));
-        addItem(new Item("Levi's Jeans", "BOTTOM", 35000, "unisex"));
-        addItem(new Item("Gucci Scarf", "ACCESSORY", 15000, "unisex"));
-        addItem(new Item("Louis Vuitton Belt", "ACCESSORY", 25000, "unisex"));
-        addItem(new Item("Prada Wallet", "ACCESSORY", 35000, "unisex"));
-        addItem(new Item("Calvin Klein T-shirt", "TOP", 25000, "male"));
-        addItem(new Item("Puma Joggers", "BOTTOM", 40000, "male"));
-        addItem(new Item("Tommy Hilfiger Polo Shirt", "TOP", 45000, "male"));
-        addItem(new Item("Under Armour Hoodie", "TOP", 55000, "male"));
-        addItem(new Item("New Balance Running Shoes", "SHOES", 70000, "male"));
-        addItem(new Item("Givenchy Hoodie", "TOP", 70000, "male"));
-        addItem(new Item("Louis Vuitton Sneakers", "SHOES", 90000, "unisex"));
-        addItem(new Item("Gucci Bag", "BAG", 180000, "female"));
-        addItem(new Item("Givenchy Hoodie", "TOP", 130000, "male"));
-        addItem(new Item("Chanel Bag", "BAG", 400000, "female"));
-        addItem(new Item("Burberry Trench Coat", "OUTERWEAR", 300000, "unisex"));
-        addItem(new Item("crocs", "SHOES", 40000, "unisex"));
-
+        addItem(new Item("Nike", "AirForce", "SHOES", 39900, "unisex"));
+        addItem(new Item("Adidas", "Superstar", "SHOES", 44900, "unisex"));
+        addItem(new Item("Reebok", "Classic", "SHOES", 37900, "unisex"));
+        addItem(new Item("Vans", "OldSkool", "SHOES", 32900, "unisex"));
+        addItem(new Item("Converse", "ChuckTaylor", "SHOES", 39900, "unisex"));
+        addItem(new Item("New Balance", "574", "SHOES", 39900, "unisex"));
+        addItem(new Item("Puma", "Suede", "SHOES", 35900, "unisex"));
+        addItem(new Item("Under Armour", "UA Charged Assert 8", "SHOES", 44900, "unisex"));
+        addItem(new Item("Skechers", "Go Walk 5", "SHOES", 29900, "unisex"));
+        addItem(new Item("Crocs", "Classic Clog", "SHOES", 29900, "unisex"));
+        addItem(new Item("Levi's", "501", "BOTTOM", 69900, "unisex"));
+        addItem(new Item("H&M", "Skinny Jeans", "BOTTOM", 32990, "female"));
+        addItem(new Item("Zara", "Cargo Pants", "BOTTOM", 39900, "unisex"));
+        addItem(new Item("Nike", "Tech Fleece Joggers", "BOTTOM", 44900, "male"));
+        addItem(new Item("Forever 21", "Mini Skirt", "BOTTOM", 29900, "female"));
+        addItem(new Item("Uniqlo", "Chino Shorts", "BOTTOM", 29900, "unisex"));
+        addItem(new Item("H&M", "Hoodie", "TOP", 32990, "unisex"));
+        addItem(new Item("Gap", "Polo Shirt", "TOP", 29900, "male"));
+        addItem(new Item("Zara", "Blouse", "TOP", 29900, "female"));
+        addItem(new Item("Nike", "Dry Fit T-shirt", "TOP", 32900, "unisex"));
+        addItem(new Item("Adidas", "Track Jacket", "TOP", 39900, "unisex"));
+        addItem(new Item("Polo Ralph Lauren", "Baseball Cap", "CAP", 29900, "unisex"));
+        addItem(new Item("The North Face", "Beanie", "CAP", 29900, "unisex"));
+        addItem(new Item("Gucci", "Bucket Hat", "CAP", 49900, "unisex"));
+        addItem(new Item("Supreme", "Snapback", "CAP", 49900, "unisex"));
+        addItem(new Item("Burberry", "Newsboy Cap", "CAP", 59900, "unisex"));
+        addItem(new Item("Canada Goose", "Down Parka", "OUTERWEAR", 139900, "unisex"));
+        addItem(new Item("Moncler", "Puffer Jacket", "OUTERWEAR", 169900, "unisex"));
+        addItem(new Item("Patagonia", "Fleece Jacket", "OUTERWEAR", 99900, "unisex"));
+        addItem(new Item("Arc'teryx", "Gore-Tex Shell", "OUTERWEAR", 299900, "unisex"));
+        addItem(new Item("Columbia", "Rain Jacket", "OUTERWEAR", 79900, "unisex"));
         // 나머지 상품들 추가...
     }
 
@@ -152,11 +147,16 @@ public class ItemRepository {
         items.add(item);
     }
 
-    public List<Item> getItems() {
+    public static List<Item> getItems() {
         return items;
     }
 
+    public static void setItems(List<Item> items) {
+        ItemRepository.items = items;
+    }
+
 }
+
 
 
 

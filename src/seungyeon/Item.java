@@ -1,12 +1,15 @@
 package seungyeon;
 
 public class Item {
+
+    private String brand;
     private String itemName;
     private String type;
     private int price;
     private String gender;
 
-    public Item(String itemName, String type, int price, String gender) {
+    public Item(String brand, String itemName, String type, int price, String gender) {
+        this.brand = brand;
         this.itemName = itemName;
         this.type = type;
         this.price = price;
@@ -15,8 +18,17 @@ public class Item {
 
     // Getter methods...
 
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
     public String getItemName() {
-        return itemName;
+        return this.itemName;
     }
 
     public String getType() {

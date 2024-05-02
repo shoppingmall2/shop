@@ -1,5 +1,9 @@
 package kibeom;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+
 public class Cart {
 
     private String brand;
@@ -9,6 +13,7 @@ public class Cart {
     private String gender;
 
 
+
     public Cart(String brand, String itemName, String type, int price, String gender) {
         this.brand = brand;
         this.itemName = itemName;
@@ -16,6 +21,19 @@ public class Cart {
         this.price = price;
         this.gender = gender;
     }
+
+
+    public static String orderTime() {
+        Calendar currentTime = Calendar.getInstance();
+        int year = currentTime.get(Calendar.YEAR);
+        int month = currentTime.get(Calendar.MONTH) + 1; // 월은 0부터 시작하므로 +1
+        int day = currentTime.get(Calendar.DAY_OF_MONTH);
+        int hour = currentTime.get(Calendar.HOUR_OF_DAY);
+        int minute = currentTime.get(Calendar.MINUTE);
+        int second = currentTime.get(Calendar.SECOND);
+        return "주문 시간: " + year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+    }
+
 
     public Cart() {
     }
