@@ -50,6 +50,8 @@ package seungyeon;
 
 import java.util.List;
 
+import static seungyeon.ItemRepository.items;
+
 public class Search {
     private ItemRepository itemRepository;
 
@@ -58,7 +60,7 @@ public class Search {
     }
 
     public boolean searchItemByName(String itemName) {
-        List<Item> items = ItemRepository.getItems();
+//        List<Item> items = ItemRepository.getItems();
         boolean found = false;
         int count = 0;
 
