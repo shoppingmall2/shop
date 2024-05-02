@@ -43,7 +43,7 @@ public class Cart {
 
     public static void addItem(String item) {
         items.add(item);
-        // getitemList(); // 주석 처리된 부분은 필요하지 않을 것 같아 주석 처리했습니다.
+
     }
 
     public static void getitemList() {

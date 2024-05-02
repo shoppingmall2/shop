@@ -48,6 +48,7 @@ package seungyeon;
 //    }
 //}
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static seungyeon.ItemRepository.items;
@@ -58,6 +59,7 @@ public class Search {
     public Search(ItemRepository itemRepository) {
         this.itemRepository = itemRepository;
     }
+
 
     public boolean searchItemByName(String itemName) {
 //        List<Item> items = ItemRepository.getItems();

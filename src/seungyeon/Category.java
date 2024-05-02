@@ -173,6 +173,9 @@ public class Category {
         scanner.close();
     }
 
+    public Category() {
+    }
+
     public static void searchItem(Search search, Scanner scanner) {
         String itemName;
 
@@ -194,8 +197,18 @@ public class Category {
 
                 switch (choice) {
                     case "1":
-                        addNewItem(itemName);
-                        System.out.println("✨ 제품이 장바구니에 추가되었습니다.");
+                        // 제품 장바구니에 넣기
+                        System.out.print("장바구니에 넣을 제품의 번호를 입력하세요: ");
+                        int productNumber = Integer.parseInt(scanner.nextLine());
+                        // 선택된 제품의 번호를 인덱스로 사용하여 제품을 가져옴
+                        boolean addedToCart = ItemRepository.addItemByIndex(productNumber - 1);
+                        if (addedToCart) {
+                            System.out.println("✨ 제품이 장바구니에 추가되었습니다.");
+                        } else {
+                            System.out.println(RED + "잘못된 제품 번호입니다. 다시 시도해주세요.");
+                        }
+//                        addNewItem(itemName);
+//                        System.out.println("✨ 제품이 장바구니에 추가되었습니다.");
                         break;
                     case "2":
                         break;
