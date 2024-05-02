@@ -13,9 +13,7 @@ import static seungyeon.ItemRepository.getItems;
 public class CartRepository {
     public static List<Cart> CartList = new ArrayList<>();
 
-    static {
-        CartList.add(new Cart("유니클로", "jacket", "TOP", 130000, "남성"));
-    }
+
 
     public static void addCartList(Cart cart) {
         CartList.add(cart);

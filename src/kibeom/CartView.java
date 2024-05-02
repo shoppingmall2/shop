@@ -128,7 +128,7 @@ public class CartView {
                     UserRepository.getUser().setMoney(currentMoney);
                     for (String singleItem : orderList) {
                         Cart orderItem = CartRepository.isContains(singleItem.trim());
-                        buyList.add(new Buy(orderItem.getBrand(), orderItem.getItemName(), orderItem.getPrice(),UserRepository.getUser().getAddress()));
+                        buyList.add(new Buy(Objects.requireNonNull(orderItem).getBrand(), orderItem.getItemName(), orderItem.getPrice(),UserRepository.getUser().getAddress()));
                         CartList.remove(orderItem);
                     }
                     System.out.println("\n\uD83D\uDE0A 감사합니다. 주문이 완료 되었습니다.\n\uD83D\uDCB5 총 주문 가격: " + totalOrderPrice + "\n\uD83D\uDCB0 현재 소지 금액: " + currentMoney);

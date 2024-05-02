@@ -178,7 +178,7 @@ public class Category {
 
         do {
             System.out.print("\n검색 할 상품의 이름을 입력하세요.\n" + BLUE + "(exit 입력 시 검색 종료)" + RESET + "\n>> ");
-            itemName = scanner.nextLine().trim();
+            itemName = scanner.nextLine().trim().toLowerCase();
             //System.out.print("\n");
             if (itemName.equalsIgnoreCase("exit")) {
                 break;
@@ -194,7 +194,7 @@ public class Category {
 
                 switch (choice) {
                     case "1":
-                        Cart.addItem(itemName);
+                        addNewItem(itemName);
                         System.out.println("✨ 제품이 장바구니에 추가되었습니다.");
                         break;
                     case "2":
