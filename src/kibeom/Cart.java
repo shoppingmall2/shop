@@ -20,7 +20,6 @@ public class Cart {
         this.type = type;
         this.price = price;
         this.gender = gender;
-
     }
 
 

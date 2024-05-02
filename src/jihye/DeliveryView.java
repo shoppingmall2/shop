@@ -43,7 +43,7 @@ public class DeliveryView {
         // DeliveryRepository 클래스에 임시로 넣어둔 리스트 반복해서 가져오기
         for (Buy buy : DeliveryRepository.buyList) {
             System.out.println("브랜드: " + buy.getBrand() + ", 상품명: " + buy.getProductName()
-                    + ", 상품 금액 : " + buy.getOrderTotalValue() + ", 주소 : " + buy.getAddress());
+                    + ", 상품 금액 : " + buy.getOrderTotalValue() + ", 주소 : " + buy.getAddress() + "\n" + buy.getOrderTime());
         }
         System.out.println("=====================================================================");
         System.out.println("\n1. 구매 상품 배송 현황 확인하기");
