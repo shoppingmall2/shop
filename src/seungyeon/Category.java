@@ -1,5 +1,6 @@
 package seungyeon;
 //
+import kibeom.CartRepository;
 import user.UserLoginView;
 //
 import java.util.HashMap;
@@ -118,6 +119,11 @@ import java.util.Scanner;
 import user.UserLoginView;
 
 import java.util.Scanner;
+
+import static kibeom.CartRepository.CartList;
+import static kibeom.CartRepository.addNewItem;
+import static seungyeon.ItemRepository.items;
+
 
 public class Category {
     public static final String RESET = "\033[0m";
