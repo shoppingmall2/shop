@@ -143,6 +143,14 @@ public class ItemRepository {
         // 나머지 상품들 추가...
     }
 
+    private static List<String> itemsInCart = new ArrayList<>();
+
+    //오류나면삭제
+    public static boolean addItemByIndex(int i) {
+        return false;
+    }
+
+
     public void addItem(Item item) {
         items.add(item);
     }
