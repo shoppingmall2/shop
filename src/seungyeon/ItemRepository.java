@@ -143,13 +143,48 @@ public class ItemRepository {
         // 나머지 상품들 추가...
     }
 
-    private static List<String> itemsInCart = new ArrayList<>();
+//    private static List<String> itemsInCart = new ArrayList<>();
 
     //오류나면삭제
-    public static boolean addItemByIndex(int i) {
+//    public static boolean addItemByIndex(int i) {
+//        return false;
+//    }
+
+    public static Item findItem(String ax) {
+        for (Item item : items) {
+            if (item.getItemName().equals(ax)) {
+                return item;
+            }
+        }
+        return null;
+
+    }
+
+    public static boolean findItemIn(String ax) {
+        for (Item item : items) {
+            if (item.getItemName().equals(ax)) {
+                return true;
+            }
+        }
         return false;
     }
 
+//
+//    public static boolean findItemIndex(String ax) {
+//        for (Item item : items) {
+//            if (item.getItemName().equals(ax)) {
+//                return true;
+//            }
+//            return false;
+//        }
+//        return false;
+//    }
+
+
+
+//    public static List<String> getItemsInCart() {
+//        return itemsInCart;
+//    }
 
     public void addItem(Item item) {
         items.add(item);

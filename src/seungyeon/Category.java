@@ -1,5 +1,6 @@
 package seungyeon;
 //
+import kibeom.Cart;
 import kibeom.CartRepository;
 import user.UserLoginView;
 //
@@ -198,17 +199,26 @@ public class Category {
                 switch (choice) {
                     case "1":
                         // 제품 장바구니에 넣기
-                        System.out.print("장바구니에 넣을 제품의 번호를 입력하세요: ");
-                        int productNumber = Integer.parseInt(scanner.nextLine());
+                        System.out.print("장바구니에 넣을 제품의 이름을 입력하세요: ");
+                        String productName = scanner.nextLine();
                         // 선택된 제품의 번호를 인덱스로 사용하여 제품을 가져옴
-                        boolean addedToCart = ItemRepository.addItemByIndex(productNumber - 1);
-                        if (addedToCart) {
+//                        Item addedToCart = ItemRepository.findItem(productName);
+                        Item addedToCart = null;
+                        try {
+                            addedToCart = ItemRepository.findItem(productName);
+                        } catch (Exception e) {
+                            System.out.println("제대로 입력 ㄱㄱ");
+                        }
+                        boolean itemIn = ItemRepository.findItemIn(productName);
+
+                        CartList.add(new Cart(addedToCart.getBrand(), addedToCart.getItemName(), addedToCart.getType(),
+                                addedToCart.getPrice(),addedToCart.getGender()));
+
+                        if (itemIn) {
                             System.out.println("✨ 제품이 장바구니에 추가되었습니다.");
                         } else {
                             System.out.println(RED + "잘못된 제품 번호입니다. 다시 시도해주세요.");
                         }
-//                        addNewItem(itemName);
-//                        System.out.println("✨ 제품이 장바구니에 추가되었습니다.");
                         break;
                     case "2":
                         break;
