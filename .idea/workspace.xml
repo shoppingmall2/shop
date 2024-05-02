@@ -5,32 +5,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="782c1936-6cda-4c00-8e13-add87572afbb" name="변경" comment=":bug: 파일 컨플릭트 수정">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__30___2_05__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__30___2_05__________.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__30___2_06__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__30___2_06__________.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__30___2_06__________1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__30___2_06__________1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/jihye/Buy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/jihye/Buy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/kibeom/CartRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/kibeom/CartRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/kibeom/CartView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/kibeom/CartView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/Cart.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jihye/Buy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jihye/Buy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jihye/BuyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jihye/BuyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jihye/DeliveryManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jihye/DeliveryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jihye/DeliveryView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/ItemRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/ItemRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/RankingView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/RankingView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seungyeon/ItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seungyeon/ItemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seungyeon/RankingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seungyeon/RankingView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;seungyeonlee2&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/shoppingmall2/shop.git&quot;,
+    &quot;accountId&quot;: &quot;9e10bbbc-4ddd-4eb9-b8f8-379149853e81&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2fr5SZfvG4888CBFcp6xdS7kqJ8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "main",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "seungyeon",
+    "kotlin-language-version-configured": "true",
     "애플리케이션.Main.executor": "Run"
   }
 }]]></component>
@@ -45,10 +69,20 @@
     <recent_temporary>
       <list>
         <item itemvalue="애플리케이션.Main" />
+        <item itemvalue="애플리케이션.Main" />
+        <item itemvalue="애플리케이션.Main" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="782c1936-6cda-4c00-8e13-add87572afbb" name="변경" comment=":bug: 파일 컨플릭트 수정" />
+      <created>1714546358512</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1714546358512</updated>
+    </task>
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
