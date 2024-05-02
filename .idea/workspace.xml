@@ -6,34 +6,37 @@
   <component name="ChangeListManager">
     <list default="true" id="782c1936-6cda-4c00-8e13-add87572afbb" name="변경" comment=":bug: 파일 컨플릭트 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/jihye/Buy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/jihye/Buy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/kibeom/CartRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/kibeom/CartRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/kibeom/CartView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/kibeom/CartView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/Cart.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/RankingView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/RankingView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jihye/Buy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jihye/Buy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jihye/BuyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jihye/BuyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jihye/DeliveryManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jihye/DeliveryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jihye/DeliveryView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seungyeon/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seungyeon/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seungyeon/RankingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seungyeon/RankingView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/UserLoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/UserLoginView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "main",
-    "애플리케이션.Main.executor": "Run"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;애플리케이션.Main.executor&quot;: &quot;Run&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />

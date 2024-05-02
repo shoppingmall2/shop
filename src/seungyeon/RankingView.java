@@ -19,12 +19,12 @@ import java.util.List;
 
 public class RankingView {
     public void displayTopRankings(List<Item> topRankings) {
-        System.out.println("Top 10 Rankings:");
+        System.out.println("     \uD83C\uDFC6 Top 10 Rankings \uD83C\uDFC6");
         int rank = 1;
         for (Item item : topRankings) {
-            System.out.println(rank + ". " + item.getItemName() + " - Price: " + item.getPrice());
+            System.out.println(rank + ". " + "제품명: " + item.getItemName() + " - 가격: " + item.getPrice());
             rank++;
         }
-        System.out.print("\n");
+        //System.out.print("\n");
     }
 }

@@ -9,13 +9,13 @@ public class User {
     private String email; // 이멜
     private final int age; // 나이
     private final String address; // 주소
-    private final String gender;
+    private final Gender gender;
     private String nickname; // 닉ㄴㅇ
 
 
 
 
-    public User(String name, String password, String email, int age, String address, String gender, String nickname) {
+    public User(String name, String password, String email, int age, String address, Gender gender, String nickname) {
         this.name = name;
         this.password = password;
         this.email = email;
@@ -65,7 +65,7 @@ public class User {
         return address;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
