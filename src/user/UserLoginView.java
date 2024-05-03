@@ -46,16 +46,17 @@ public class UserLoginView {
                     searchPass();
                     break;
                 case "4":
-                    boolean flag = exitProgram();
-                    if (flag) break loginloop;
+                    //boolean flag
+                    //if (flag) break loginloop;
+                    exitProgram();   // 논리값 사용하지 말고 exitProgram(); 메서드 안에서 걍 프로그램 종료시켜버리는 메서드로 변경
                 default:
-                    System.out.println("\n메뉴를 잘못 선택했습니다.");
+                    System.out.println(RED + "잘못된 메뉴 번호입니다. 다시 선택해주세요." + RESET);
             }
         }
     } // start end
 
     private static void searchPass() {
-        String trueName = input("가입하신 " + YELLOW + "이름" + RESET + "을 작성해주세요. \n➡\uFE0F ");
+        String trueName = input("\n가입하신 " + YELLOW + "이름" + RESET + "을 작성해주세요. \n➡\uFE0F ");
         if (!alreadyLogId(trueName)) {
             System.out.printf("%s님의 이름으로 가입하신 계정의 " + YELLOW + "이메일" + RESET + "을 작성해주세요. \n",trueName);
             String truemail = input("➡\uFE0F ");
@@ -63,7 +64,7 @@ public class UserLoginView {
                 System.out.printf("%s님의 가입하신 " + YELLOW + "나이" + RESET + "를 입력해주세요.\n",trueName);
                 String trueage = input("➡\uFE0F ");
                 if (!alreadyAge(Integer.parseInt(trueage))){
-                    System.out.printf("✅ %s님의 정보로 가입한 계정의 비밀번호는 다음과 같습니다. \n",trueName);
+                    System.out.printf("\n✅ " +  YELLOW + "%s님" + RESET + "의 정보로 가입한 계정의 " + YELLOW + "비밀번호" + RESET + "는 다음과 같습니다. \n",trueName);
                     String s = srPass();
                     System.out.printf("➡\uFE0F %s\n",s);
                 } else {
@@ -142,11 +143,11 @@ public class UserLoginView {
             Gender gender1 = genderCheck(gendere);
             if (gender1 == Gender.FEMALE) {
                 gender = gender1;
-                System.out.println("➔ 성별이 👩여성으로 설정되었습니다.");
+                System.out.println("➔ 👩여성으로 설정되었습니다.");
                 break;
             } else if (gender1 == Gender.MALE) {
                 gender = gender1;
-                System.out.println("➔ 성별이 🧑남성으로 설정되었습니다.");
+                System.out.println("➔ 🧑남성으로 설정되었습니다.");
                 break;
             } else {
                 System.out.println(" ⚠ 성별을 제대로 입력해주세요.");
@@ -241,7 +242,7 @@ public class UserLoginView {
                     byebye();
                     break mainloop;
                 default:
-                    System.out.println("\n메뉴를 잘못 선택했습니다.");
+                    System.out.println(RED + "잘못된 메뉴 번호입니다. 다시 선택해주세요." + RESET);
             }
         }
     } // start
@@ -258,7 +259,7 @@ public class UserLoginView {
     public void passCheck() {
         boolean b = ur.loginTrue();
         while (b && check) {
-            String check = input("\n현재 로그인한 계정의 " + YELLOW + "비밀번호를" + RESET + " 입력해주세요.\n>> ");
+            String check = input(YELLOW + "현재 로그인한 계정의 비밀번호" + RESET + "를 입력해주세요.\n>> ");
             boolean isLogin = UserRepository.loginCheck(check);
             if (isLogin) {
                 changeInfo();
@@ -288,7 +289,8 @@ public class UserLoginView {
                     nicknameChange();
                     break;
                 case "2":
-                    printLoggedInUserInfo();
+                    addressChange();  // 배송지 수정하기 메서드 추가
+                    //printLoggedInUserInfo(); // 이건 마이페이지 기능 없애도 됨
                     break;
                 case "3":
                     check = true;
@@ -305,41 +307,49 @@ public class UserLoginView {
                     b = false;
                     break;
                 default:
-                    System.out.println("\n메뉴를 잘못 선택했습니다.");
+                    System.out.println(RED + "잘못된 메뉴 번호입니다. 다시 선택해주세요." + RESET);
             }
         }
     }
 
+    //  addressChange(); 배송지 수정하기 메서드 추가
+    public void addressChange() {
+        System.out.printf("\n현재 주소는 " + YELLOW + "%s" + RESET + " 입니다." + YELLOW + "\n변경할 주소" + RESET + "를 입력해주세요.\n", UserRepository.loggedInUser.getAddress());
+        String newAdr = input(">> ");
+        UserRepository.changeAddress(newAdr);
+        System.out.println("✅ 주소가 변경되었습니다.");
+        check = false;
+    }
 
-    boolean exitProgram() {
+    // 위 4. 프로그램 종료 exitProgram(); 메서드 기능
+    public void exitProgram() {
         String exit = input("✅ 프로그램을 종료합니까? [y/n]\n>> ");
         if (exit.equals("y")) {
             System.out.println("👋🏽 프로그램을 종료합니다.\n");
-            return true;
+            // 아예 프로그램 종료 시키기
+            System.exit(0);
         } else {
             System.out.println("프로그램 종료를 취소합니다.\n");
-            return false;
+            //break;
         }
     }
 
-
     public static void printLoggedInUserInfo() {
         if (UserRepository.loggedInUser != null) {
-            System.out.println("\n**********\uD83D\uDCC2로그인한 회원 정보\uD83D\uDCC2**********");
+            System.out.printf("\n***************" + GREEN + "%s" + RESET + "님의 회원 정보**************\n", loggedInUser.getName());
             System.out.println("이름 : " + UserRepository.loggedInUser.getName());
+            System.out.println("비밀번호 : " + UserRepository.blindPassword());
             System.out.println("나이 : " + UserRepository.loggedInUser.getAge());
-            System.out.println("배송지 주소 : " + UserRepository.loggedInUser.getAddress());
             System.out.println("별명 : " + UserRepository.loggedInUser.getNickname());
             System.out.println("성별 : " + UserRepository.loggedInUser.getGender());
             System.out.println("이메일 : " + UserRepository.loggedInUser.getEmail());
+            System.out.println("배송지 주소 : " + UserRepository.loggedInUser.getAddress());
             System.out.println("현재 보유 금액 : " + UserRepository.loggedInUser.getMoney());
-            System.out.println("비번 : " + UserRepository.blindPassword());
             System.out.println("****************************************");
         } else {
             System.out.println(RED + "로그인한 회원이 존재하지 않습니다." + RESET);
         }
     }
-
 
     public void passwordChange() {
         System.out.println("\n현재 " + YELLOW + "비밀번호" + RESET + "를 입력해주세요.");

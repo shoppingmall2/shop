@@ -41,7 +41,7 @@ public class CartView {
     public static void showCartRepository() {
         boolean back = true; // 반복문 탈출을 위한 논리값 변수
         while (back) {
-            System.out.println("\n=============장바구니 목록==============");
+            System.out.println("\n============\uD83D\uDED2장바구니 목록\uD83D\uDED2============");
 
             if (getUser().getCartList().isEmpty()) {
                 System.out.println(BLUE + "장바구니가 비어있습니다." + RESET);
@@ -162,7 +162,7 @@ public class CartView {
                     check = false;
                     break;
                 default:
-                    System.out.println(RED+" \"잘못된 입력입니다. 다시 선택해주세요.\"" + RESET);
+                    System.out.println(RED + "잘못된 입력입니다. 다시 선택해주세요." + RESET);
             }
         }
     }

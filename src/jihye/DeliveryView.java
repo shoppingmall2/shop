@@ -1,6 +1,7 @@
 package jihye;
 
 import user.UserLoginView;
+import util.SimpleInput;
 
 import java.util.List;
 import java.util.Scanner;
@@ -8,23 +9,37 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import static user.UserRepository.getUser;
+import static jihye.DeliveryRepository.buyList;
+
 
 
 public class DeliveryView {
+    static UserLoginView userLoginView = new UserLoginView();
     public static final String WHITE = "\033[0;37m";
     public static final String RESET = "\033[0m";
     public static final String RED = "\033[0;31m";
+    public static final String BLUE = "\033[0;34m";
 
     private static Scanner scanner = new Scanner(System.in);
     // 배송조회 시작 화면 메서드
     public static void deliveryMenu() {
-        while (true) {
-            System.out.println("\n================배송조회=================");
-            System.out.println("1. 구매 목록 보기");
-            System.out.println("2. 뒤로 가기");
 
-            String menuNum = input(">> ");
-            UserLoginView userLoginView = new UserLoginView();
+        boolean back = true; // 반복문 탈출을 위한 논리값 변수
+        while (back) {
+            System.out.println("\n==============\uD83D\uDE9A배송조회\uD83D\uDE9A===============");
+
+            if (getUser().getBuylist().isEmpty()) {
+                System.out.println(BLUE + "구매 상품이 존재하지 않습니다." + RESET);
+                System.out.println(BLUE + "ENTER"+ RESET +"를 누르시면 뒤로 갑니다.");
+                SimpleInput.stopInput();
+                back = false;
+                userLoginView.mainPage();
+            } else {
+                System.out.println("1. 구매 목록 보기");
+                System.out.println("2. 뒤로 가기");
+                System.out.println("========================================");
+                String menuNum = input(">> ");
+                UserLoginView userLoginView = new UserLoginView();
 
             switch (menuNum) {
                 case "1":
@@ -37,6 +52,7 @@ public class DeliveryView {
                     System.out.println(RED + "잘못된 메뉴 번호입니다. 다시 선택해주세요." + RESET);
                     break;
             }
+            }
         }
     }
 
@@ -45,10 +61,31 @@ public class DeliveryView {
         System.out.println("\n============================구매 목록=================================");
         // DeliveryRepository 클래스에 임시로 넣어둔 리스트 반복해서 가져오기
 
+//        if (buyList.isEmpty()) {
+//            System.out.println(BLUE + "구매 목록이 비어있습니다." + RESET);
+//            System.out.println("=====================================================================");
+//            System.out.println("1. 구매 목록 보기");
+//            System.out.println("2. 뒤로 가기");
+//            String menu = input(">> ");
+//            UserLoginView userLoginView = new UserLoginView();
+//            switch (menu) {
+//                case "1":
+//                    showPurchaseList();
+//                    break;
+//                case "2":
+//                    userLoginView.mainPage();
+//                    return;
+//                default:
+//                    System.out.println(RED + "잘못된 메뉴 번호입니다. 다시 선택해주세요." + RESET);
+//                    break;
+//            }
+//        }
+        
         for (Buy buy : getUser().getBuylist()) {
             System.out.println("브랜드: " + buy.getBrand() + ", 상품명: " + buy.getProductName()
-                    + ", 상품 금액 : " + buy.getOrderTotalValue() + ", 주소 : " + buy.getAddress() + "\n" + buy.getOrderTime());
+                    + ", 상품 금액 : " + buy.getOrderTotalValue() + ", 배송지 주소 : " + buy.getAddress() + "\n" + buy.getOrderTime());
         }
+
         System.out.println("=====================================================================");
         System.out.println("\n1. 구매 상품 배송 현황 확인하기");
         String menuNum2 = input(">> ");
@@ -60,7 +97,6 @@ public class DeliveryView {
 
                 System.out.println(RED + "잘못된 메뉴 번호입니다. 다시 선택해주세요." + RESET);
                 break;
-
         }
     }
 

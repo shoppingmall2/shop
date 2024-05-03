@@ -16,7 +16,7 @@ public class User {
     private int money;
     private String email; // 이멜
     private final int age; // 나이
-    private final String address; // 주소
+    private String address; // 주소
     private final Gender gender;
     private String nickname; // 닉ㄴㅇ
     private List<Cart> cartList;
@@ -60,6 +60,8 @@ public class User {
     public String setEmail(String email) {
         return this.email = email;
     }
+    public String setAddress(String address) { return this.address = address; }
+
 
     public String getName() {
         return name;
