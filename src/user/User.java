@@ -1,5 +1,13 @@
 package user;
 
+import jihye.Buy;
+import jihye.BuyRepository;
+import jihye.DeliveryRepository;
+import kibeom.Cart;
+import seungyeon.ItemRepository;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class User {
@@ -11,7 +19,8 @@ public class User {
     private final String address; // 주소
     private final Gender gender;
     private String nickname; // 닉ㄴㅇ
-
+    private List<Cart> cartList;
+    private List<Buy> buylist;
 
 
 
@@ -24,11 +33,18 @@ public class User {
         this.gender = gender;
         this.nickname = nickname;
         this.money = 300000; // 0427 money 추가
+        this.cartList = new ArrayList<>();
+        this.buylist = new ArrayList<>();
     }
 
     public int getMoney() {
         return money;
     }
+
+    public List<Buy> getBuylist() {
+        return buylist;
+    }
+
 
     public void setMoney(int money) {
         this.money = money;
@@ -71,6 +87,13 @@ public class User {
 
     public String getNickname() {
         return nickname;
+    }
+
+    public List<Cart> getCartList() {
+        return cartList;
+    }
+    public void setCartList(List<Cart> cartList) {
+        this.cartList = cartList;
     }
 
     @Override

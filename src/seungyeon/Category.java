@@ -121,9 +121,9 @@ import user.UserLoginView;
 
 import java.util.Scanner;
 
-import static kibeom.CartRepository.CartList;
-import static kibeom.CartRepository.addNewItem;
+import static kibeom.CartRepository.*;
 import static seungyeon.ItemRepository.items;
+import static user.UserRepository.getUser;
 
 
 public class Category {
@@ -211,9 +211,8 @@ public class Category {
                         }
                         boolean itemIn = ItemRepository.findItemIn(productName);
 
-                        CartList.add(new Cart(addedToCart.getBrand(), addedToCart.getItemName(), addedToCart.getType(),
+                        addCartList(new Cart(addedToCart.getBrand(), addedToCart.getItemName(), addedToCart.getType(),
                                 addedToCart.getPrice(),addedToCart.getGender()));
-
                         if (itemIn) {
                             System.out.println("✨ 제품이 장바구니에 추가되었습니다.");
                         } else {

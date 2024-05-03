@@ -11,22 +11,22 @@ import java.util.Map;
 public class DeliveryRepository {
 
 
-    static Map<String, Map<String, Object>> item;
-    static Map<String, Map<String, Object>> buyitem;
-
-    public DeliveryRepository() {
-        item = new HashMap<>();
-        // 상품 초기화
-        addItem("crocs", "SHOES", 40000, "unisex");
-        addItem("t-shirt", "TOP", 20000, "male");
-        addItem("nikeAirForce", "SHOES", 80000, "unisex");
-        addItem("jean", "BOTTOM", 30000, "unisex");
-        addItem("riderJacket", "TOP", 90000, "male");
-        addItem("poloCap", "CAP", 60000, "unisex");
-
-        buyitem = new HashMap<>();
-
-    }
+//    static Map<String, Map<String, Object>> item;
+//    static Map<String, Map<String, Object>> buyitem;
+//
+//    public DeliveryRepository() {
+//        item = new HashMap<>();
+//        // 상품 초기화
+//        addItem("crocs", "SHOES", 40000, "unisex");
+//        addItem("t-shirt", "TOP", 20000, "male");
+//        addItem("nikeAirForce", "SHOES", 80000, "unisex");
+//        addItem("jean", "BOTTOM", 30000, "unisex");
+//        addItem("riderJacket", "TOP", 90000, "male");
+//        addItem("poloCap", "CAP", 60000, "unisex");
+//
+//        buyitem = new HashMap<>();
+//
+//    }
 
 
 //    public HashMap buy(String temp) {
@@ -54,14 +54,14 @@ public class DeliveryRepository {
         System.out.println(itemName);
     }
 
-    public void addItem(String itemName, String type, int price, String gender) {
-        Map<String, Object> itemDetails = new HashMap<>();
-        itemDetails.put("type", type);
-        itemDetails.put("price", price);
-        itemDetails.put("gender", gender);
-
-        item.put(itemName, itemDetails);
-    }
+//    public void addItem(String itemName, String type, int price, String gender) {
+//        Map<String, Object> itemDetails = new HashMap<>();
+//        itemDetails.put("type", type);
+//        itemDetails.put("price", price);
+//        itemDetails.put("gender", gender);
+//
+//        item.put(itemName, itemDetails);
+//    }
 
 
 }

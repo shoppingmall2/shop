@@ -2,9 +2,12 @@ package jihye;
 
 import user.UserLoginView;
 
+import java.util.List;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import static user.UserRepository.getUser;
 
 
 public class DeliveryView {
@@ -41,7 +44,8 @@ public class DeliveryView {
     private static void showPurchaseList() {
         System.out.println("\n============================구매 목록=================================");
         // DeliveryRepository 클래스에 임시로 넣어둔 리스트 반복해서 가져오기
-        for (Buy buy : DeliveryRepository.buyList) {
+
+        for (Buy buy : getUser().getBuylist()) {
             System.out.println("브랜드: " + buy.getBrand() + ", 상품명: " + buy.getProductName()
                     + ", 상품 금액 : " + buy.getOrderTotalValue() + ", 주소 : " + buy.getAddress() + "\n" + buy.getOrderTime());
         }
@@ -53,6 +57,7 @@ public class DeliveryView {
                 deliveryStatus();
                 break;
             default:
+
                 System.out.println(RED + "잘못된 메뉴 번호입니다. 다시 선택해주세요." + RESET);
                 break;
 

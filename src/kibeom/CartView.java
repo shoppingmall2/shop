@@ -17,6 +17,8 @@ import java.util.*;
 import static jihye.DeliveryRepository.buyList;
 import static kibeom.CartRepository.CartList;
 import static kibeom.CartRepository.getCartList;
+import static user.UserRepository.getUser;
+import static user.UserRepository.loggedInUser;
 
 
 public class CartView {
@@ -41,7 +43,7 @@ public class CartView {
         while (back) {
             System.out.println("\n=============장바구니 목록==============");
 
-            if (CartList.isEmpty()) {
+            if (getUser().getCartList().isEmpty()) {
                 System.out.println(BLUE + "장바구니가 비어있습니다." + RESET);
                 System.out.println(BLUE + "ENTER"+ RESET +"를 누르시면 뒤로 갑니다.");
                 SimpleInput.stopInput();
@@ -75,9 +77,9 @@ public class CartView {
     }
 
     private static void showCartRepo() {
-            List<Cart> cartList = getCartList();
             System.out.println();
-            for (Cart cart : cartList) {
+        List<Cart> cartList = getUser().getCartList();
+        for (Cart cart : cartList) {
                 System.out.println("브랜드 : " + cart.getBrand() + "\n" +
                         "제품 명 : " + cart.getItemName() + "\n" +
                         "제품 분류 : " + cart.getType() + "\n" +
@@ -90,11 +92,11 @@ public class CartView {
     private static void deleteItem() {
         String itemNames = SimpleInput.input("삭제 하고 싶은 제품명을 입력해주세요. \n" + BLUE + "(여러 개일 경우 쉼표 ','로 구분)" + RESET + "\n>> ").strip();
         String[] itemsToDelete = itemNames.split(",");
-
+        List<Cart> cartList = getUser().getCartList();
         for (String itemName : itemsToDelete) {
             Cart item = CartRepository.isContains(itemName.trim());
             if (item != null) {
-                CartList.remove(item);
+                cartList.remove(item);
                 System.out.println("\n\uD83D\uDDD1️ " + item.getItemName() + " 상품을 장바구니에서 삭제했습니다.");
             } else {
                 System.out.println("\n\uD83D\uDEAB " + itemName + " 상품은 장바구니에 없습니다.");
@@ -130,23 +132,23 @@ public class CartView {
         }
 
         System.out.println("\n\uD83D\uDCB5 총 주문 가격: " + totalOrderPrice);
-        System.out.println("\uD83D\uDCB0 현재 소지 금액 : " + UserRepository.getUser().getMoney());
+        System.out.println("\uD83D\uDCB0 현재 소지 금액 : " + getUser().getMoney());
 
         boolean check = true;
         while (check) {
             String answer = SimpleInput.input("주문하시겠습니까? Y / N\n>> ").toUpperCase();
             switch (answer) {
                 case "Y":
-                    if (UserRepository.getUser().getMoney() >= totalOrderPrice) { // 유저 보유 금액 확인
-                        int currentMoney = UserRepository.getUser().getMoney() - totalOrderPrice;
-                        UserRepository.getUser().setMoney(currentMoney);
+                    if (getUser().getMoney() >= totalOrderPrice) { // 유저 보유 금액 확인
+                        int currentMoney = getUser().getMoney() - totalOrderPrice;
+                        getUser().setMoney(currentMoney);
                         for (String singleItem : orderList) {
                             Cart orderItem = CartRepository.isContains(singleItem.trim());
-                            buyList.add(new Buy(Objects.requireNonNull(orderItem).getBrand(), orderItem.getItemName(), orderItem.getPrice(),UserRepository.getUser().getAddress()));
-                            CartList.remove(orderItem);
+                            getUser().getBuylist().add(new Buy(Objects.requireNonNull(orderItem).getBrand(), orderItem.getItemName(), orderItem.getPrice(), getUser().getAddress()));
+                            getUser().getCartList().remove(orderItem);
                         }
                         System.out.println("\n\uD83D\uDE0A 감사합니다. 주문이 완료 되었습니다.\n\uD83D\uDCB5 총 주문 가격: " + totalOrderPrice + "\n\uD83D\uDCB0 현재 소지 금액: " + currentMoney);
-                        System.out.println("\uD83C\uDFE0 배송지 주소 : " + UserRepository.getUser().getAddress());
+                        System.out.println("\uD83C\uDFE0 배송지 주소 : " + getUser().getAddress());
                         System.out.println("공휴일 제외, 영업일 기준 1 ~ 3 일 이내 배송됩니다.");
                         SimpleInput.stopInput();
                         check = false;
