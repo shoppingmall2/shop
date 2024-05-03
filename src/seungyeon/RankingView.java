@@ -19,12 +19,11 @@ import java.util.*;
 public class RankingView {
     public void displayTopRankings(List<Item> topRankings) {
         Set<Item> top10Item = new HashSet<>(topRankings);
-
         List<Item> top10ItemList = new ArrayList<>(top10Item);
 
         int size = Math.min(top10ItemList.size(), 10);
 
-        System.out.println("Top 10 Rankings:");
+        System.out.println("   \uD83C\uDFC6 Top 10 Rankings \uD83C\uDFC6");
 
         Random random = new Random();
 

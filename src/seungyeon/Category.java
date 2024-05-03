@@ -199,7 +199,7 @@ public class Category {
                 switch (choice) {
                     case "1":
                         // 제품 장바구니에 넣기
-                        System.out.print("장바구니에 넣을 제품의 이름을 입력하세요: ");
+                        System.out.print("장바구니에 넣을" + YELLOW + " 제품의 이름을" + RESET + " 입력하세요: ");
                         String productName = scanner.nextLine();
                         // 선택된 제품의 번호를 인덱스로 사용하여 제품을 가져옴
 //                        Item addedToCart = ItemRepository.findItem(productName);

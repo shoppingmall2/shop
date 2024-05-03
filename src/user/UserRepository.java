@@ -75,6 +75,11 @@ public class UserRepository {
         loggedInUser.setEmail(email);
     }
 
+    //  addressChange(); 기능을 위해 변경할 주소 메서드 추가
+    public static void changeAddress(String newAdr) {
+        loggedInUser.setAddress(newAdr);
+    }
+
     /**
      *
      * @param username - user repository에 있는 유저 이름.
