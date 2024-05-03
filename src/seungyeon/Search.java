@@ -74,9 +74,11 @@ public class Search {
                     System.out.println();
                 }
                 System.out.println(count + ". " + item.getItemName());
+                System.out.println("브랜드 : " + item.getBrand());
                 System.out.println("상품 가격: " + item.getPrice() + "원");
                 System.out.println("상품 분류: " + item.getType());
                 System.out.println("성별: " + item.getGender());
+
             }
         }
 
