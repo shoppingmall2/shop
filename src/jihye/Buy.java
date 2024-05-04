@@ -1,6 +1,8 @@
 package jihye;
 
-import java.util.Calendar;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Buy {
 
@@ -9,33 +11,38 @@ public class Buy {
     private String productName;   // 상품명
     private int orderTotalValue;    // 가격
     private String address;      // 주소
-    private String orderTime; // 주문시간
+    private LocalDateTime orderTime; // 주문시간
 
     public Buy(String brand, String productName, int orderTotalValue, String address) {
         this.brand = brand;
         this.productName = productName;
         this.orderTotalValue = orderTotalValue;
         this.address = address;
-        this.orderTime = orderTime();
+        this.orderTime = LocalDateTime.now();
     }
 
-    public String getOrderTime() {
+    public String formatDate() {
+        DateTimeFormatter simpleDateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return this.orderTime.format(simpleDateFormat);
+    }
+
+    public LocalDateTime getOrderTime() {
         return orderTime;
     }
 
-    public void setOrderTime(String orderTime) {
-        this.orderTime = orderTime;
-    }
-
-    public static String orderTime() {
-        Calendar currentTime = Calendar.getInstance();
-        int year = currentTime.get(Calendar.YEAR);
-        int month = currentTime.get(Calendar.MONTH) + 1; // 월은 0부터 시작하므로 +1
-        int day = currentTime.get(Calendar.DAY_OF_MONTH);
-        int hour = currentTime.get(Calendar.HOUR_OF_DAY);
-        int minute = currentTime.get(Calendar.MINUTE);
-        int second = currentTime.get(Calendar.SECOND);
-        return "주문 시간: " + year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+    public Delivery isDeliveryStarted() {
+        LocalDateTime currentTime = LocalDateTime.now();
+        Duration duration = Duration.between(this.orderTime, currentTime);
+        long secondsPassed = duration.getSeconds();
+        if (secondsPassed > 0 && secondsPassed < 20 ) {
+            return Delivery.ORDERED;
+        } else if (secondsPassed >= 20 && secondsPassed < 30) {
+            return Delivery.READY;
+        } else if (secondsPassed >= 30 && secondsPassed < 40) {
+            return  Delivery.DELIVERED;
+        } else {
+            return Delivery.CLEAR;
+        }
     }
 
     public String getBrand() {
