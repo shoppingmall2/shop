@@ -27,7 +27,7 @@ public class UserLoginView {
         loginloop:
         while (true) {
             // 000 = 프젝명 자리
-            System.out.println("=============\uD83D\uDECD\uFE0F000 쇼핑몰\uD83D\uDECD\uFE0F==============");
+            System.out.println("=============\uD83D\uDECD\uFE0FCS 쇼핑몰\uD83D\uDECD\uFE0F==============");
             System.out.println("1. 회원가입");
             System.out.println("2. 로그인");
             System.out.println("3. 비밀번호 찾기");

@@ -5,32 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2f93d6b-2822-4de0-97ef-7972982d7090" name="변경" comment=":bug: 파일 컨플릭트 수정">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__25___6_12__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__25___6_12__________.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__29___3_17__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__29___3_17__________.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__29___6_20__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__29___6_20__________.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__30___2_05__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__30___2_05__________.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__30___2_06__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__30___2_06__________.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__30___2_06__________1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__4__30___2_06__________1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__5__1___11_53__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__5__1___11_53__________.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jihye/Delivery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/kibeom/CartView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/kibeom/CartView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/Category.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/seungyeon/RankingView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/seungyeon/RankingView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jihye/Buy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jihye/Buy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jihye/DeliveryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jihye/DeliveryView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kibeom/CartView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kibeom/CartView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seungyeon/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seungyeon/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seungyeon/RankingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seungyeon/RankingView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/UserLoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/UserLoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/UserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -62,15 +53,14 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/shop",
-    "애플리케이션.Main.executor": "Run"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sanghun1&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;애플리케이션.Main.executor&quot;: &quot;Run&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -95,17 +85,6 @@
       <updated>1714715080360</updated>
     </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value=":bug: 파일 컨플릭트 수정" />
