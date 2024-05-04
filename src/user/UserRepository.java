@@ -14,13 +14,13 @@ public class UserRepository {
 
     static {
         userList.add(new User("진훈", "kk00228", "tkdgnsdldkdlel@naver.com",
-                23, "서울특별시 대림동", Gender.MALE, "상후잉"));
+                23, Gender.MALE, "상후잉"));
         userList.add(new User("진상훈", "kk002281", "t1231231nsdldkdlel@naver.com",
-                19, "서울특별시 대동", Gender.MALE, "김"));
+                19, Gender.MALE, "김"));
         userList.add(new User("강지혜", "1", "t1231231nsdldkdlel@naver.com",
-                19, "서울특별시 대동", Gender.FEMALE, "김"));
+                19,  Gender.FEMALE, "김"));
         userList.add(new User("한기범", "gksrlqja", "hgb926@naver.com",
-                27, "서울특별시 관악구 봉천로 305", Gender.MALE, "기범"));
+                27,  Gender.MALE, "기범"));
     }
 
 
@@ -76,9 +76,9 @@ public class UserRepository {
     }
 
     //  addressChange(); 기능을 위해 변경할 주소 메서드 추가
-    public static void changeAddress(String newAdr) {
-        loggedInUser.setAddress(newAdr);
-    }
+//    public static void changeAddress(String newAdr) {
+//        loggedInUser.setAddress(newAdr);
+//    }
 
     /**
      *

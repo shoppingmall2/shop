@@ -2,6 +2,7 @@ package user;
 
 import jihye.DeliveryView;
 import kibeom.CartView;
+import sanghun.AddressRepository;
 
 
 import static seungyeon.Category.openCate;
@@ -12,6 +13,7 @@ import static util.SimpleInput.input;
 
 public class UserLoginView {
     static UserRepository ur;
+    static AddressRepository ar;
     public static final String RESET = "\033[0m";
     public static final String GREEN = "\033[0;32m";
     public static final String YELLOW = "\033[0;33m";
@@ -154,7 +156,6 @@ public class UserLoginView {
                 continue genderloop;
             }
         }
-        String address = input(GREEN + "\n주소 : " + RESET);
         String captcha = generateCaptcha(6);
         agreeloop:
         while (true) {
@@ -165,7 +166,7 @@ public class UserLoginView {
                 while (true) {
                     String captchaTrue = input(BLUE + "(자동 입력 방지 문자를 보이는대로 입력하세요.) \n>>" + RESET);
                     if (captchaTrue.equals(captcha)) {
-                        User newUser = new User(name, password, email, age, address, gender, nickname);
+                        User newUser = new User(name, password, email, age, gender, nickname);
                         UserRepository.addUser(newUser);
                         System.out.println(YELLOW + "\uD83C\uDF89 회원가입이 완료되었습니다.\n" + RESET);
                         break agreeloop;
@@ -312,13 +313,25 @@ public class UserLoginView {
         }
     }
 
-    //  addressChange(); 배송지 수정하기 메서드 추가
-    public void addressChange() {
-        System.out.printf("\n현재 주소는 " + YELLOW + "%s" + RESET + " 입니다." + YELLOW + "\n변경할 주소" + RESET + "를 입력해주세요.\n", UserRepository.loggedInUser.getAddress());
-        String newAdr = input(">> ");
-        UserRepository.changeAddress(newAdr);
-        System.out.println("✅ 주소가 변경되었습니다.");
-        check = false;
+//    //  addressChange(); 배송지 수정하기 메서드 추가
+//    public void addressChange() {
+//        System.out.printf("\n현재 주소는 " + YELLOW + "%s" + RESET + " 입니다." + YELLOW + "\n변경할 주소" + RESET + "를 입력해주세요.\n");
+//        String newAdr = input(">> ");
+////        UserRepository.changeAddress(newAdr);
+//        System.out.println("✅ 주소가 변경되었습니다.");
+//        check = false;
+//    }
+
+    public void addressSet () {
+        AddressRepository addressRepository = new AddressRepository();
+        String state = input("✅ 배송지로 설정하실 거주지의 도시를 적어주세요. 시/도");
+
+        if (addressRepository.stateCheck(state)) {
+            String district = input("✅ 배송지의 시/군/구를 작성해주세요.");
+            if (addressRepository.cityCheck(district)) {
+                String line = input("✅ 설정하신 배송지의 상세주소를 적어주세요.");
+            }
+        }
     }
 
     // 위 4. 프로그램 종료 exitProgram(); 메서드 기능
