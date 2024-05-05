@@ -1,6 +1,7 @@
 package jihye;
 
 import kibeom.Cart;
+import user.Gender;
 import user.User;
 
 import java.util.ArrayList;
@@ -13,9 +14,9 @@ public class BuyRepository {
     static List<Buy> itemList = new ArrayList<>();
 
     // 상품 추가 메서드
-    public static void addItem(String itemName, String type, int price, String gender) {
-        Buy item = new Buy(itemName, type, price, gender);
-        itemList.add(item);
+    public static void addItem(String itemName, String type, int price, Gender gender) {
+//        Buy item = new Buy(itemName, type, price, gender);
+//        itemList.add(item);
     }
     public static void addCartList(Buy buy) {
         getUser().getBuylist().add(buy); // 해당 사용자의 장바구니에 상품 추가

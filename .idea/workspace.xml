@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2f93d6b-2822-4de0-97ef-7972982d7090" name="변경" comment=":bug: 파일 컨플릭트 수정">
-      <change afterPath="$PROJECT_DIR$/src/jihye/Delivery.java" afterDir="false" />
+    <list default="true" id="c2f93d6b-2822-4de0-97ef-7972982d7090" name="변경" comment=":white_check_mark: 파일 컨플릭트 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jihye/Buy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jihye/Buy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jihye/DeliveryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jihye/DeliveryView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sanghun/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sanghun/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sanghun/AddressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sanghun/AddressRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/UserLoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/UserLoginView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -56,7 +57,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sanghun1&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sh&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;애플리케이션.Main.executor&quot;: &quot;Run&quot;
   }

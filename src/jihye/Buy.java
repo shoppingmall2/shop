@@ -1,5 +1,7 @@
 package jihye;
 
+import sanghun.Address;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -10,10 +12,10 @@ public class Buy {
     private String brand;  // 브랜드명
     private String productName;   // 상품명
     private int orderTotalValue;    // 가격
-    private String address;      // 주소
+    private Address address;      // 주소
     private LocalDateTime orderTime; // 주문시간
 
-    public Buy(String brand, String productName, int orderTotalValue, String address) {
+    public Buy(String brand, String productName, int orderTotalValue, Address address) {
         this.brand = brand;
         this.productName = productName;
         this.orderTotalValue = orderTotalValue;
@@ -69,11 +71,11 @@ public class Buy {
         this.orderTotalValue = orderTotalValue;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 

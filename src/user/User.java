@@ -4,6 +4,7 @@ import jihye.Buy;
 import jihye.BuyRepository;
 import jihye.DeliveryRepository;
 import kibeom.Cart;
+import sanghun.Address;
 import seungyeon.ItemRepository;
 
 import java.util.ArrayList;
@@ -16,25 +17,26 @@ public class User {
     private int money;
     private String email; // 이멜
     private final int age; // 나이
-    private String address; // 주소
+//    private String address; // 주소
     private final Gender gender;
     private String nickname; // 닉ㄴㅇ
     private List<Cart> cartList;
     private List<Buy> buylist;
+    private List<Address> address;
 
 
 
-    public User(String name, String password, String email, int age, String address, Gender gender, String nickname) {
+    public User(String name, String password, String email, int age, Gender gender, String nickname) {
         this.name = name;
         this.password = password;
         this.email = email;
         this.age = age;
-        this.address = address;
         this.gender = gender;
         this.nickname = nickname;
         this.money = 300000; // 0427 money 추가
         this.cartList = new ArrayList<>();
         this.buylist = new ArrayList<>();
+        this.address = new ArrayList<>();
     }
 
     public int getMoney() {
@@ -45,6 +47,9 @@ public class User {
         return buylist;
     }
 
+    public List<Address> getAddress() {
+        return address;
+    }
 
     public void setMoney(int money) {
         this.money = money;
@@ -60,7 +65,6 @@ public class User {
     public String setEmail(String email) {
         return this.email = email;
     }
-    public String setAddress(String address) { return this.address = address; }
 
 
     public String getName() {
@@ -79,9 +83,6 @@ public class User {
         return age;
     }
 
-    public String getAddress() {
-        return address;
-    }
 
     public Gender getGender() {
         return gender;

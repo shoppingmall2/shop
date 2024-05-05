@@ -2,6 +2,8 @@ package user;
 
 import jihye.DeliveryView;
 import kibeom.CartView;
+import sanghun.Address;
+import sanghun.AddressRepository;
 
 
 import static seungyeon.Category.openCate;
@@ -12,6 +14,7 @@ import static util.SimpleInput.input;
 
 public class UserLoginView {
     static UserRepository ur;
+    static AddressRepository ar;
     public static final String RESET = "\033[0m";
     public static final String GREEN = "\033[0;32m";
     public static final String YELLOW = "\033[0;33m";
@@ -154,7 +157,6 @@ public class UserLoginView {
                 continue genderloop;
             }
         }
-        String address = input(GREEN + "\n주소 : " + RESET);
         String captcha = generateCaptcha(6);
         agreeloop:
         while (true) {
@@ -165,7 +167,7 @@ public class UserLoginView {
                 while (true) {
                     String captchaTrue = input(BLUE + "(자동 입력 방지 문자를 보이는대로 입력하세요.) \n>>" + RESET);
                     if (captchaTrue.equals(captcha)) {
-                        User newUser = new User(name, password, email, age, address, gender, nickname);
+                        User newUser = new User(name, password, email, age, gender, nickname);
                         UserRepository.addUser(newUser);
                         System.out.println(YELLOW + "\uD83C\uDF89 회원가입이 완료되었습니다.\n" + RESET);
                         break agreeloop;
@@ -289,7 +291,7 @@ public class UserLoginView {
                     nicknameChange();
                     break;
                 case "2":
-                    addressChange();  // 배송지 수정하기 메서드 추가
+                    addressSet();  // 배송지 수정하기 메서드 추가
                     //printLoggedInUserInfo(); // 이건 마이페이지 기능 없애도 됨
                     break;
                 case "3":
@@ -312,13 +314,49 @@ public class UserLoginView {
         }
     }
 
-    //  addressChange(); 배송지 수정하기 메서드 추가
-    public void addressChange() {
-        System.out.printf("\n현재 주소는 " + YELLOW + "%s" + RESET + " 입니다." + YELLOW + "\n변경할 주소" + RESET + "를 입력해주세요.\n", UserRepository.loggedInUser.getAddress());
-        String newAdr = input(">> ");
-        UserRepository.changeAddress(newAdr);
-        System.out.println("✅ 주소가 변경되었습니다.");
-        check = false;
+//    //  addressChange(); 배송지 수정하기 메서드 추가
+//    public void addressChange() {
+//        System.out.printf("\n현재 주소는 " + YELLOW + "%s" + RESET + " 입니다." + YELLOW + "\n변경할 주소" + RESET + "를 입력해주세요.\n");
+//        String newAdr = input(">> ");
+////        UserRepository.changeAddress(newAdr);
+//        System.out.println("✅ 주소가 변경되었습니다.");
+//        check = false;
+//    }
+
+    public void addressSet () {
+        AddressRepository addressRepository = new AddressRepository();
+        String state = input("✅ 배송지로 설정하실 거주지의 도시를 적어주세요. 시/도 \n >>");
+        if (addressRepository.stateCheck(state)) {
+            String district = input("✅ 배송지의 시/군/구를 작성해주세요. \n >>");
+            if (addressRepository.cityCheck(district)) {
+                String line = input("✅ 설정하신 배송지의 동네를 적어주세요. \n >>");
+                if (addressRepository.isValidDistrict(line)) {
+                    String line2 = input("✅ 설정하신 배송지의 상세주소를 적어주세요. \n >>");
+                    loggedInUser.getAddress().add(new Address(state, district, line, line2));
+                } else {
+                    System.out.println(" ❗ 현재 작성하신 동네는 서울특별시에 존재하지 않습니다.");
+                }
+            } else {
+                System.out.println(" ❗ 현재 작성하신 시/군/구는 서울특별시에 존재하지 않습니다.");
+                System.out.println(" ❗ 서울특별시에서 설정하실 수 있는 시/군/구는 다음과 같습니다.");
+                String[] addressArray = addressRepository.addressOut();
+                int count = 0;
+                for (String addr : addressArray) {
+                    System.out.print("✅ " +addr + ", ");
+                    count++;
+                    if (count % 5 == 0) {
+                        System.out.println();
+                    }
+                }
+            }
+        } else {
+            System.out.println(" ❗ 현재 작성하신 도시는 존재하지 않습니다.");
+            System.out.println(" ❗ 현재 주소로 설정하실 수 있는 도시는 다음과 같습니다.");
+            String[] citiesArray = addressRepository.stateSout();
+            for (String city : citiesArray) {
+                System.out.print("✅ " +city + ", ");
+            }
+        }
     }
 
     // 위 4. 프로그램 종료 exitProgram(); 메서드 기능
@@ -343,7 +381,11 @@ public class UserLoginView {
             System.out.println("별명 : " + UserRepository.loggedInUser.getNickname());
             System.out.println("성별 : " + UserRepository.loggedInUser.getGender());
             System.out.println("이메일 : " + UserRepository.loggedInUser.getEmail());
-            System.out.println("배송지 주소 : " + UserRepository.loggedInUser.getAddress());
+            try {
+                System.out.println("설정된 기본 배송지 주소 : ❗설정된 주소가 없습니다.");
+            } catch (IndexOutOfBoundsException e){
+                System.out.println("✅ 설정된 기본 배송지 주소 : " + UserRepository.loggedInUser.getAddress().get(0));
+            }
             System.out.println("현재 보유 금액 : " + UserRepository.loggedInUser.getMoney());
             System.out.println("****************************************");
         } else {

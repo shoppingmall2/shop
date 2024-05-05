@@ -1,5 +1,7 @@
 package kibeom;
 
+import sanghun.Address;
+import sanghun.AddressRepository;
 import seungyeon.Search;
 import jihye.Buy;
 
@@ -144,11 +146,11 @@ public class CartView {
                         getUser().setMoney(currentMoney);
                         for (String singleItem : orderList) {
                             Cart orderItem = CartRepository.isContains(singleItem.trim());
-                            getUser().getBuylist().add(new Buy(Objects.requireNonNull(orderItem).getBrand(), orderItem.getItemName(), orderItem.getPrice(), getUser().getAddress()));
+                            getUser().getBuylist().add(new Buy(Objects.requireNonNull(orderItem).getBrand(), orderItem.getItemName(), orderItem.getPrice(),loggedInUser.getAddress().get(0)));
                             getUser().getCartList().remove(orderItem);
                         }
                         System.out.println("\n\uD83D\uDE0A 감사합니다. 주문이 완료 되었습니다.\n\uD83D\uDCB5 총 주문 가격: " + totalOrderPrice + "\n\uD83D\uDCB0 현재 소지 금액: " + currentMoney);
-                        System.out.println("\uD83C\uDFE0 배송지 주소 : " + getUser().getAddress());
+//                        System.out.println("\uD83C\uDFE0 배송지 주소 : " + getUser().getAddress());
                         System.out.println("공휴일 제외, 영업일 기준 1 ~ 3 일 이내 배송됩니다.");
                         SimpleInput.stopInput();
                         check = false;
