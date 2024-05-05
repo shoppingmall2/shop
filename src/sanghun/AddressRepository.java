@@ -221,7 +221,7 @@ public class AddressRepository {
                 || yangcheonDongs.contains(district) || gangseoDongs.contains(district) || guroDongs.contains(district)
                 || geumcheonDongs.contains(district) || dongjakDongs.contains(district) || gwanakDongs.contains(district)
                 || seochoDongs.contains(district) || gangnamDongs.contains(district) || songpaDongs.contains(district)
-                || gangdongDongs.contains(district);
+                || gangdongDongs.contains(district) || yeongdeungpoDongs.contains(district);
     }
 
 }

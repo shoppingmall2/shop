@@ -62,11 +62,6 @@ public class Address {
 
     @Override
     public String toString() {
-        return "Address{" +
-                "state='" + state + '\'' +
-                ", addresslinefirst='" + addresslinefirst + '\'' +
-                ", addresslinesecond='" + addresslinesecond + '\'' +
-                ", optical='" + optical + '\'' +
-                '}';
+        return state + "-" + addresslinefirst + "-" + addresslinesecond +"-" + optical;
     }
 }
