@@ -1,12 +1,14 @@
 package sanghun;
 
+import user.User;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class AddressRepository {
     private static final List<String> CITIES = Arrays.asList( // 도시
-            "서울특별시"
+            "서울특별시", "대구광역시", "전라남도"
     );
     private static final List<String> seoulDistricts = Arrays.asList( // 시군구
             "종로구", "중구", "용산구", "성동구", "광진구",
@@ -179,7 +181,9 @@ public class AddressRepository {
     );
 
 
-
+    public static void addUser(Address address) {
+        addressList.add(address);
+    }
 
     public static final List<Address> addressList = new ArrayList<>();
 
@@ -196,6 +200,28 @@ public class AddressRepository {
 
     public boolean cityCheck(String districts) {
         return seoulDistricts.contains(districts);
+    }
+
+
+    public String[] stateSout() {
+        return CITIES.toArray(new String[0]);
+    }
+
+
+    public String[] addressOut() {
+        return seoulDistricts.toArray(new String[0]);
+    }
+
+    public boolean isValidDistrict(String district) {
+        return seoulDistricts.contains(district) || jongnoDongs.contains(district) || jungguDongs.contains(district)
+                || yongsanDongs.contains(district) || seongdongDongs.contains(district) || gwangjinDongs.contains(district)
+                || dongdaemunDongs.contains(district) || jungnangDongs.contains(district) || seongbukDongs.contains(district)
+                || gangbukDongs.contains(district) || dobongDongs.contains(district) || nowonDongs.contains(district)
+                || eunpyeongDongs.contains(district) || seodaemunDongs.contains(district) || mapoDongs.contains(district)
+                || yangcheonDongs.contains(district) || gangseoDongs.contains(district) || guroDongs.contains(district)
+                || geumcheonDongs.contains(district) || dongjakDongs.contains(district) || gwanakDongs.contains(district)
+                || seochoDongs.contains(district) || gangnamDongs.contains(district) || songpaDongs.contains(district)
+                || gangdongDongs.contains(district);
     }
 
 }

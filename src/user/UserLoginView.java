@@ -2,6 +2,7 @@ package user;
 
 import jihye.DeliveryView;
 import kibeom.CartView;
+import sanghun.Address;
 import sanghun.AddressRepository;
 
 
@@ -290,7 +291,7 @@ public class UserLoginView {
                     nicknameChange();
                     break;
                 case "2":
-                    addressChange();  // 배송지 수정하기 메서드 추가
+                    addressSet();  // 배송지 수정하기 메서드 추가
                     //printLoggedInUserInfo(); // 이건 마이페이지 기능 없애도 됨
                     break;
                 case "3":
@@ -325,11 +326,36 @@ public class UserLoginView {
     public void addressSet () {
         AddressRepository addressRepository = new AddressRepository();
         String state = input("✅ 배송지로 설정하실 거주지의 도시를 적어주세요. 시/도");
-
         if (addressRepository.stateCheck(state)) {
             String district = input("✅ 배송지의 시/군/구를 작성해주세요.");
             if (addressRepository.cityCheck(district)) {
                 String line = input("✅ 설정하신 배송지의 상세주소를 적어주세요.");
+                if (addressRepository.isValidDistrict(line)) {
+                    String line2 = input("✅ 설정하신 배송지의 상세주소2를 적어주세요.");
+                    loggedInUser.getAddress().add(new Address(state, district, line, line2));
+                } else {
+                    System.out.println(" ❗ 현재 작성하신 시/군/구는 서울특별시에 존재하지 않습니다.");
+                    System.out.println(" ❗ 서울특별시에서 설정하실 수 있는 시/군/구는 다음과 같습니다.");
+                }
+            } else {
+                System.out.println(" ❗ 현재 작성하신 시/군/구는 서울특별시에 존재하지 않습니다.");
+                System.out.println(" ❗ 서울특별시에서 설정하실 수 있는 시/군/구는 다음과 같습니다.");
+                String[] addressArray = addressRepository.addressOut();
+                int count = 0;
+                for (String addr : addressArray) {
+                    System.out.print("✅ " +addr + ", ");
+                    count++;
+                    if (count % 5 == 0) {
+                        System.out.println();
+                    }
+                }
+            }
+        } else {
+            System.out.println(" ❗ 현재 작성하신 도시는 존재하지 않습니다.");
+            System.out.println(" ❗ 현재 주소로 설정하실 수 있는 도시는 다음과 같습니다.");
+            String[] citiesArray = addressRepository.stateSout();
+            for (String city : citiesArray) {
+                System.out.print("✅ " +city + ", ");
             }
         }
     }
