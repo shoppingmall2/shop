@@ -6,6 +6,7 @@ import sanghun.Address;
 import sanghun.AddressRepository;
 
 
+import static sanghun.AddressRepository.defaultAddress;
 import static seungyeon.Category.openCate;
 import static user.UserRepository.generateCaptcha;
 import static user.UserRepository.generateThisTime;
@@ -61,15 +62,15 @@ public class UserLoginView {
     private static void searchPass() {
         String trueName = input("\n가입하신 " + YELLOW + "이름" + RESET + "을 작성해주세요. \n➡\uFE0F ");
         if (!alreadyLogId(trueName)) {
-            System.out.printf("%s님의 이름으로 가입하신 계정의 " + YELLOW + "이메일" + RESET + "을 작성해주세요. \n",trueName);
+            System.out.printf("%s님의 이름으로 가입하신 계정의 " + YELLOW + "이메일" + RESET + "을 작성해주세요. \n", trueName);
             String truemail = input("➡\uFE0F ");
             if (!alreadyMail(truemail)) {
-                System.out.printf("%s님의 가입하신 " + YELLOW + "나이" + RESET + "를 입력해주세요.\n",trueName);
+                System.out.printf("%s님의 가입하신 " + YELLOW + "나이" + RESET + "를 입력해주세요.\n", trueName);
                 String trueage = input("➡\uFE0F ");
-                if (!alreadyAge(Integer.parseInt(trueage))){
-                    System.out.printf("\n✅ " +  YELLOW + "%s님" + RESET + "의 정보로 가입한 계정의 " + YELLOW + "비밀번호" + RESET + "는 다음과 같습니다. \n",trueName);
+                if (!alreadyAge(Integer.parseInt(trueage))) {
+                    System.out.printf("\n✅ " + YELLOW + "%s님" + RESET + "의 정보로 가입한 계정의 " + YELLOW + "비밀번호" + RESET + "는 다음과 같습니다. \n", trueName);
                     String s = srPass();
-                    System.out.printf("➡\uFE0F %s\n",s);
+                    System.out.printf("➡\uFE0F %s\n", s);
                 } else {
                     System.out.println(" ⚠ 회원정보의 나이가 일치하지 않습니다.");
                 }
@@ -77,7 +78,7 @@ public class UserLoginView {
                 System.out.println(" ⚠ 작성하신 이메일의 정보가 일치하지 않습니다.");
             }
         } else {
-            System.out.printf(" ⚠ %s의 이름으로 가입하신 회원정보가 존재하지 않습니다.",trueName);
+            System.out.printf(" ⚠ %s의 이름으로 가입하신 회원정보가 존재하지 않습니다.", trueName);
         }
     }
 
@@ -91,9 +92,9 @@ public class UserLoginView {
             if (alreadyLogId(exitName)) {
                 if (koreanCheck(exitName) && englishCheck(exitName)) {
                     if (idLengthCheck(exitName)) {
-                    System.out.println(" ✅ 가입 가능한 회원입니다.");
-                    name = exitName;
-                    break;
+                        System.out.println(" ✅ 가입 가능한 회원입니다.");
+                        name = exitName;
+                        break;
                     } else {
                         System.out.println(" ⚠ 이름의 길이를 확인해주세요 2~12글자");
                         continue outerLoop;
@@ -182,7 +183,7 @@ public class UserLoginView {
                         }
                     }
                 }
-            } else if (agree.equals("N")){
+            } else if (agree.equals("N")) {
                 System.out.println(YELLOW + "미동의는 가입이 불가능합니다." + RESET);
             } else {
                 System.out.println(RED + "Y/N 만 입력가능합니다." + RESET);
@@ -198,7 +199,7 @@ public class UserLoginView {
         boolean login = UserRepository.login(name, password);
         if (login) {
             System.out.println("✅ 로그인 성공!");
-            System.out.printf("\uD83C\uDF89%s %s님 %s환영합니다.\n", YELLOW,name,RESET);
+            System.out.printf("\uD83C\uDF89%s %s님 %s환영합니다.\n", YELLOW, name, RESET);
         } else {
             System.out.println(RED + "회원정보를 확인해주세요.\n" + RESET);
         }
@@ -277,7 +278,7 @@ public class UserLoginView {
         while (b && check) {
             System.out.println("\n============✏\uFE0F회원정보 수정✏\uFE0F=============");
             System.out.println("1. 별명 변경하기");
-            System.out.println("2. 배송지 수정하기");
+            System.out.println("2. 배송지 설정하기");
             System.out.println("3. 이메일 변경하기");
             System.out.println("4. 비밀번호 변경하기");
             System.out.println("5. 뒤로가기");
@@ -291,7 +292,7 @@ public class UserLoginView {
                     nicknameChange();
                     break;
                 case "2":
-                    addressSet();  // 배송지 수정하기 메서드 추가
+                    addressList();  // 배송지 수정하기 메서드 추가
                     //printLoggedInUserInfo(); // 이건 마이페이지 기능 없애도 됨
                     break;
                 case "3":
@@ -314,7 +315,7 @@ public class UserLoginView {
         }
     }
 
-//    //  addressChange(); 배송지 수정하기 메서드 추가
+    //    //  addressChange(); 배송지 수정하기 메서드 추가
 //    public void addressChange() {
 //        System.out.printf("\n현재 주소는 " + YELLOW + "%s" + RESET + " 입니다." + YELLOW + "\n변경할 주소" + RESET + "를 입력해주세요.\n");
 //        String newAdr = input(">> ");
@@ -322,8 +323,63 @@ public class UserLoginView {
 //        System.out.println("✅ 주소가 변경되었습니다.");
 //        check = false;
 //    }
+    public static void addressDefaultSet() {
+        int count = 0;
+        System.out.println("======================================");
+        for (Address address : loggedInUser.getAddress()) {
+            count++;
+            System.out.printf("✅ %d. %s \n", count, address);
+        }
+        System.out.println("======================================");
+        System.out.println("기본 배송지로 설정하실 주소의 번호를 적어주세요.");
+        String menuNum = input(">> ");
+        AddressRepository addressRepository = new AddressRepository();
+        boolean b = addressRepository.defaultAddressSet(menuNum);
+        if (b) {
+            System.out.println(menuNum + "번으로 기본 배송지가 설정되었습니다.");
+        } else {
+            System.out.println("선택하신 배송지는 존재하지 않습니다.");
+        }
+    }
 
-    public void addressSet () {
+    public static void addressList() {
+        int count = 0;
+        if (loggedInUser.getAddress().isEmpty()) {
+            System.out.printf("\n***************" + GREEN + "%s" + RESET + "님의 주소 정보**************\n", loggedInUser.getName());
+            System.out.println(" ❗ 현재 설정된 주소가 존재하지 않습니다.");
+            System.out.println(" ✅ 1. 배송지 추가하기");
+            System.out.println(" ✅ 3. 뒤로가기");
+        } else {
+            System.out.printf("\n***************" + GREEN + "%s" + RESET + "님의 주소 정보**************\n", loggedInUser.getName());
+            System.out.printf("현재 기본 설정된 주소 : %s", defaultAddress);
+            System.out.println("\n***************************************\n");
+            for (Address address : loggedInUser.getAddress()) {
+                count++;
+                System.out.printf("✅ 배송지 %d. %s \n", count, address);
+            }
+            System.out.println("\n***************************************\n");
+            System.out.println(" ✅ 1. 배송지 추가하기");
+            System.out.println(" ✅ 2. 기본 배송지 설정하기");
+            System.out.println(" ✅ 3. 뒤로가기");
+        }
+
+        String menuNum = input(">> ");
+        switch (menuNum) {
+            case "1":
+                addressSet();
+                break;
+            case "2":
+                addressDefaultSet();
+                break;
+            case "3":
+                UserLoginView userLoginView = new UserLoginView();
+                userLoginView.changeInfo();
+                break;
+        }
+
+    }
+
+    public static void addressSet() {
         AddressRepository addressRepository = new AddressRepository();
         String state = input("✅ 배송지로 설정하실 거주지의 도시를 적어주세요. 시/도 \n >>");
         if (addressRepository.stateCheck(state)) {
@@ -332,7 +388,19 @@ public class UserLoginView {
                 String line = input("✅ 설정하신 배송지의 동네를 적어주세요. \n >>");
                 if (addressRepository.isValidDistrict(line)) {
                     String line2 = input("✅ 설정하신 배송지의 상세주소를 적어주세요. \n >>");
-                    loggedInUser.getAddress().add(new Address(state, district, line, line2));
+                    if (loggedInUser.getAddress().size() <= 2) {
+                        if (defaultAddress == null) {
+                            loggedInUser.getAddress().add(new Address(state, district, line, line2));
+                            addressRepository.defaultAddressSet("1");
+                            System.out.println("현재 설정된 기본 배송지가 없으므로 기본배송지로 설정합니다.");
+                            System.out.println("✅ 배송지가 추가되었습니다.");
+                        } else {
+                            loggedInUser.getAddress().add(new Address(state, district, line, line2));
+                            System.out.println("✅ 배송지가 추가되었습니다.");
+                        }
+                    } else {
+                        System.out.println(" ❗ 설정하실 수 있는 주소는 최대 3개입니다.");
+                    }
                 } else {
                     System.out.println(" ❗ 현재 작성하신 동네는 서울특별시에 존재하지 않습니다.");
                 }
@@ -342,7 +410,7 @@ public class UserLoginView {
                 String[] addressArray = addressRepository.addressOut();
                 int count = 0;
                 for (String addr : addressArray) {
-                    System.out.print("✅ " +addr + ", ");
+                    System.out.print("✅ " + addr + ", ");
                     count++;
                     if (count % 5 == 0) {
                         System.out.println();
@@ -354,7 +422,7 @@ public class UserLoginView {
             System.out.println(" ❗ 현재 주소로 설정하실 수 있는 도시는 다음과 같습니다.");
             String[] citiesArray = addressRepository.stateSout();
             for (String city : citiesArray) {
-                System.out.print("✅ " +city + ", ");
+                System.out.print("✅ " + city + ", ");
             }
         }
     }
@@ -382,9 +450,9 @@ public class UserLoginView {
             System.out.println("성별 : " + UserRepository.loggedInUser.getGender());
             System.out.println("이메일 : " + UserRepository.loggedInUser.getEmail());
             try {
-                System.out.println("설정된 기본 배송지 주소 : ❗설정된 주소가 없습니다.");
-            } catch (IndexOutOfBoundsException e){
                 System.out.println("✅ 설정된 기본 배송지 주소 : " + UserRepository.loggedInUser.getAddress().get(0));
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("설정된 기본 배송지 주소 : ❗설정된 주소가 없습니다.");
             }
             System.out.println("현재 보유 금액 : " + UserRepository.loggedInUser.getMoney());
             System.out.println("****************************************");
@@ -436,7 +504,6 @@ public class UserLoginView {
 
         }
     }
-
 
 
 }

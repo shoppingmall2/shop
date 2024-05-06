@@ -6,7 +6,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static user.UserRepository.loggedInUser;
+
 public class AddressRepository {
+        public static Address defaultAddress;
+
+
     private static final List<String> CITIES = Arrays.asList( // 도시
             "서울특별시", "대구광역시", "전라남도"
     );
@@ -224,4 +229,31 @@ public class AddressRepository {
                 || gangdongDongs.contains(district) || yeongdeungpoDongs.contains(district);
     }
 
+
+    public boolean defaultAddressSet(String num) {
+        switch (num) {
+            case "1" :
+                defaultAddress = loggedInUser.getAddress().get(0);
+                return true;
+            case "2":
+                if (loggedInUser.getAddress().size() > 1) {
+                    defaultAddress = loggedInUser.getAddress().get(1);
+                    return true;
+                } else {
+                    return false;
+                }
+            case "3":
+                if (loggedInUser.getAddress().size() > 2) {
+                    defaultAddress = loggedInUser.getAddress().get(2);
+                    return true;
+                }else {
+                    return false;
+                }
+        }
+        return false;
+    }
+
+    public Address defaultAddress() {
+        return defaultAddress;
+    }
 }
