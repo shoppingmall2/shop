@@ -449,10 +449,10 @@ public class UserLoginView {
             System.out.println("별명 : " + UserRepository.loggedInUser.getNickname());
             System.out.println("성별 : " + UserRepository.loggedInUser.getGender());
             System.out.println("이메일 : " + UserRepository.loggedInUser.getEmail());
-            try {
-                System.out.println("✅ 설정된 기본 배송지 주소 : " + UserRepository.loggedInUser.getAddress().get(0));
-            } catch (IndexOutOfBoundsException e) {
-                System.out.println("설정된 기본 배송지 주소 : ❗설정된 주소가 없습니다.");
+            if (defaultAddress != null) {
+                System.out.println("✅ 설정된 기본 배송지 주소 : " + defaultAddress);
+            } else {
+                System.out.println("주소 :  ⚠ 현재 설정된 주소가 없습니다.");
             }
             System.out.println("현재 보유 금액 : " + UserRepository.loggedInUser.getMoney());
             System.out.println("****************************************");
