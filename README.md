@@ -25,24 +25,25 @@ Java로 제작한 온라인 쇼핑몰 사이트 입니다.
   
   - 배송조회 기능 개발
   - 구매한 목록 출력
-  
+  - https://github.com/goodzeee
   
 - 이승연:
 
-  - https://github.com/seungyeonlee2
   - 검색 기능 개발
   - 현재 인기 랭킹 출력
+  - https://github.com/seungyeonlee2
+    
 - 진상훈:
 
-  - https://github.com/hun2zz
   - 로그인, 회원가입 개발
   - 개인 정보 수정 기능
-  - 
+  - https://github.com/hun2zz
+    
 - 한기범:
 
-  - https://github.com/hgb926
   - 장바구니 기능 개발
   - 결제하기 기능 개발
+  - https://github.com/hgb926
   
 
 ---
