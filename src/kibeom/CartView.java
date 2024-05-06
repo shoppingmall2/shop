@@ -142,6 +142,10 @@ public class CartView {
             String answer = SimpleInput.input("주문하시겠습니까? Y / N\n>> ").toUpperCase();
             switch (answer) {
                 case "Y":
+                    if (defaultAddress == null || loggedInUser.getAddress().isEmpty()) {
+                        System.out.println("현재 설정된 배송지가 존재하지 않습니다.");
+                        return;
+                    }
                     if (getUser().getMoney() >= totalOrderPrice) { // 유저 보유 금액 확인
                         int currentMoney = getUser().getMoney() - totalOrderPrice;
                         getUser().setMoney(currentMoney);
