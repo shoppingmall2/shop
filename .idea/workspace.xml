@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2f93d6b-2822-4de0-97ef-7972982d7090" name="변경" comment=":white_check_mark: 파일 컨플릭트 수정">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__29___3_17__________.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__29__오후_3_17,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]/index.pb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__29__오후_3_17,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]/index1.pb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__4__29__오후_3_17,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shop/user/UserLoginView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kibeom/CartView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kibeom/CartView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sanghun/AddressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sanghun/AddressRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/UserLoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/UserLoginView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +54,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "so",
+    "git-widget-placeholder": "soo",
     "kotlin-language-version-configured": "true",
     "애플리케이션.Main.executor": "Run"
   }
