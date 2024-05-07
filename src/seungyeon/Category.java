@@ -4,10 +4,7 @@ import kibeom.Cart;
 import kibeom.CartRepository;
 import user.UserLoginView;
 //
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 //
 //public class category {
 //        // ItemRepository 객체 생성
@@ -118,6 +115,7 @@ import java.util.Scanner;
 //}
 
 import user.UserLoginView;
+import util.SimpleInput;
 
 import java.util.Scanner;
 
@@ -149,7 +147,8 @@ public class Category {
             System.out.println("\n============\uD83C\uDFF7\uFE0F제품 카테고리\uD83C\uDFF7\uFE0F============");
             System.out.println("1. 제품 검색하기");
             System.out.println("2. 제품 랭킹 보기");
-            System.out.println("3. 뒤로가기");
+            System.out.println("3. 카테고리 별로 검색하기");
+            System.out.println("4. 뒤로가기");
             System.out.println("========================================");
             System.out.print(">> ");
             choice = scanner.nextLine();
@@ -163,6 +162,8 @@ public class Category {
                     displayTopRankings(rankingRepository, rankingView);
                     break;
                 case "3":
+                    searchByCategory(search, scanner);
+                case "4":
                     UserLoginView userLoginView = new UserLoginView();
                     userLoginView.mainPage();
                     break;
@@ -173,6 +174,59 @@ public class Category {
 
         scanner.close();
     }
+
+    private static void searchByCategory(Search search, Scanner scanner) {
+
+
+        String word = null; // 입력값을 소문자로 변환하고 양쪽 공백을 제거
+        while (true) {
+            List<String> typeList = new ArrayList<>(List.of("TOP", "BOTTOM", "SHOES", "CAP", "OUTERWEAR"));
+            System.out.println("검색어를 입력해주세요.");
+            System.out.println(BLUE+"입력 예시"+RESET+" : TOP, BOTTOM, SHOES, CAP, OUTERWEAR ...");
+            word = SimpleInput.input(">> ").toLowerCase().trim();
+            boolean isTrue = true;
+            for (int i = 0; i < typeList.size(); i++) {
+                if (typeList.get(i).toLowerCase().equals(word)) {
+                    isTrue = false;
+                    break;
+                }
+            }
+
+            if (word.isEmpty() || isTrue) {
+                System.out.println("입력이 없습니다. 검색어를 다시 입력해주세요.");
+                System.out.println();
+                searchByCategory(search, scanner);
+            } else {
+                break;
+            }
+        }
+
+        System.out.println("============ " + word + " 검색 내용 결과 =============");
+
+            boolean found = false;
+            for (Item item : items) {
+                if (word.equals(item.getType().toLowerCase())) { // 상품 타입도 소문자로 변환하여 비교
+                    found = true;
+                    System.out.println();
+                    System.out.println("제품 이름 : " + item.getItemName());
+                    System.out.println("브랜드 : " + item.getBrand());
+                    System.out.println("상품 가격: " + item.getPrice() + "원");
+                    System.out.println("상품 분류: " + item.getType());
+                    System.out.println("성별: " + item.getGender());
+                    System.out.println();
+                }
+            }
+        searchItem(search, scanner);
+
+            if (!found) {
+                System.out.println("검색 결과가 없습니다.");
+            }
+
+            // 장바구니 관련 코드 추가
+        }
+
+
+
 
     public Category() {
     }
