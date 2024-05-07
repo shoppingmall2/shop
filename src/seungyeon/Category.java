@@ -258,15 +258,17 @@ public class Category {
                         // 선택된 제품의 번호를 인덱스로 사용하여 제품을 가져옴
 //                        Item addedToCart = ItemRepository.findItem(productName);
                         Item addedToCart = null;
-                        try {
                             addedToCart = ItemRepository.findItem(productName);
-                        } catch (Exception e) {
-                            System.out.println("제대로 입력 ㄱㄱ");
-                        }
+                            if (addedToCart == null) {
+                                System.out.println(" ⚠ 대소문자 구분을 해주세요");
+                            }
                         boolean itemIn = ItemRepository.findItemIn(productName);
-
+                            try {
                         addCartList(new Cart(addedToCart.getBrand(), addedToCart.getItemName(), addedToCart.getType(),
                                 addedToCart.getPrice(),addedToCart.getGender()));
+                            }catch (NullPointerException e) {
+                                System.out.println();
+                            }
                         if (itemIn) {
                             System.out.println("✨ 제품이 장바구니에 추가되었습니다.");
                         } else {
