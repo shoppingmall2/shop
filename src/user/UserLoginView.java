@@ -6,7 +6,6 @@ import sanghun.Address;
 import sanghun.AddressRepository;
 
 
-import static sanghun.AddressRepository.defaultAddress;
 import static seungyeon.Category.openCate;
 import static user.UserRepository.generateCaptcha;
 import static user.UserRepository.generateThisTime;
@@ -351,7 +350,7 @@ public class UserLoginView {
             System.out.println(" ✅ 3. 뒤로가기");
         } else {
             System.out.printf("\n***************" + GREEN + "%s" + RESET + "님의 주소 정보**************\n", loggedInUser.getName());
-            System.out.printf("현재 기본 설정된 주소 : %s", defaultAddress);
+            System.out.printf("현재 기본 설정된 주소 : %s", getUser().getDefaultAddress());
             System.out.println("\n***************************************\n");
             for (Address address : loggedInUser.getAddress()) {
                 count++;
@@ -389,7 +388,7 @@ public class UserLoginView {
                 if (addressRepository.isValidDistrict(line)) {
                     String line2 = input("✅ 설정하신 배송지의 상세주소를 적어주세요. \n >>");
                     if (loggedInUser.getAddress().size() <= 2) {
-                        if (defaultAddress == null) {
+                        if (getUser().getDefaultAddress() == null) {
                             loggedInUser.getAddress().add(new Address(state, district, line, line2));
                             addressRepository.defaultAddressSet("1");
                             System.out.println("현재 설정된 기본 배송지가 없으므로 기본배송지로 설정합니다.");
@@ -449,8 +448,8 @@ public class UserLoginView {
             System.out.println("별명 : " + UserRepository.loggedInUser.getNickname());
             System.out.println("성별 : " + UserRepository.loggedInUser.getGender());
             System.out.println("이메일 : " + UserRepository.loggedInUser.getEmail());
-            if (defaultAddress != null) {
-                System.out.println("✅ 설정된 기본 배송지 주소 : " + defaultAddress);
+            if (getUser().getDefaultAddress() != null) {
+                System.out.println("✅ 설정된 기본 배송지 주소 : " + getUser().getDefaultAddress());
             } else {
                 System.out.println("주소 :  ⚠ 현재 설정된 주소가 없습니다.");
             }

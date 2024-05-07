@@ -23,6 +23,7 @@ public class User {
     private List<Cart> cartList;
     private List<Buy> buylist;
     private List<Address> address;
+    private Address defaultAddress;
 
 
 
@@ -92,6 +93,14 @@ public class User {
         return nickname;
     }
 
+    public void setDefaultAddress(Address address) {
+        this.defaultAddress = address;
+    }
+
+
+    public Address getDefaultAddress() {
+        return defaultAddress;
+    }
     public List<Cart> getCartList() {
         return cartList;
     }
@@ -111,6 +120,7 @@ public class User {
     public int hashCode() {
         return Objects.hash(name, password, email, age, address, gender, nickname);
     }
+
 
     /*
     0427 user 필드로 money 추가 후, toString 에 money 추가

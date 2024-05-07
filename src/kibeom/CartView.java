@@ -19,7 +19,6 @@ import java.util.*;
 import static jihye.DeliveryRepository.buyList;
 import static kibeom.CartRepository.CartList;
 import static kibeom.CartRepository.getCartList;
-import static sanghun.AddressRepository.defaultAddress;
 import static user.UserRepository.getUser;
 import static user.UserRepository.loggedInUser;
 
@@ -142,7 +141,7 @@ public class CartView {
             String answer = SimpleInput.input("주문하시겠습니까? Y / N\n>> ").toUpperCase();
             switch (answer) {
                 case "Y":
-                    if (defaultAddress == null || loggedInUser.getAddress().isEmpty()) {
+                    if (getUser().getDefaultAddress() == null || loggedInUser.getAddress().isEmpty()) {
                         System.out.println("현재 설정된 배송지가 존재하지 않습니다.");
                         return;
                     }
@@ -151,7 +150,7 @@ public class CartView {
                         getUser().setMoney(currentMoney);
                         for (String singleItem : orderList) {
                             Cart orderItem = CartRepository.isContains(singleItem.trim());
-                            getUser().getBuylist().add(new Buy(Objects.requireNonNull(orderItem).getBrand(), orderItem.getItemName(), orderItem.getPrice(),defaultAddress));
+                            getUser().getBuylist().add(new Buy(Objects.requireNonNull(orderItem).getBrand(), orderItem.getItemName(), orderItem.getPrice(),getUser().getDefaultAddress()));
                             getUser().getCartList().remove(orderItem);
                         }
                         System.out.println("\n\uD83D\uDE0A 감사합니다. 주문이 완료 되었습니다.\n\uD83D\uDCB5 총 주문 가격: " + totalOrderPrice + "\n\uD83D\uDCB0 현재 소지 금액: " + currentMoney);
